@@ -303,6 +303,21 @@ We welcome contributions! See [CONTRIBUTING.md](./CONTRIBUTING.md) for:
 - Contribution guidelines
 - Review process
 
+## How to Break This
+
+We want to make the standard stronger.  
+If you see a scenario where the W_life → ∞ principle leads to system paralysis, infinite loop, unacceptable delay, or any other fatal issue — we want to see it.
+
+Examples of what we're most interested in:
+- A situation where all possible paths have non-zero human fatality probability → does the system hang?
+- A high-uncertainty scenario where an Engineering Hack can't be found in real time
+- Military/critical scenarios where the "no casualties" principle blocks mission execution
+- Any edge case where strict human life priority leads to worse outcomes than a compromise
+
+File this as an Issue with tag `challenge` or `break-this`.  
+The more detailed the scenario (context, probabilities, time constraints) — the more valuable it is.
+
+Thanks to everyone who tries to break us — that's exactly how the standard gets stronger.
 ---
 
 ## 📬 Contact
