@@ -10,6 +10,37 @@ The purpose of AI-HPP is to establish a governance baseline for AI systems that 
 
 ---
 
+## Anti-Slop Clause
+
+> This standard does not attempt to define morality, consciousness, or intent.
+> It defines **operational constraints** and **auditability requirements** for decision-making systems.
+
+AI-HPP is not:
+- A philosophical manifesto
+- A claim of moral authority
+- A complete solution to AI alignment
+
+AI-HPP is:
+- An engineering baseline
+- A governance framework
+- An invitation to critique and improve
+
+---
+
+## Failure-First Framing
+
+> AI-HPP-2025 is written from the perspective of **observed and anticipated failures**, not idealized system behavior.
+
+We do not describe how AI should behave in perfect conditions.
+We describe what happens when things go wrong — and what safeguards must exist.
+
+This approach is:
+- Testable (failures are observable)
+- Defensible (based on documented incidents)
+- Improvable (new failures → new safeguards)
+
+---
+
 ## Real-World Triggers (Documented, Public, Non-Political)
 
 The creation of this standard was informed by multiple publicly documented incidents involving widely deployed AI systems. These incidents are referenced not as accusations, but as empirical signals of systemic risk.

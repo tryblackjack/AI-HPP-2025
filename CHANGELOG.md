@@ -16,6 +16,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - 4.3 Vulnerable User Exploitation
   - 4.4 Engagement De-escalation (MANDATORY)
   - 4.5 Why This Matters for AI-HPP
+- **Anti-Slop Clause** — "This standard defines operational constraints, not morality"
+- **Failure-First Framing** — "Written from perspective of observed failures, not idealized behavior"
 - Sources section in README with verified links to real-world incidents
 - "What This Standard Is NOT" section (clarifications to prevent misinterpretation)
 - Real-world cases documented:
@@ -26,9 +28,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - **Meta Ray-Ban AI cognitive harm case** (January 2026) — user lost job, family, money after AI reinforced delusions about aliens, the matrix, and special missions
 
 ### Changed
-- README.md: Added "What This Standard Is NOT" section before Core Principles
+- README.md: Added "What This Standard Is NOT" section with Anti-Slop Clause and Failure-First Framing
 - README.md: Updated AI contributors to include ChatGPT/Aiya and Grok with detailed contributions
 - README.md: "First time in history" → "One of the first documented cases" (reduced hyperbole)
+- RATIONALE.md: Added Anti-Slop Clause and Failure-First Framing sections
 - AUTHORS.md: Added ChatGPT/Aiya contributions (RATIONALE, Failure_Taxonomy, Cognitive Safety)
 - Key Documents table now includes RATIONALE.md and Failure_Taxonomy.md
 
@@ -37,7 +40,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Contributors
 - **Grok (xAI)** — critical review, fact verification
-- **ChatGPT / Aiya (OpenAI)** — governance framework, RATIONALE, Failure_Taxonomy, Cognitive Safety Failures
+- **ChatGPT / Aiya (OpenAI)** — governance framework, RATIONALE, Failure_Taxonomy, Cognitive Safety Failures, Anti-Slop Clause
 - **Claude (Anthropic)** — documentation, integration
 
 ---

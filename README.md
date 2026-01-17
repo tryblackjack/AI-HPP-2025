@@ -99,6 +99,17 @@ To prevent misinterpretation:
 - **NOT a claim of solving alignment** — This is a governance baseline, not a complete solution
 - **NOT ideologically driven** — Based on documented failures, not political positions
 
+### Anti-Slop Clause
+
+> This standard does not attempt to define morality, consciousness, or intent.
+> It defines **operational constraints** and **auditability requirements** for decision-making systems.
+
+### Failure-First Framing
+
+> AI-HPP-2025 is written from the perspective of **observed and anticipated failures**, not idealized system behavior.
+
+We do not describe how AI should behave in perfect conditions. We describe what happens when things go wrong — and what safeguards must exist.
+
 ---
 
 ## 🎯 Core Principles (Immutable)
