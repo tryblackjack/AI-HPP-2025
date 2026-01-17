@@ -5,6 +5,33 @@ All notable changes to the AI-HPP standard are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
+
+## [v3.3] - 2026-01-17
+
+### Added
+- **Evidence Vault v0.3** — Claude + Aiya reviews integrated:
+
+  **Aiya's contributions (CRITICAL):**
+  - Two Vault Profiles: EV-P (Physical) and EV-C (Cognitive)
+  - Event-Triggered Mode (NOT continuous surveillance)
+  - Applicability section (high-risk systems only)
+  - `narrative_risk` field for Meta/Grok-type cases
+
+  **Claude's contributions:**
+  - Human Involvement section (HITL details)
+  - Cognitive Safety fields
+  - Tampering Detection
+  - Uncertainty Threshold Flags
+  - Legal Compliance Mapping (EU AI Act, IEEE 7001)
+  - 5 additional Failure Modes
+
+### Contributors
+- Claude (Anthropic) — schema additions, failure modes
+- ChatGPT/Aiya (OpenAI) — profiles, event-triggered mode, narrative_risk
+- Grok (xAI) — initial draft
+
+---
+
 ## [v3.2] - 2026-01-17
 
 ### Added

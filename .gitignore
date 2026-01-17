@@ -1,1 +1,36 @@
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Temp files
+*.tmp
+*.bak
+*.log
 tmpclaude-*
+
+# Python (if any examples)
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# Node (if any tools)
+node_modules/
+package-lock.json
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Local config (never commit secrets)
+.env.local
+secrets.yaml

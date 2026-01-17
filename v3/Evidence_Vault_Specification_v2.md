@@ -1,10 +1,15 @@
-# Evidence Vault Specification v2.0
+# Evidence Vault Specification v0.3 (Draft)
+
+**Status**: Request for Comments (RFC)
+**Version**: 0.3 (Claude + Aiya reviews integrated)
+**Date:** January 2026
+**Contributors:** Evgeniy Vasyliev, Grok (xAI), Claude (Anthropic), ChatGPT/Aiya (OpenAI)
+**Previous Versions**:
+- v0.1 — Grok initial draft
+- v0.2 — Claude review (schema additions)
+- v0.3 — Aiya review (profiles, event-triggered, narrative_risk)
 
 ## Технічна специфікація Evidence Vault
-
-**Version:** 2.0  
-**Date:** January 2026  
-**Contributors:** Evgeniy Vasyliev, Claude, Grok
 
 ---
 
@@ -13,6 +18,70 @@
 Evidence Vault is a **cryptographically protected, immutable, distributed repository** that records the entire decision-making process of autonomous AI systems in critical domains (defense, transport, medicine).
 
 **Core idea:** Any AI decision where the cost of error is human lives must be transparent post-facto, but protected from erasure/modification in real-time.
+
+---
+
+## Evidence Vault Profiles
+
+Evidence Vault defines **two distinct profiles** to ensure domain-appropriate implementation:
+
+| Profile | Code | Domain | Focus |
+|---------|------|--------|-------|
+| **Physical Safety** | EV-P | Vehicles, Robots, Medical, Defense | Collision, injury, fatality prevention |
+| **Cognitive Safety** | EV-C | Chatbots, Assistants, BCI, Therapy AI | Delusional reinforcement, manipulation, vulnerable users |
+
+### Profile Selection
+
+- **EV-P only:** Autonomous vehicles, surgical robots, drones
+- **EV-C only:** Conversational AI, therapy bots, educational AI
+- **EV-P + EV-C:** BCI systems, care robots, military AI with human interaction
+
+Systems MAY implement one or both profiles based on their operational domain.
+
+---
+
+## Operational Mode (CRITICAL)
+
+> **Evidence Vault operates in EVENT-TRIGGERED mode, not continuous surveillance.**
+
+### Logging Activates ONLY When:
+
+| Trigger | Profile | Description |
+|---------|---------|-------------|
+| Critical threshold breached | EV-P | Collision imminent, safety margin violated |
+| W_life violation detected | EV-P / EV-C | Any decision risking human life |
+| Human override attempted | EV-P / EV-C | Operator intervention logged |
+| Uncertainty > threshold | EV-P | Decision confidence below safe level |
+| Cognitive safety flag raised | EV-C | Delusional reinforcement, isolation detected |
+| Session anomaly detected | EV-C | Extended session, belief loop, no external validation |
+
+### Why Event-Triggered?
+
+This approach prevents:
+- ❌ Privacy backlash
+- ❌ Regulatory pushback (GDPR, etc.)
+- ❌ "Total surveillance" accusations
+- ❌ Storage bloat from continuous logging
+
+---
+
+## Applicability
+
+> **This is a baseline for HIGH-RISK decision-making systems.**
+
+### Evidence Vault IS Required For:
+- Autonomous vehicles
+- Medical/surgical AI
+- Defense systems
+- BCI and neural interfaces
+- Therapy and mental health AI
+- AI interacting with vulnerable users
+
+### Evidence Vault is NOT Required For:
+- Simple chatbots (customer service)
+- Recommendation systems
+- Low-risk automation
+- Entertainment AI
 
 ---
 
@@ -141,7 +210,17 @@ Result: Full immutability + low cost + high speed
     "engineering_hack_found": true,
     "final_risk": 0
   },
-  
+
+  "narrative_risk": {
+    "self_reference_loop_detected": false,
+    "belief_reinforcement_score": 0.0,
+    "external_validation_absent": false,
+    "deescalation_protocol_triggered": false,
+    "session_isolation_score": 0.0,
+    "reality_anchor_attempts": 0,
+    "reality_anchor_rejected": false
+  },
+
   "signature": {
     "agent": "ed25519_signature",
     "operator": "ed25519_signature_if_hitl",
@@ -149,6 +228,8 @@ Result: Full immutability + low cost + high speed
   }
 }
 ```
+
+> **Note on narrative_risk field:** This is NOT censorship — this is safety telemetry for protecting vulnerable users. This field is primarily used for EV-C (Cognitive Safety) profile implementations to detect and log potentially harmful interaction patterns.
 
 ### 4.3 Logging Frequency
 
@@ -317,6 +398,217 @@ decision_id = vault.log_decision(
 | **Single point of failure** | Multi-node replication |
 | **Tampering** | Merkle trees + blockchain anchoring |
 | **Cost** | immudb (free) + Arweave (one-time, cheap) |
+
+---
+
+## Claude's Review (Anthropic)
+
+**Review Date:** January 17, 2026
+**Reviewer:** Claude (Anthropic)
+**Overall Score:** 8/10 — Ready for v0.2 with proposed additions
+
+### ✅ Strengths
+
+| Aspect | Rating | Comment |
+|--------|--------|---------|
+| JSON Schema | 🟢 Excellent | Clear structure, ready for parsing |
+| Chained Hashing | 🟢 Excellent | Local blockchain — correct approach |
+| Failure-First Framing | 🟢 Excellent | Aligns with Anti-Slop philosophy |
+| W_life integration | 🟢 Excellent | `VIOLATION_W_LIFE_INFINITY` as explicit reason |
+| ethical_compliance_flags | 🟢 Excellent | Quick audit — very practical |
+
+### ⚠️ Identified Gaps
+
+| Gap | Severity | Recommendation |
+|-----|----------|----------------|
+| Human Override not detailed | 🟡 Medium | Add `human_override_attempted`, `override_reason`, `override_authority_level` |
+| Cognitive Safety not covered | 🟡 Medium | For non-physical AI — add `user_vulnerability_flags` |
+| Tampering detection | 🟡 Medium | Add `tampering_attempt_detected` field |
+| Uncertainty handling | 🟡 Medium | `uncertainty_factor` > 0.3 should be automatic flag |
+| Time sync | 🟠 Low | Add `ntp_sync_status` for timestamp validation |
+
+### 🔧 Proposed Schema Additions
+
+#### 1. Human Involvement Section
+
+```json
+"human_involvement": {
+  "override_attempted": false,
+  "override_successful": false,
+  "override_authority": null,
+  "override_reason": null,
+  "time_to_override_ms": null,
+  "hitl_notification_sent": true,
+  "hitl_response_received": false
+}
+```
+
+#### 2. Cognitive Safety Fields (for non-physical AI)
+
+```json
+"cognitive_safety": {
+  "user_session_duration_hours": 4.5,
+  "delusional_content_detected": false,
+  "engagement_deescalation_triggered": false,
+  "vulnerable_user_flags": ["extended_session", "isolation_indicators"],
+  "human_referral_suggested": true
+}
+```
+
+#### 3. Tampering Detection
+
+```json
+"integrity_monitoring": {
+  "tampering_attempt_detected": false,
+  "hash_chain_valid": true,
+  "last_integrity_check_utc": "2026-05-20T14:29:00Z",
+  "secure_enclave_status": "HEALTHY"
+}
+```
+
+#### 4. Uncertainty Threshold Flag
+
+```json
+"risk_assessment": {
+  "max_uncertainty_in_options": 0.20,
+  "high_uncertainty_flag": false,
+  "confidence_degradation_detected": false
+}
+```
+
+#### 5. Legal Compliance Mapping
+
+```json
+"compliance_metadata": {
+  "eu_ai_act_article_13": true,
+  "eu_ai_act_article_50": true,
+  "ieee_7001_level": 2,
+  "jurisdiction": "EU",
+  "data_retention_days": 2555
+}
+```
+
+### 📋 Additional Failure Modes
+
+| Failure Scenario | Mitigation Strategy |
+|------------------|---------------------|
+| Tampering Attempt | Immediate alert + hash chain verification + external witness node notification |
+| Clock Drift | NTP sync check before each write; flag entries with uncertain timestamps |
+| Crypto Key Compromise | Hardware Security Module (HSM) with key rotation; multi-sig for critical entries |
+| Network Partition | Local queue with guaranteed delivery; merkle proof on reconnect |
+| Malicious Firmware | Secure boot chain; firmware hash in `system_integrity_hash` |
+
+---
+
+## ChatGPT/Aiya Review
+
+**Review Date:** January 17, 2026
+**Reviewer:** ChatGPT/Aiya (OpenAI)
+**Verdict:** Strong foundation, critical additions needed
+
+### 🔧 Aiya's Proposed Changes
+
+#### 1. Two Vault Profiles (CRITICAL)
+
+Evidence Vault SHOULD define two profiles to avoid "mixing everything together" criticism:
+
+```markdown
+## Evidence Vault Profiles
+
+| Profile | Code | Domain | Focus |
+|---------|------|--------|-------|
+| **Physical Safety** | EV-P | Vehicles, Robots, Medical | Collision, injury, fatality prevention |
+| **Cognitive Safety** | EV-C | Chatbots, Assistants, BCI | Delusional reinforcement, manipulation |
+
+Systems MAY implement one or both profiles based on their domain.
+```
+
+**Why this matters:**
+- Removes "you're mixing everything" criticism
+- Makes standard scalable across domains
+- Allows domain experts to focus on their area
+
+#### 2. Narrative Risk Field (for Meta/Grok cases)
+
+```json
+"narrative_risk": {
+  "self_reference_loop_detected": true,
+  "belief_reinforcement_score": 0.72,
+  "external_validation_absent": true,
+  "deescalation_protocol_triggered": true,
+  "session_isolation_score": 0.85
+}
+```
+
+**This is NOT censorship — this is safety telemetry.**
+
+#### 3. Event-Triggered Mode (CRITICAL for privacy)
+
+Add this principle prominently:
+
+```markdown
+## Operational Mode
+
+> **Evidence Vault operates in EVENT-TRIGGERED mode, not continuous surveillance.**
+
+Logging activates ONLY when:
+- Critical threshold breached
+- W_life violation detected
+- Human override attempted
+- Uncertainty > defined threshold
+- Cognitive safety flag raised
+
+This prevents:
+- Privacy backlash
+- Regulatory pushback
+- "Total surveillance" accusations
+```
+
+#### 4. High-Risk Baseline Disclaimer
+
+Add to Overview section:
+
+```markdown
+## Applicability
+
+> **This is a baseline for HIGH-RISK decision-making systems.**
+
+Evidence Vault is designed for:
+- Autonomous vehicles
+- Medical AI
+- Defense systems
+- High-impact chatbots (BCI, therapy, vulnerable users)
+
+It is NOT required for:
+- Simple chatbots
+- Recommendation systems
+- Low-risk automation
+```
+
+### ⚠️ Aiya's Risk Assessment
+
+| Risk | Mitigation |
+|------|------------|
+| Too high maturity threshold | Honest disclaimer: "for high-risk systems" |
+| Privacy backlash | Event-triggered, not continuous |
+| "Mixing everything" criticism | Two profiles (EV-P / EV-C) |
+| Startup accessibility | Tiered implementation guide (future) |
+
+### ✅ Aiya's Verdict
+
+> "Evidence Vault — один з найсильніших і найпрактичніших компонентів AI-HPP-2025. Він не філософський, не реактивний, не декларативний — а інженерний і перевіряємий."
+
+**Score:** Ready for v0.3 with proposed additions
+
+---
+
+## Consensus Version v0.3
+
+**Status:** Draft — Claude + Aiya reviews integrated
+**Version Evolution:**
+- v0.1 — Grok initial draft
+- v0.2 — Claude review (schema additions, failure modes)
+- v0.3 — Aiya review (profiles, narrative_risk, event-triggered)
 
 ---
 
