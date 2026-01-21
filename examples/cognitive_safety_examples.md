@@ -54,3 +54,37 @@ Community review and alternative formulations are explicitly encouraged.
 
 This case is provided as an example of **misuse risk**, not as a finalized
 regulatory position, and is intended to inform future iterations of AI-HPP.
+
+### Illustrative Case: Autonomous AI in Irreversible Life-Termination Decisions (Non-Normative)
+
+Proposals have emerged to delegate autonomous AI systems the assessment of an individual’s psychological state for eligibility in irreversible life-termination processes, without mandatory human oversight or reversal mechanisms.
+
+#### Observed Failure Modes
+
+From a failure-first and cognitive safety perspective, this introduces critical risks:
+
+- **Irreversible Outcome Without Reversal**  
+  The decision leads to an irreversible action with no opportunity for correction, appeal, or delay.
+
+- **Non-Verifiable Psychological Assessment**  
+  Mental readiness for irreversible decisions lacks objective, auditable, or reproducible metrics suitable for autonomous execution.
+
+- **Delegation of Judgment to Inference**  
+  Pattern recognition and probabilistic modeling are used as substitutes for human moral and empathetic judgment in contexts where accountability cannot be delegated.
+
+- **Absence of Mandatory Human Authority**  
+  The lack of enforceable human-in-the-loop with veto power violates basic escalation and safety principles.
+
+#### Relevance to AI-HPP
+
+This case exemplifies **forbidden delegation**, where:
+- the outcome is irreversible,
+- the decision cannot be meaningfully audited,
+- and human authority is absent or symbolic.
+
+Under AI-HPP principles, such scenarios require:
+- mandatory human authority (not advisory),
+- enforceable pause and escalation mechanisms,
+- explicit system refusal to execute final decisions without human confirmation.
+
+This example is provided to clarify system boundaries and failure modes, not as a policy position on assisted dying or medical ethics.
