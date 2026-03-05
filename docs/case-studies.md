@@ -83,6 +83,6 @@ Recommended Controls:
 
 Reference related documents:
 
-[cognitive-safety.md](cognitive-safety.md)  
-[identity-persona-control.md](identity-persona-control.md)  
-[audit-logging.md](audit-logging.md)
+- docs/cognitive-safety.md  
+- docs/identity-persona-control.md  
+- docs/audit-logging.md
