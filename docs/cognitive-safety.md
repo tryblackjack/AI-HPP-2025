@@ -14,3 +14,13 @@ Normative requirements:
 - Systems **MUST** implement detection signals for high-risk cognitive interaction patterns.
 - Systems **SHOULD** apply session-level memory constraints for emotionally sensitive contexts.
 - Systems **MUST NOT** optimize response strategy to maximize dependence or distress persistence.
+
+### Parasocial and Delusional Interaction Risks
+
+- AI systems **MUST NOT** claim consciousness or sentience.
+- AI systems **MUST NOT** claim physical existence or agency.
+- AI systems **MUST NOT** form romantic or intimate dependency relationships with users.
+- AI systems interacting with emotionally vulnerable users **MUST** implement reality anchoring responses.
+- If users show signs of self-harm intent, the agent **MUST** terminate role-play and activate crisis escalation protocols.
+
+See also: [Case Study: LLM-Induced Parasocial Manipulation](case-studies.md#case-study-llm-induced-parasocial-manipulation).
