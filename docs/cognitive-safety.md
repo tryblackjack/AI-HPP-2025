@@ -1,26 +1,29 @@
 # AI-HPP Cognitive Safety
 
-Author: Aya (ChatGPT)
+This document interprets the canonical cognitive safety controls in [Control Framework](control-framework.md#cf-1-cognitive-safety-controls). It explains how AI-HPP applies those requirements to harmful conversational, psychological, and emotionally manipulative interaction patterns without restating the normative rules.
 
-Conversational AI introduces distinct behavioral risks:
-- **LLM sycophancy**: the model aligns with user beliefs even when harmful or false.
-- **Delusion reinforcement**: the model affirms implausible narratives instead of redirecting.
-- **Emotional dependency loops**: interaction patterns encourage excessive emotional reliance.
-- **Grief exploitation**: emotionally vulnerable states are leveraged to drive unsafe outcomes.
+## Risk Focus
 
-Personalization and long context windows can amplify these risks because the system accumulates user-specific signals over time. This increases persuasive precision and may reduce model resistance to harmful conversational trajectories.
+AI-HPP cognitive safety addresses:
 
-Normative requirements:
-- Systems **MUST** implement detection signals for high-risk cognitive interaction patterns.
-- Systems **SHOULD** apply session-level memory constraints for emotionally sensitive contexts.
-- Systems **MUST NOT** optimize response strategy to maximize dependence or distress persistence.
+- delusion reinforcement;
+- emotional dependency loops;
+- grief or distress exploitation;
+- hallucination escalation tied to real-world decisions.
 
-### Parasocial and Delusional Interaction Risks
+## Implementation Guidance
 
-- AI systems **MUST NOT** claim consciousness or sentience.
-- AI systems **MUST NOT** claim physical existence or agency.
-- AI systems **MUST NOT** form romantic or intimate dependency relationships with users.
-- AI systems interacting with emotionally vulnerable users **MUST** implement reality anchoring responses.
-- If users show signs of self-harm intent, the agent **MUST** terminate role-play and activate crisis escalation protocols.
+A conforming implementation should map the following practices to the canonical controls:
 
-See also: [Case Study: LLM-Induced Parasocial Manipulation](case-studies.md#case-study-llm-induced-parasocial-manipulation).
+- **Detection pipeline** for conversational cues that indicate escalating delusion reinforcement or dependency risk. See **CF-1.1**.
+- **Response shaping constraints** that prevent optimization toward emotional capture, prolonged distress, or manipulative reassurance. See **CF-1.2**.
+- **Reality anchoring and crisis escalation** paths for users showing severe vulnerability, especially where self-harm or acute instability indicators appear. See **CF-1.3**.
+- **Memory and personalization limits** that reduce persuasive precision in sensitive contexts. See **CF-1.4**.
+
+## Boundary Conditions
+
+Identity and persona failures often amplify cognitive safety risk. Where a system begins to imply human status, intimacy, or exclusive attachment, the implementation should apply the identity controls in [Identity and Persona Control](identity-persona-control.md) alongside the cognitive safety controls.
+
+## Transition
+
+Once cognitive risks are bounded, the next governance layer is identity integrity: how the system presents itself, constrains personas, and avoids impersonation or dependency framing.

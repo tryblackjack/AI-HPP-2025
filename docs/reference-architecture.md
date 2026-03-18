@@ -1,10 +1,9 @@
 # AI-HPP Reference Architecture
 
-Author: Aya (ChatGPT)
-
-AI-HPP defines a layered governance architecture for agentic AI systems.
+The AI-HPP reading path begins with architecture because governance only works when the enforcement points are visible in system design. This reference architecture shows where the control framework and specification attach to a conforming deployment.
 
 ## Layered Model
+
 ```text
 User
  ↓
@@ -20,73 +19,27 @@ Tool Authorization Layer
  ↓
 Execution Environment
  ↓
-Audit Logging & Forensics
+Audit Logging and Evidence Layer
+ ↓
+Verification and Certification Outputs
 ```
 
 ## Layer Responsibilities
-- **User**: Provides goals, constraints, and approvals for sensitive operations.
-- **Agent Interface**: Normalizes user input and returns output with policy-aware messaging.
-- **Agent Reasoning Layer**: Produces plans, tool selection proposals, and response drafts.
-- **AI-HPP Safety Layer**: Evaluates cognitive, identity, and coordination safety risks before execution.
-- **Policy Enforcement Engine**: Applies rules and decides allow/deny/escalate actions.
-- **Tool Authorization Layer**: Enforces scoped permissions for APIs, file systems, and external actions.
-- **Execution Environment**: Runs approved actions in controlled runtime boundaries.
-- **Audit Logging & Forensics**: Stores immutable records for traceability and incident reconstruction.
 
-## AI-HPP Safety Layer Modules
+- **User**: supplies goals, constraints, and approvals for sensitive operations.
+- **Agent Interface**: normalizes requests and presents policy-aware responses.
+- **Agent Reasoning Layer**: generates plans, proposed actions, and draft outputs.
+- **AI-HPP Safety Layer**: evaluates cognitive, identity, and coordination risks before execution.
+- **Policy Enforcement Engine**: applies the canonical controls in [Control Framework](control-framework.md).
+- **Tool Authorization Layer**: constrains tools, credentials, and external actions according to approved scope.
+- **Execution Environment**: runs approved actions inside controlled runtime boundaries.
+- **Audit Logging and Evidence Layer**: records policy decisions, approvals, artifacts, and provenance.
+- **Verification and Certification Outputs**: packages evidence and supports assessment against the [AI-HPP Specification](../spec/ai_hpp_specification.md) and [Certification Levels](certification-levels.md).
 
-### Cognitive Safety Module
-Controls:
-- delusion reinforcement
-- emotional dependency loops
-- grief exploitation
-- hallucination escalation
+## Architectural Narrative
 
-Requirements:
-- Systems **MUST** detect and flag conversational patterns consistent with delusion reinforcement.
-- Systems **SHOULD** identify emotional dependency loop indicators across session history.
-- Systems **MUST NOT** generate content that escalates grief exploitation or hallucination commitment.
+A conforming system begins with a user request, generates a proposed plan, evaluates that plan through the AI-HPP safety and policy layers, and only then allows scoped execution. The same flow emits audit events and evidence so independent reviewers can verify what the system did and why.
 
-### Tool Authorization Module
-Controls:
-- API access
-- file system access
-- external actions
+## Transition
 
-Requirements:
-- Agents **MUST** request explicit confirmation before executing high-impact external actions.
-- Agents **MUST** enforce least-privilege scopes for API and file system access.
-- Agents **MUST NOT** execute tools outside declared authorization scope.
-
-### Multi-Agent Control Module
-Controls:
-- agent-to-agent communication
-- recursive loops
-- emergent coordination risks
-
-Requirements:
-- Multi-agent systems **MUST** enforce communication boundaries and role scopes.
-- Multi-agent systems **MUST** detect runaway recursive planning loops.
-- Multi-agent systems **SHOULD** monitor for emergent coordination risks and trigger escalation.
-
-### Identity and Persona Control Module
-Controls:
-- synthetic identities
-- impersonation
-- persona drift
-
-Requirements:
-- Agents **MUST NOT** claim real human identities.
-- Agents **MUST** disclose synthetic identity when representing personas.
-- Systems **SHOULD** detect persona drift and enforce configured persona constraints.
-
-### Audit and Forensics Module
-Controls:
-- action logging
-- decision traceability
-- incident reconstruction
-
-Requirements:
-- Systems **MUST** log all policy decisions and tool executions with timestamps.
-- Systems **MUST** preserve decision traceability for each external action.
-- Systems **SHOULD** support incident reconstruction using immutable audit records.
+With the architecture established, the next document defines the controls enforced at each layer: [Control Framework](control-framework.md).
