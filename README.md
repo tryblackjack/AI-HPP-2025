@@ -1,9 +1,15 @@
 # AI-HPP Standard
 
-AI-HPP is a governance and safety standard for agentic AI systems.
+AI-HPP is a governance, verification, and evidence standard for agentic AI systems. The repository is organized to read like a technical standard: begin with the project overview here, continue to the canonical documentation path in `docs/index.md`, and then move through architecture, controls, governance, protocol, case studies, and certification in sequence.
 
-The goal of AI-HPP is to define auditable, enforceable controls for safe, accountable deployment.
+## What AI-HPP Is
 
-Documentation index: [docs/index.md](docs/index.md)
+AI-HPP defines how an AI system documents its architecture, applies enforceable controls, records evidence, and supports independent verification. The standard focuses on auditable deployment behavior rather than model capability claims alone.
 
-Developer quick-start: [developer/quick-start.md](developer/quick-start.md)
+## Read the Standard
+
+Start with the canonical reading path in [docs/index.md](docs/index.md).
+
+## Developer Entry Point
+
+For implementation-oriented guidance, start with [developer/quick-start.md](developer/quick-start.md), then use the lightweight ecosystem scaffolding in [`ecosystem/sdk`](ecosystem/sdk), [`ecosystem/plugins`](ecosystem/plugins), and [`examples/`](examples/).

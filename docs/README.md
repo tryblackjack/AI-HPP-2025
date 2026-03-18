@@ -1,13 +1,5 @@
-# Documentation Index
+# Documentation Directory
 
-This folder contains public-facing documentation for the AI-HPP v0.3 cleanup.
+The canonical entry point for repository documentation is [docs/index.md](index.md). Use that file for the sequential reading path through architecture, controls, governance, protocol, case studies, and certification.
 
-## Start here
-- [AI-HPP for Humans](AI-HPP-for-Humans.md)
-- [Public Roadmap](ROADMAP_PUBLIC.md)
-- [Post-Merge Operator Checklist](POST_MERGE_OPERATOR_CHECKLIST.md)
-
-## Canonical technical content
-- [`/standard`](../standard/README.md): normative requirements
-- [`/annex`](../annex/README.md): supporting threat model, incidents, and regulatory mappings
-- [`/schemas`](../schemas/README.md): machine-readable contracts
+Supporting operator notes, historical drafts, and templates remain in this directory, but they are secondary to the main reading flow.
