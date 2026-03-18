@@ -1,39 +1,26 @@
-# Scientific Validation Protocol (AI-HPP v4 Draft)
+# Scientific Validation Protocol
 
-## 1. Hypothesis lifecycle
-1. **Registration**: hypothesis statement, rationale, measurable outcome, falsification criteria.
-2. **Pre-commit**: dataset/model/environment references locked before execution.
-3. **Execution**: experiment run with immutable run-id.
-4. **Evaluation**: metric computation and uncertainty reporting.
-5. **Validation state**: supported, refuted, inconclusive.
+This document expands the verification workflow defined in the canonical [AI-HPP Specification](ai_hpp_specification.md). It is intended for research, benchmarking, and reproducibility-focused deployments that need more operational detail without redefining the normative protocol.
 
-## 2. Experiment registration
-Each experiment MUST define:
-- hypothesis id
-- protocol version
-- dataset references
-- model artifact references
-- parameter manifest
-- execution environment snapshot
+## 1. Validation Lifecycle
 
-## 3. Evidence generation
-Evidence MUST include:
-- signed run metadata
-- raw metrics and derived metrics
-- provenance pointers to code snapshot and dataset digest
-- timestamp and integrity metadata
+A validation program SHOULD progress through registration, execution, evidence packaging, independent replay, and trust assessment in the same order defined by the AI-HPP specification.
 
-## 4. Peer validation
-A peer validator must be able to:
-1. Retrieve artifacts from references.
-2. Re-run protocol with declared environment.
-3. Compare output against tolerance thresholds.
-4. Produce independent verification report.
+## 2. Research Registration Expectations
 
-## 5. Reproducibility criteria
-A result is **reproducible** when:
-- all mandatory artifacts are available,
-- environment is reconstructable,
-- metric deltas are within declared tolerance,
-- integrity/signature checks pass,
-- no undocumented manual intervention occurred.
+For scientific and benchmarking use cases, an experiment record SHOULD declare:
+
+- hypothesis and falsification criteria;
+- dataset references and digests;
+- model artifact references;
+- parameter manifest;
+- execution environment snapshot;
+- metric tolerances for replay comparison.
+
+## 3. Independent Replay Guidance
+
+A peer validator SHOULD be able to retrieve the declared artifacts, reconstruct the environment, rerun the procedure, and compare outputs against the declared tolerances. Any undocumented manual intervention SHOULD result in an incomplete or failed verification outcome.
+
+## 4. Output
+
+The resulting verification report SHOULD cite evidence completeness, integrity status, replay findings, and residual limitations, consistent with the verification principles in the AI-HPP specification.

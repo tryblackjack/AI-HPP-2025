@@ -1,9 +1,10 @@
-# AI-HPP Terminology (Normative Draft)
+# AI-HPP Terminology
 
-- **Hypothesis**: A falsifiable claim about model/system behavior under declared conditions.
-- **Experiment**: A pre-registered procedure that evaluates a hypothesis with defined inputs, controls, and metrics.
-- **Evidence**: Cryptographically integrity-protected artifacts generated during experiment execution and evaluation.
-- **Reproducibility**: Ability of an independent party to obtain materially equivalent outcomes from declared artifacts and procedures.
-- **Provenance**: Traceable lineage of data, model, code, environment, and execution decisions.
-- **Trust score**: A computed confidence indicator derived from evidence completeness, integrity validity, and reproducibility success.
-- **Verification**: Independent technical process that checks integrity, provenance, and outcome claims against protocol requirements.
+This file is an informative glossary for readers who want a quick terminology reference. The canonical normative definitions are maintained in [`spec/ai_hpp_specification.md`](ai_hpp_specification.md#2-core-terminology).
+
+- **Hypothesis Record**: Declared claim evaluated under AI-HPP.
+- **Experiment Record**: Registered procedure, inputs, and environment used for evaluation.
+- **Evidence Bundle**: Integrity-protected collection of execution artifacts, metrics, and provenance metadata.
+- **Verification Report**: Independent validation result for an AI-HPP run.
+- **Provenance**: Traceable lineage of the governed execution.
+- **Trust Assessment**: Assurance conclusion derived from verification results.
