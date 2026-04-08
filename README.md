@@ -6,7 +6,7 @@ AI-HPP is a governance, verification, and evidence standard for agentic AI syste
 
 AI-HPP defines how an AI system documents its architecture, applies enforceable controls, records evidence, and supports independent verification. The standard focuses on auditable deployment behavior rather than model capability claims alone.
 
-## Read the Standard
+## Read the Standard (v4.1.1)
 
 Start with the canonical reading path in [docs/index.md](docs/index.md).
 
