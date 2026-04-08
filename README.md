@@ -1,15 +1,23 @@
 # AI-HPP Standard
 
-AI-HPP is a governance, verification, and evidence standard for agentic AI systems. The repository is organized to read like a technical standard: begin with the project overview here, continue to the canonical documentation path in `docs/index.md`, and then move through architecture, controls, governance, protocol, case studies, and certification in sequence.
+AI-HPP is a simple safety standard for AI systems.
+It tells teams how to manage **signals**, **state**, **bridges**, and **safety gates** so behavior is explainable and auditable.
 
-## What AI-HPP Is
+## Start Here
 
-AI-HPP defines how an AI system documents its architecture, applies enforceable controls, records evidence, and supports independent verification. The standard focuses on auditable deployment behavior rather than model capability claims alone.
+- Main document: [docs/AI-HPP-Standard.md](docs/AI-HPP-Standard.md)
+- Kebab-case mirror: [docs/ai-hpp-standard.md](docs/ai-hpp-standard.md)
+- Architecture walkthrough: [docs/architecture.md](docs/architecture.md)
+- Terms for quick reading: [docs/glossary.md](docs/glossary.md)
 
-## Read the Standard (v4.1.1)
+## Repository Layout
 
-Start with the canonical reading path in [docs/index.md](docs/index.md).
+- `docs/` — human-readable documentation
+- `spec/` — technical core (`core`, `signal`, `safety`)
+- `examples/` — minimal integration examples
+- `scripts/` — helper tools and checks
+- `archive/` — moved legacy material (no deletions)
 
-## Developer Entry Point
+## Quick Rule
 
-For implementation-oriented guidance, start with [developer/quick-start.md](developer/quick-start.md), then use the lightweight ecosystem scaffolding in [`ecosystem/sdk`](ecosystem/sdk), [`ecosystem/plugins`](ecosystem/plugins), and [`examples/`](examples/).
+If a 10-year-old cannot explain a rule, rewrite it until they can.
