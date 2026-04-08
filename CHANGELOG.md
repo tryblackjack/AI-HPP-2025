@@ -5,6 +5,12 @@ All notable changes to the AI-HPP standard are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
+
+### 4.1.1
+- Added minimal normative files for standard completeness
+- Introduced conformance and certification paths
+- Simplified threat model and security definitions
+
 ## [v3.16.x+1] - 2026-02-26 — ISO/IAEA cleanup + public anti-leak guard
 
 ### Changed
