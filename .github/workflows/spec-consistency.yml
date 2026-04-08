@@ -1,0 +1,39 @@
+name: Spec Consistency Checker
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  spec-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install markdownlint
+        run: |
+          npm install -g markdownlint-cli
+
+      - name: Run markdownlint
+        run: |
+          markdownlint "**/*.md" || {
+            echo "::error::Markdown style issues detected"
+            exit 1
+          }
+
+      - name: Check for broken internal links
+        run: |
+          echo "Checking for broken links across docs…"
+          for file in $(find . -name '*.md'); do
+            while IFS='](' read -r _ link; do
+              link=${link%%)*}
+              [[ "$link" == http* ]] && continue
+              [[ -f "$link" || -d "$link" ]] || {
+                echo "::error file=$file::Broken link: $link"
+                exit 1
+              }
+            done < <(grep -o '\[[^]]*\](\([^)]*\))' "$file")
+          done
+          echo "Links OK."

@@ -1,0 +1,70 @@
+name: AI-HPP Standard Audit
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install linters
+        run: |
+          pip install ruff
+          npm install -g eslint
+
+      - name: Lint Python scripts
+        run: |
+          if [ -d "scripts" ]; then
+            ruff check scripts || {
+              echo "::error::Python lint errors detected"
+              exit 1
+            }
+          fi
+
+      - name: Lint JS examples
+        run: |
+          if [ -d "examples/node" ]; then
+            eslint examples/node || {
+              echo "::error::JS lint errors detected"
+              exit 1
+            }
+          fi
+
+      - name: Run AI-HPP safety audit
+        run: |
+          echo "Running safety rules audit…"
+
+          violations=0
+
+          # Forbidden words (anti-doom)
+          forbidden=("raw_device_access" "direct_hardware_bridge" "unsafe_signal" "bypass_safety")
+
+          for f in $(git ls-files); do
+            for w in "${forbidden[@]}"; do
+              if grep -q "$w" "$f"; then
+                echo "::error file=$f::Forbidden term detected: $w"
+                violations=1
+              fi
+            done
+          done
+
+          # Required keywords
+          required=("safety_gate" "state_lock" "signal_model")
+
+          for r in "${required[@]}"; do
+            if ! grep -R "$r" spec > /dev/null; then
+              echo "::error::Required keyword missing in spec: $r"
+              violations=1
+            fi
+          done
+
+          if [ $violations -eq 1 ]; then
+            exit 1
+          fi
+
+          echo "AI-HPP safety audit OK."

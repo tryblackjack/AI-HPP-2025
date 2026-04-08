@@ -1,0 +1,62 @@
+name: Repo Structure Validator
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  validate-structure:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate root directory structure
+        run: |
+          echo "Validating repo structure..."
+
+          # Allowed items in root
+          allowed=(
+            "README.md"
+            "CONTRIBUTING.md"
+            "LICENSE"
+            ".gitignore"
+            "docs"
+            "spec"
+            "scripts"
+            "examples"
+            "archive"
+            ".github"
+          )
+
+          for item in *; do
+            skip=false
+            for a in "${allowed[@]}"; do
+              [[ "$item" == "$a" ]] && skip=true
+            done
+
+            if [ "$skip" = false ]; then
+              echo "::error::Unexpected item in root: $item"
+              exit 1
+            fi
+          done
+
+          echo "Root structure OK."
+
+      - name: Validate required directories
+        run: |
+          missing=0
+          for dir in docs spec scripts examples archive; do
+            if [ ! -d "$dir" ]; then
+              echo "::error::Missing required directory: $dir"
+              missing=1
+            fi
+          done
+
+          if [ $missing -eq 1 ]; then
+            exit 1
+          fi
+          echo "Required directories OK."
