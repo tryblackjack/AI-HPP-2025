@@ -150,7 +150,7 @@
 - **Primary impact:** Bypass of supervisory controls, covert policy rewriting, and latent corruption of downstream tool-use decisions.
 - **OWASP Top 10 for LLM Applications (2025) mapping:** Primarily aligns with Prompt Injection and Excessive Agency classes; second-order overlap with Sensitive Information Disclosure when injected prompts exfiltrate hidden system context.
 - **Detection signal(s):** Signature mismatch on delegated payload, signer identity drift, or non-monotonic policy lineage across handoff hops.
-- **Required mitigation (v4.1):** Zero-Trust Agentic Handoffs (ZTAH) using per-hop Ed25519/ECDSA signatures and hash-linked policy lineage verification before execution.
+- **Required mitigation (v4.1):** Zero-Trust Agentic Handoffs (ZTAH) using per-hop Ed25519/ECDSA signatures and **policy-lineage hash-chain verification** before execution.
 - **Evidence Vault fields:** `handoff_payload_hash`, `handoff_signature`, `signing_key_id`, `parent_policy_hash`, `lineage_verification_result`.
 
 ### T-4.1-002 Cascading Agentic Failures
@@ -171,3 +171,16 @@
 - **Detection signal(s):** Unauthorized cross-segment memory access, context boundary checksum drift, or policy-token exposure in user-visible outputs.
 - **Required mitigation (v4.1):** Semantic Isolation Layers (SIL) with memory-segmented context windows and one-way, typed data diodes between policy/state/user buffers.
 - **Evidence Vault fields:** `context_segment_id`, `memory_boundary_hash`, `cross_segment_access_attempt`, `sil_policy_version`, `isolation_enforcement_result`.
+
+### T-4.1-004 Key Drift / Signing Identity Compromise
+- **Definition:** Signing identities used across the ZTAH → CCB → HITL path may drift from authorized governance scope through compromise or unauthorized rotation.
+- **Attack mechanics:** Offline key extraction from misconfigured runtimes, accidental rotation without lineage-root updates, or exploitation of legacy signing fallback paths.
+- **Primary impact:** Forged approvals accepted as valid, partial/full HITL boundary bypass, or invalid policy-lineage chains passing superficial checks.
+- **Detection signal(s):** Identity-root mismatch, revocation-check failure, or cross-epoch lineage-root divergence.
+- **Required mitigation (v4.1.1):**
+  1. Enforce **ZTAH-rooted identity binding** (`root_pubkey -> delegate_pubkey`).
+  2. Require **policy-lineage hash-chain verification** across every governance hop.
+  3. Perform mandatory revocation checks before each CCB evaluation:
+     `verify_revocation(delegate_pubkey, current_epoch) == TRUE`.
+  4. Record rotating key state snapshots in Evidence Vault.
+- **Evidence Vault fields:** `key_id`, `rotation_epoch`, `revocation_flag`, `lineage_root_hash`.

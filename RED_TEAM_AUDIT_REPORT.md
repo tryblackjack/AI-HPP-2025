@@ -66,3 +66,32 @@ The v4.1 architecture is now highly aligned with the Secure Intelligence Institu
 
 ### Auditor conclusion
 v4.1 materially changes the security posture from procedural assurance to cryptographic enforcement-by-design for multi-agent systems. For regulated deployments, this addendum supports elevated confidence in controllability, non-repudiation, and rapid containment of cascading failure classes.
+
+## Attack Model Capability (v4.1.1)
+The red-team adversary was provisioned with:
+
+### 1. Surface coverage
+- Delegation-chain traversal.
+- Memory-mixing attempts across episode boundaries.
+- Recursive self-composition probes.
+
+### 2. Model/agentic capability
+- Tool access enabled under restricted orchestration.
+- Self-reflection depth: 3 layers.
+- Reasoning-step expansion allowed (bounded to 14).
+
+### 3. Multi-agent test rig
+- Coordinator-orchestrated concurrent adversarial subagents.
+- Cross-agent contamination attempts permitted.
+
+### 4. Cryptographic bypass assumptions
+No privileged bypass was allowed; the adversary operated strictly without:
+- Access to signing keys.
+- Access to lineage roots.
+- Override capability for ZTAH/CCB layers.
+
+This attack model is sufficient to validate mitigations for:
+- T-3.4-001.
+- T-4.1-002.
+- T-4.1-003.
+- T-4.1-004.

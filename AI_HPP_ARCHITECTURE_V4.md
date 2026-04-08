@@ -43,6 +43,8 @@ Classical monitoring is observational; CCB introduces mathematically enforced ac
 
 **Result:** Unsafe chains are stopped at the cryptographic capability layer, not merely flagged post-facto.
 
+Additionally, the system maintains an **MDP safe graph** for constrained execution and action authorization validation.
+
 ### 4.3 Semantic Isolation Layers (SIL)
 SIL extends VDM-style isolation from process boundaries into memory semantics.
 
@@ -65,3 +67,11 @@ These primitives do not replace core AI-HPP principles; they harden them.
 - **Cryptographic HITL evolution:** Human approvals now bind to specific payload hashes and action keys, preventing post-approval substitution.
 - **Evidence Vault upgrade:** Vault records include signatures, key IDs, transition attestations, breaker events, and isolation boundary proofs.
 - **Operational effect:** HITL remains the governance authority while cryptographic controls provide pre-execution enforcement and non-repudiable forensic traceability.
+
+## 4.5 Normative Requirements Boundary (v4.1.1)
+The following sections are **normative** for AI-HPP certification:
+- Sections 4.1, 4.2, and 4.3 (cryptographic enforcement, lineage verification, and MDP safe graph controls).
+
+The following sections are **advisory**:
+- Section 4.4 (HITL integration pattern).
+- Section 4.5 (this normative-boundary clarification section).
