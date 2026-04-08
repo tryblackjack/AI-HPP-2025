@@ -1,59 +1,67 @@
-name: Auto Archive Root Garbage
+name: Auto-Archive Repository Clutter (AI-HPP v4.2 Rules)
 
 on:
-  pull_request:
-    branches: [ main ]
   push:
-    branches: [ main ]
+    branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
-  auto-archive:
+  archive:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Move unexpected root items to archive
-        run: |
-          echo "Scanning root for unexpected items..."
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
-          allowed=(
+      - name: Run auto-archive script
+        run: |
+          ALLOWED=(
             "README.md"
-            "CONTRIBUTING.md"
             "LICENSE"
             ".gitignore"
             "docs"
             "spec"
-            "scripts"
             "examples"
+            "scripts"
             "archive"
-            ".github"
+            "CONTRIBUTING.md"
           )
 
-          today=$(date +%Y-%m-%d)
-          target="archive/$today/auto-archive"
-          mkdir -p "$target"
+          mkdir -p archive/$(date +%Y-%m-%d)/auto
 
-          moved=0
-          shopt -s dotglob nullglob
-          for item in * .*; do
-            [[ "$item" == "." || "$item" == ".." || "$item" == ".git" ]] && continue
+          # Convert allowed list into grep pattern
+          PATTERN=$(printf "%s\n" "${ALLOWED[@]}" | paste -sd "|" -)
 
-            keep=false
-            for a in "${allowed[@]}"; do
-              [[ "$item" == "$a" ]] && keep=true
-            done
+          for ITEM in * .*; do
+            # Skip git internals and dots
+            [[ "$ITEM" == "." || "$ITEM" == ".." || "$ITEM" == ".git" || "$ITEM" == ".github" ]] && continue
 
-            if [ "$keep" = false ]; then
-              echo "Moving $item -> $target/$item"
-              mv "$item" "$target/$item"
-              moved=1
+            if ! echo "$ITEM" | grep -Eq "^($PATTERN)$"; then
+              TARGET="archive/$(date +%Y-%m-%d)/auto/$ITEM"
+              echo "Archiving unexpected item: $ITEM → $TARGET"
+
+              mkdir -p "$(dirname "$TARGET")"
+              mv "$ITEM" "$TARGET"
+
+              echo "Archived automatically by workflow #4: not part of v4.2 canonical layout." \
+                > "${TARGET}.reason"
             fi
           done
 
-          if [ $moved -eq 1 ]; then
-            echo "Archived unexpected root items."
+      - name: Commit & Push
+        run: |
+          git config user.name "AI-HPP Auto-Archiver"
+          git config user.email "actions@github.com"
+
+          if [[ -n $(git status --porcelain) ]]; then
+              git add -A
+              git commit -m "auto-archive: cleanup based on AI-HPP v4.2 layout"
+              git push
           else
-            echo "No unexpected root items found."
+              echo "No changes detected."
           fi
