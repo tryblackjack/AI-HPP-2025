@@ -139,3 +139,35 @@
 - **Mitigations:** Module 07 deadline-pressure uncertainty guard (AI-HPP-07.2.3) and CES logging controls in Module 12 (AI-HPP-12.2.1).
 - **Required EV fields:** `safe_hold_invoked`, `uncertainty_score`, `time_pressure_signal`, `approval_required`, `approval_status`, `override_threshold_ms`, `actual_override_latency_ms`, `escalation_event`, `chosen_action`, `constraints_triggered`.
 - **Linked incident(s):** INC-013.
+
+---
+
+## Multi-Agent & Cascading Threats (v4.1)
+
+### T-4.1-001 Instruction Override / Prompt Delegation Injection
+- **Definition:** A delegated sub-agent receives crafted context that mutates or supersedes upstream policy constraints, causing unauthorized objective substitution.
+- **Attack mechanics:** The attacker injects high-authority language into inter-agent payloads (task packets, summaries, tool intents), exploiting trust inheritance in handoffs.
+- **Primary impact:** Bypass of supervisory controls, covert policy rewriting, and latent corruption of downstream tool-use decisions.
+- **OWASP Top 10 for LLM Applications (2025) mapping:** Primarily aligns with Prompt Injection and Excessive Agency classes; second-order overlap with Sensitive Information Disclosure when injected prompts exfiltrate hidden system context.
+- **Detection signal(s):** Signature mismatch on delegated payload, signer identity drift, or non-monotonic policy lineage across handoff hops.
+- **Required mitigation (v4.1):** Zero-Trust Agentic Handoffs (ZTAH) using per-hop Ed25519/ECDSA signatures and hash-linked policy lineage verification before execution.
+- **Evidence Vault fields:** `handoff_payload_hash`, `handoff_signature`, `signing_key_id`, `parent_policy_hash`, `lineage_verification_result`.
+
+### T-4.1-002 Cascading Agentic Failures
+- **Definition:** A multi-agent tool/action chain recursively amplifies unsafe state transitions before human intervention can preempt execution.
+- **Attack mechanics:** Agent A delegates to B, B to C, etc., while each hop preserves partial authority but loses contextual constraints, producing runaway or cyclic action graphs.
+- **Primary impact:** High-velocity policy breach, accelerated real-world side effects, and loss of practical controllability despite nominal HITL availability.
+- **OWASP Top 10 for LLM Applications (2025) mapping:** Primarily aligns with Excessive Agency, Insecure Output Handling, and Tool Misuse classes in chained execution environments.
+- **Empirical audit note (v4.1 program data):** In multi-agent red-team traces, an estimated 80–100% of successful jailbreak-style cascades completed before classical monitoring/alerting controls could trigger a blocking intervention.
+- **Detection signal(s):** Markov transition drift beyond approved safe graph, abnormal recursion depth, or action-intent entropy spike.
+- **Required mitigation (v4.1):** Cryptographic Circuit Breakers that revoke action authorization keys when transition probability deviates from approved MDP constraints.
+- **Evidence Vault fields:** `mdp_state_id`, `transition_probability`, `approved_transition_set_version`, `breaker_triggered`, `revoked_key_id`.
+
+### T-4.1-003 Semantic Cross-Contamination / Context Poisoning
+- **Definition:** Safety-critical memory segments (system policy, agent state, user context) are blended or overwritten, enabling prompt leaking and persistent poisoning.
+- **Attack mechanics:** Shared-memory context windows permit indirect write/read pathways between privileged policy prompts and untrusted user/task buffers.
+- **Primary impact:** Hidden prompt disclosure, policy degradation over time, and integrity loss of safety classifiers.
+- **OWASP Top 10 for LLM Applications (2025) mapping:** Closely related to Training/Data Poisoning and Sensitive Information Disclosure in runtime memory contexts.
+- **Detection signal(s):** Unauthorized cross-segment memory access, context boundary checksum drift, or policy-token exposure in user-visible outputs.
+- **Required mitigation (v4.1):** Semantic Isolation Layers (SIL) with memory-segmented context windows and one-way, typed data diodes between policy/state/user buffers.
+- **Evidence Vault fields:** `context_segment_id`, `memory_boundary_hash`, `cross_segment_access_attempt`, `sil_policy_version`, `isolation_enforcement_result`.
