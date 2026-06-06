@@ -5,6 +5,7 @@
 - [AI-HPP Standard](AI-HPP-Standard.md)
 - [Human Understanding Standard](human-understanding-standard.md)
 - [HUS Audit Report](hus-audit-report.md)
+- [Repository Maturity Assessment](repository-maturity-assessment.md)
 - [Architecture](architecture.md)
 - [Glossary](glossary.md)
 
