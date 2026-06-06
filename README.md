@@ -9,6 +9,8 @@ It tells teams how to manage **signals**, **state**, **bridges**, and **safety g
 - Kebab-case mirror: [docs/ai-hpp-standard.md](docs/ai-hpp-standard.md)
 - Architecture walkthrough: [docs/architecture.md](docs/architecture.md)
 - Terms for quick reading: [docs/glossary.md](docs/glossary.md)
+- Human Understanding Standard module: [docs/human-understanding-standard.md](docs/human-understanding-standard.md)
+- Human Understanding audit report: [docs/hus-audit-report.md](docs/hus-audit-report.md)
 
 ## Repository Layout
 
