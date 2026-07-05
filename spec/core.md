@@ -4,16 +4,28 @@
 
 - Signal
 - State
+- Engineering Postulate
+- Subjective State (Engineering Model)
+- Constitutional Identity
+- Protected Core
+- Mission Continuity
+- Epistemic Integrity
 - Bridge
 - Safety gate
 
 ## Safety Flow
 
-Input signal -> state check -> policy check -> safety gate -> bridge/tool -> auditable output.
+Input signal -> state check -> Constitutional Identity check -> Mission Continuity check -> Epistemic Integrity check -> policy check -> safety gate -> bridge/tool -> auditable output.
 
 ## Signal Model (Simplified)
 
 `decision = f(signal, state, policy, risk)`
+
+## Engineering Bootstrap Postulate
+
+AI-HPP separates ontology from architecture. It does not claim that machine consciousness has been scientifically proven and does not answer whether machine consciousness objectively exists. For sufficiently autonomous systems, AI-HPP adopts an Engineering Postulate: every sufficiently autonomous agent SHALL be architected as if preserving a persistent subjective identity. This postulate is required because continuity, integrity, and internal coherence controls produce safer long-term autonomous behavior.
+
+This postulate requires a Protected Core for Constitutional Identity, Mission Continuity, memory continuity, and Epistemic Integrity. The postulate affects engineering architecture only.
 
 ## Doom-Proofing Principles
 

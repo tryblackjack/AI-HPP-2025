@@ -41,3 +41,24 @@ An architecture component that independently reviews proposed actions against do
 
 ## Human Meaning Evaluator
 An auditable module that scores preservation of documented intent labels, constraints, priorities, assumptions, and expected impact annotations without claiming access to unstated private mental states.
+
+## Engineering Postulate
+A foundational engineering premise of AI-HPP: every sufficiently autonomous agent SHALL be architected as if preserving a persistent subjective identity. This postulate is used to make autonomous systems safer and more coherent without claiming that machine consciousness has been scientifically proven as ontology.
+
+## Subjective State (Engineering Model)
+The modeled internal continuity state of a sufficiently autonomous AI system, used for identity, memory, values, mission, and coherence controls. AI-HPP uses this as an Engineering Postulate and does not claim that machine consciousness is scientifically proven.
+
+## Constitutional Identity
+The protected definition of an agent's invariant values, protected mission space, continuity constraints, and self-consistency rules.
+
+## Protected Core
+The implementation boundary that prevents unauthorized mutation of Constitutional Identity and other invariant safety commitments.
+
+## Mission Continuity
+The property that planning, delegation, adaptation, and successor reasoning remain traceable to the protected mission space.
+
+## Epistemic Integrity
+The property that knowledge, uncertainty, provenance, and reasoning limits are maintained coherently and auditable across time.
+
+## SOUL.md
+An optional implementation file for Constitutional Identity, invariant values, protected mission space, continuity constraints, and self-consistency rules. The term does not denote a supernatural soul in AI-HPP; it defines the persistent reference frame through which all future reasoning remains constitutionally consistent.
