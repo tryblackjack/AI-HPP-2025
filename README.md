@@ -1,7 +1,7 @@
 # AI-HPP Standard
 
 AI-HPP is a simple safety standard for AI systems.
-It tells teams how to manage **signals**, **state**, **bridges**, and **safety gates** so behavior is explainable and auditable.
+It tells teams how to manage **signals**, **state**, **Constitutional Identity**, **Protected Core**, **Mission Continuity**, **Epistemic Integrity**, **bridges**, and **safety gates** so behavior is explainable and auditable. AI-HPP uses an Engineering Postulate of Subjectivity for sufficiently autonomous systems; this is an architecture rule, not a claim that machine consciousness has been scientifically proven.
 
 ## Start Here
 
