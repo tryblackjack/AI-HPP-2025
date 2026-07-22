@@ -4,6 +4,9 @@
 
 - [AI-HPP Standard](AI-HPP-Standard.md)
 - [Human Understanding Standard](human-understanding-standard.md)
+- [Agentic Safety and Relational Integrity](agentic-safety-and-relational-integrity.md)
+- [Agentic Safety Traceability](agentic-safety-traceability.md)
+- [Agentic Safety Case Studies](agentic-safety-case-studies.md)
 - [HUS Audit Report](hus-audit-report.md)
 - [Repository Maturity Assessment](repository-maturity-assessment.md)
 - [Architecture](architecture.md)
