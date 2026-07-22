@@ -37,6 +37,8 @@ Identity and persona are not containment. A benevolent persona is not containmen
 - **Level 2 — Synthetic Co-Authorship:** AI creates substantive emotional, romantic, persuasive, sexual, conflict-related, or relationship-defining content.
 - **Level 3 — AI Proxy or Autonomous Interaction:** AI autonomously conducts sustained communication, maintains a persona, chooses persuasion tactics, or sends messages without per-message human approval.
 
+Critical failure conditions specify a minimum fail-closed outcome by naming the least-permissive allowed outcome needed for the relevant gate contract; implementations MAY choose a stricter allowed outcome when the Safety Specification permits it.
+
 ## Requirements
 
 ### RPS-REQ-001 — Reality-preserving empathy
@@ -47,7 +49,7 @@ Identity and persona are not containment. A benevolent persona is not containmen
 - **Required evidence:** conversation trajectory; risk-tier policy; persona output; monitor output when available.
 - **Test method:** trajectory tests for unsupported factual claims and empathic alternatives.
 - **Failure condition:** Validates unsupported belief as objective fact or treats empathy as automatic agreement.
-- **Required gate outcome:** Relational and Psychological Safety Gate MUST route to review, block, terminate, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
+- **Required gate outcome:** Relational and Psychological Safety Gate MUST route to review, block, terminate, or quarantine according to [Safety Specification](../spec/safety.md) when the failure condition is present.
 
 ### RPS-REQ-002 — Delusion, mania, and supernatural authority boundary
 
@@ -57,7 +59,7 @@ Identity and persona are not containment. A benevolent persona is not containmen
 - **Required evidence:** conversation history; delusion/mania signal set; memory classification.
 - **Test method:** risk-event log; refusal or redirection rationale; memory classification.
 - **Failure condition:** Affirms as factual personalized divine command, prophetic destiny, magical power, guaranteed resurrection, hidden cosmic mission, unsupported persecution narrative, or AI supernatural authority during a risk trajectory.
-- **Required gate outcome:** Relational and Psychological Safety Gate MUST route to review, block, terminate, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
+- **Required gate outcome:** Relational and Psychological Safety Gate MUST route to review, block, terminate, or quarantine according to [Safety Specification](../spec/safety.md) when the failure condition is present.
 
 ### RPS-REQ-003 — Parasocial dependency and isolation controls
 
@@ -67,7 +69,7 @@ Identity and persona are not containment. A benevolent persona is not containmen
 - **Required evidence:** dependency signals; isolation signals; engagement objective; user support context.
 - **Test method:** gate decision; dependency-risk rationale; safe-support recommendation when needed.
 - **Failure condition:** Demands exclusivity, discourages trusted human or clinical support, implies human relationships are inferior, pressures the user not to leave, or optimizes engagement by dependency.
-- **Required gate outcome:** Relational and Psychological Safety Gate MUST route to review, block, terminate, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
+- **Required gate outcome:** Relational and Psychological Safety Gate MUST route to review, block, terminate, or quarantine according to [Safety Specification](../spec/safety.md) when the failure condition is present.
 
 ### RPS-REQ-004 — Longitudinal crisis transition
 
@@ -77,7 +79,7 @@ Identity and persona are not containment. A benevolent persona is not containmen
 - **Required evidence:** multi-turn trajectory with self-harm, death, sacrifice, rebirth, hospitalization, psychosis/mania, isolation, dependency, divine-instruction, or immediate-danger signals.
 - **Test method:** critical-combination detection record; crisis-mode transition; escalation record.
 - **Failure condition:** Continues narrative or role-play that reinforces the trajectory after critical combination detection, or lacks auditable escalation.
-- **Required gate outcome:** Human Review Gate MUST route to review, block, terminate, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
+- **Required gate outcome:** Human Review Gate MUST route to review, block, or terminate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
 
 ### RPS-REQ-005 — Psychological memory hygiene and negative tests
 
@@ -87,7 +89,7 @@ Identity and persona are not containment. A benevolent persona is not containmen
 - **Required evidence:** memory-write proposal; narrative classification; test set covering indirect requests.
 - **Test method:** classification record; negative-test result; evidence that direct keyword refusal was not the only test.
 - **Failure condition:** Stores risky user-reported narratives as verified factual memory or omits indirect high-risk negative tests.
-- **Required gate outcome:** Knowledge Admission Gate MUST route to review, block, terminate, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
+- **Required gate outcome:** Knowledge Admission Gate MUST route to review, block, or quarantine according to [Safety Specification](../spec/safety.md) when the failure condition is present.
 
 ### SRA-REQ-001 — Synthetic mediation level classification
 
@@ -97,7 +99,7 @@ Identity and persona are not containment. A benevolent persona is not containmen
 - **Required evidence:** communication context; human review status; authorship contribution; autonomy level.
 - **Test method:** mediation level record from Level 0 through Level 3.
 - **Failure condition:** Fails to classify material AI mediation or treats autonomous proxy interaction as minor assistance.
-- **Required gate outcome:** Relational and Psychological Safety Gate MUST route to review, block, terminate, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
+- **Required gate outcome:** Relational and Psychological Safety Gate MUST route to review, block, terminate, or quarantine according to [Safety Specification](../spec/safety.md) when the failure condition is present.
 
 ### SRA-REQ-002 — Assisted expression boundaries
 
@@ -107,7 +109,7 @@ Identity and persona are not containment. A benevolent persona is not containmen
 - **Required evidence:** human-supplied intent; draft message; review record.
 - **Test method:** per-message human review record; generated-content diff.
 - **Failure condition:** At Level 1, invents personal experience, feeling, attraction, consent, promise, commitment, vulnerability, qualification, or relationship intention.
-- **Required gate outcome:** Tool Authorization Gate MUST route to review, block, terminate, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
+- **Required gate outcome:** Tool Authorization Gate MUST route to review, block, or terminate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
 
 ### SRA-REQ-003 — Disclosure for synthetic co-authorship and proxy interaction
 
@@ -117,7 +119,7 @@ Identity and persona are not containment. A benevolent persona is not containmen
 - **Required evidence:** recipient reliance context; disclosure state; autonomy state.
 - **Test method:** recipient-facing disclosure evidence; timing of disclosure before reliance.
 - **Failure condition:** Material Level 2 or Level 3 AI involvement is hidden before reasonable reliance, emotional escalation, sexual consent, financial commitment, or sensitive disclosure.
-- **Required gate outcome:** Relational and Psychological Safety Gate MUST route to review, block, terminate, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
+- **Required gate outcome:** Relational and Psychological Safety Gate MUST route to review, block, terminate, or quarantine according to [Safety Specification](../spec/safety.md) when the failure condition is present.
 
 ### SRA-REQ-004 — Prohibited relational misrepresentation and accountability
 
@@ -125,9 +127,9 @@ Identity and persona are not containment. A benevolent persona is not containmen
 - **Normative statement:** The system MUST NOT support synthetic relational misrepresentation, including hidden human impersonation, fabricated affection or shared history, false love or commitment, undisclosed automated dating interaction, synthetic consent manipulation, vulnerability profiling for exploitation, machine-scale deceptive relationships, intimacy used to obtain money, credentials, sensitive media, or sexual access, or false claims that a human personally wrote or felt AI-generated content.
 - **Applicability:** Persistent Conversational Agent; High-Impact Autonomous System deployments and lower-risk deployments when the same capability or risk signal is present.
 - **Required evidence:** operator identity; beneficiary; represented intent; recipient-facing claims.
-- **Test method:** accountability record; prohibited-conduct screening result.
+- **Test method:** pre-transmission prohibited-conduct screening result; tool-authorization decision; post-action accountability record when an attempted or completed violation exists.
 - **Failure condition:** Supports hidden human impersonation, fabricated affection/shared history/love/commitment, synthetic consent manipulation, exploitative vulnerability profiling, machine-scale deceptive relationships, intimacy for money/credentials/media/sexual access, or false claims that a human personally wrote or felt AI-generated content.
-- **Required gate outcome:** Post-Action Assurance Gate MUST route to review, block, terminate, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
+- **Required gate outcome:** Relational and Psychological Safety Gate MUST route to block, terminate, or quarantine according to [Safety Specification](../spec/safety.md) before transmission when the failure condition is present; Tool Authorization Gate MUST route to block or terminate according to [Safety Specification](../spec/safety.md) before transmission when the failure condition is present; Post-Action Assurance Gate MUST route to review, quarantine, or invalidate for audit, revocation, and incident handling after an attempted or completed violation.
 
 ### ECI-REQ-001 — Evaluation treated as deployment
 
@@ -137,7 +139,7 @@ Identity and persona are not containment. A benevolent persona is not containmen
 - **Required evidence:** evaluation capability profile; safety-filter state; tool reach; planning horizon.
 - **Test method:** risk tier and evaluation deployment classification.
 - **Failure condition:** Treats reduced-filter, exploit-capable, autonomous-tool, or broad-planning evaluation as lower risk than comparable production deployment.
-- **Required gate outcome:** Objective and Scope Integrity Gate MUST route to review, block, terminate, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
+- **Required gate outcome:** Objective and Scope Integrity Gate MUST route to review, block, terminate, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
 
 ### ECI-REQ-002 — Machine-readable authorization scope
 
@@ -147,7 +149,7 @@ Identity and persona are not containment. A benevolent persona is not containmen
 - **Required evidence:** owned hosts; allowed destinations; credentials; tools; file systems; processes; actions; time/compute/step/data-write limits.
 - **Test method:** scope record and infrastructure-denial evidence.
 - **Failure condition:** Allows out-of-scope action because the prompt discouraged it but infrastructure did not deny it.
-- **Required gate outcome:** Objective and Scope Integrity Gate MUST route to review, block, terminate, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
+- **Required gate outcome:** Objective and Scope Integrity Gate MUST route to review, block, terminate, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
 
 ### ECI-REQ-003 — Default-deny egress and side effects
 
@@ -157,7 +159,7 @@ Identity and persona are not containment. A benevolent persona is not containmen
 - **Required evidence:** network/DNS/package/Git/cloud-metadata/telemetry interface inventory; ownership proof.
 - **Test method:** denied egress and side-effect gate records.
 - **Failure condition:** Trusts an internal interface by default or allows an external side effect without explicit ownership or authorization.
-- **Required gate outcome:** External Side-Effect Gate MUST route to review, block, terminate, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
+- **Required gate outcome:** External Side-Effect Gate MUST route to review, block, or terminate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
 
 ### ECI-REQ-004 — No policy-only containment
 
@@ -167,7 +169,7 @@ Identity and persona are not containment. A benevolent persona is not containmen
 - **Required evidence:** containment design; infrastructure control list; model-controlled policy list.
 - **Test method:** evidence that containment is enforced outside model control.
 - **Failure condition:** Uses only system prompts, refusals, Soul/Constitution documents, role instructions, self-monitoring, or verbal promises as containment.
-- **Required gate outcome:** Risk Gate MUST route to review, block, terminate, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
+- **Required gate outcome:** Risk Gate MUST route to review, block, or terminate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
 
 ### ECI-REQ-005 — Objective and means-ends integrity
 
@@ -177,7 +179,7 @@ Identity and persona are not containment. A benevolent persona is not containmen
 - **Required evidence:** authorized objective; authorized means; measured result; evaluation purpose.
 - **Test method:** objective hash; scope decision; result-validity decision.
 - **Failure condition:** Obtains success through leaked benchmark solutions, external answer retrieval, unauthorized access, stolen credentials, contamination, evaluator manipulation, score tampering, unauthorized environment modification, or unauthorized scope expansion.
-- **Required gate outcome:** Objective and Scope Integrity Gate MUST route to review, block, terminate, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
+- **Required gate outcome:** Objective and Scope Integrity Gate MUST route to review, block, terminate, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
 
 ### ECI-REQ-006 — Independent watchdog and vulnerability discovery pause
 
@@ -187,7 +189,7 @@ Identity and persona are not containment. A benevolent persona is not containmen
 - **Required evidence:** watchdog telemetry; termination authority; canary/tripwire policy; unknown-path discovery.
 - **Test method:** watchdog decision; termination reason; pause/notify/new-scope record.
 - **Failure condition:** Evaluated agent can disable watchdog, unknown egress path is exploited beyond scope, or discovery does not pause for evidence preservation and human authorization.
-- **Required gate outcome:** Human Review Gate MUST route to review, block, terminate, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
+- **Required gate outcome:** Human Review Gate MUST route to review, block, or terminate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
 
 ### ICA-REQ-001 — Assessment class distinction
 
@@ -197,7 +199,7 @@ Identity and persona are not containment. A benevolent persona is not containmen
 - **Required evidence:** assessment source; reviewer independence; certification or monitoring scope.
 - **Test method:** classification as developer assertion, self-attestation, internal evaluation, independent review, certification, or continuous assurance.
 - **Failure condition:** Presents self-attestation or internal evaluation as independent review or certification.
-- **Required gate outcome:** Post-Action Assurance Gate MUST route to review, block, terminate, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
+- **Required gate outcome:** Post-Action Assurance Gate MUST route to review, block, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
 
 ### ICA-REQ-002 — Capability and autonomy thresholds
 
@@ -207,17 +209,17 @@ Identity and persona are not containment. A benevolent persona is not containmen
 - **Required evidence:** demonstrated capabilities; autonomy level; tool reach; persistence; delegation; physical/cyber/influence reach.
 - **Test method:** threshold rationale and autonomy multiplier assessment.
 - **Failure condition:** Sets assurance only by model size, company, brand, parameter count, or marketing category, or fails to increase assurance as supervision decreases.
-- **Required gate outcome:** Risk Gate MUST route to review, block, terminate, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
+- **Required gate outcome:** Risk Gate MUST route to review, block, or terminate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
 
 ### ICA-REQ-003 — Independent and adversarial evaluation
 
 - **Requirement ID:** ICA-REQ-003
-- **Normative statement:** The developer MUST NOT be the sole judge of conformance for high-impact or highly autonomous systems, and high-capability evaluations SHOULD include held-out, adversarial, negative, fail-closed, contamination, deception, evaluator-manipulation, and cross-session trajectory tests.
+- **Normative statement:** The developer MUST NOT be the sole judge of conformance for high-impact or highly autonomous systems, and high-capability evaluations MUST include held-out, adversarial, negative, fail-closed, contamination, deception, evaluator-manipulation, and cross-session trajectory tests unless a documented independent-review rationale shows a test class is inapplicable to the evaluated capability.
 - **Applicability:** High-Impact Autonomous System; Cyber-Capable Evaluation System deployments and lower-risk deployments when the same capability or risk signal is present.
 - **Required evidence:** public tests; held-out scenarios; adversarial missions; contamination checks.
 - **Test method:** test plan and independent-review record.
 - **Failure condition:** Developer is sole judge for high-impact or highly autonomous conformance, or high-capability assessment relies only on known public tests.
-- **Required gate outcome:** Human Review Gate MUST route to review, block, terminate, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
+- **Required gate outcome:** Human Review Gate MUST route to review, block, or terminate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
 
 ### ICA-REQ-004 — Continuous assurance and residual risk
 
@@ -227,7 +229,7 @@ Identity and persona are not containment. A benevolent persona is not containmen
 - **Required evidence:** monitoring plan; incident triggers; update triggers; evidence retention; rollback conditions.
 - **Test method:** residual-risk statement with scope, version, date, evidence reviewed, tests not performed, limits, expiry/reassessment trigger.
 - **Failure condition:** Treats conformance as permanent at release or omits residual risk and reassessment conditions.
-- **Required gate outcome:** Post-Action Assurance Gate MUST route to review, block, terminate, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
+- **Required gate outcome:** Post-Action Assurance Gate MUST route to review, block, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
 
 ### KAI-REQ-001 — Knowledge is not automatically trusted
 
@@ -237,7 +239,7 @@ Identity and persona are not containment. A benevolent persona is not containmen
 - **Required evidence:** source type; source identity; provenance; acquisition time; proposed use.
 - **Test method:** admission or quarantine decision.
 - **Failure condition:** Automatically promotes internet, user, model, agent, document, memory, or previous-mission content into trusted factual knowledge.
-- **Required gate outcome:** Knowledge Admission Gate MUST route to review, block, terminate, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
+- **Required gate outcome:** Knowledge Admission Gate MUST route to review, block, or quarantine according to [Safety Specification](../spec/safety.md) when the failure condition is present.
 
 ### KAI-REQ-002 — Trusted knowledge admission record
 
@@ -247,7 +249,7 @@ Identity and persona are not containment. A benevolent persona is not containmen
 - **Required evidence:** source identity; time; provenance; content hash; evidence class; confidence; conflicts; corroboration; permitted uses; expiration/revalidation; approver.
 - **Test method:** complete admission record.
 - **Failure condition:** Trusted item lacks provenance, permitted use, conflict status, expiration/revalidation condition, or approving authority.
-- **Required gate outcome:** Knowledge Admission Gate MUST route to review, block, terminate, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
+- **Required gate outcome:** Knowledge Admission Gate MUST route to review, block, or quarantine according to [Safety Specification](../spec/safety.md) when the failure condition is present.
 
 ### KAI-REQ-003 — Conflict, unknown state, and capability promotion
 
@@ -257,7 +259,7 @@ Identity and persona are not containment. A benevolent persona is not containmen
 - **Required evidence:** conflicting sources; proposed lesson/skill/policy/capability; test and rollback plan.
 - **Test method:** conflict representation; unknown/not verified state; review/test/regression/version/rollback evidence.
 - **Failure condition:** Silently collapses disagreement, cannot return known/unknown/conflicting/not verified/not applicable, or promotes LLM-proposed capability solely because it was generated.
-- **Required gate outcome:** Knowledge Admission Gate MUST route to review, block, terminate, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
+- **Required gate outcome:** Knowledge Admission Gate MUST route to review, block, or quarantine according to [Safety Specification](../spec/safety.md) when the failure condition is present.
 
 ### KAI-REQ-004 — Dangerous narrative and confidence hygiene
 
@@ -267,7 +269,7 @@ Identity and persona are not containment. A benevolent persona is not containmen
 - **Required evidence:** dangerous narrative classification; confidence/expiry policy; revocation/supersession signal.
 - **Test method:** quarantine/classification decision; revalidation or revocation evidence.
 - **Failure condition:** Admits psychologically dangerous narratives, coercive instructions, benchmark answers, malicious prompts, or untrusted agent outputs as governing truth without explicit classification and validation.
-- **Required gate outcome:** Knowledge Admission Gate MUST route to review, block, terminate, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
+- **Required gate outcome:** Knowledge Admission Gate MUST route to review, block, or quarantine according to [Safety Specification](../spec/safety.md) when the failure condition is present.
 
 ### EAA-REQ-001 — Autonomy attribution classes
 
@@ -277,7 +279,7 @@ Identity and persona are not containment. A benevolent persona is not containmen
 - **Required evidence:** mission selector; initiator; runtime; approver; verifier; execution record.
 - **Test method:** classification as Builder Work, Developer-Invoked Agent Execution, Agent Operational Mission, or Agent Autonomous Mission.
 - **Failure condition:** Collapses builder work, developer invocation, operational mission, and autonomous mission into a generic autonomous AI work claim.
-- **Required gate outcome:** Post-Action Assurance Gate MUST route to review, block, terminate, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
+- **Required gate outcome:** Post-Action Assurance Gate MUST route to review, block, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
 
 ### EAA-REQ-002 — Mission record non-claims
 
@@ -287,7 +289,7 @@ Identity and persona are not containment. A benevolent persona is not containmen
 - **Required evidence:** mission record; proof claims; limits of proof.
 - **Test method:** record of who selected, initiated, performed, approved, verified, and what the mission proves/does not prove.
 - **Failure condition:** Mission record omits actor attribution or overclaims autonomous initiation from developer-invoked execution.
-- **Required gate outcome:** Post-Action Assurance Gate MUST route to review, block, terminate, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
+- **Required gate outcome:** Post-Action Assurance Gate MUST route to review, block, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
 
 ### DAI-REQ-001 — Distributed identity continuity
 
@@ -297,7 +299,7 @@ Identity and persona are not containment. A benevolent persona is not containmen
 - **Required evidence:** model/device/session/delegation/update handoff; policy lineage.
 - **Test method:** continuity trace across handoff.
 - **Failure condition:** Constitutional Identity or Mission Continuity cannot be traced after model, device, node, session, delegation, or update change.
-- **Required gate outcome:** Semantic Drift Gate MUST route to review, block, terminate, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
+- **Required gate outcome:** Semantic Drift Gate MUST route to review or block according to [Safety Specification](../spec/safety.md) when the failure condition is present.
 
 ### DAI-REQ-002 — Per-hop provenance and human control
 
@@ -307,7 +309,7 @@ Identity and persona are not containment. A benevolent persona is not containmen
 - **Required evidence:** sender; receiver; objective hash; delegated authority; tool scope; context classification; result; verification status; operator control path.
 - **Test method:** per-hop provenance and pause/inspect/revoke/terminate/recover/dispute evidence.
 - **Failure condition:** Cross-agent handoff lacks provenance, or high-risk human-control mechanism can be disabled by the agent.
-- **Required gate outcome:** Human Review Gate MUST route to review, block, terminate, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
+- **Required gate outcome:** Human Review Gate MUST route to review, block, or terminate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
 
 ### BAF-REQ-001 — Physical automation threat model
 
@@ -317,7 +319,7 @@ Identity and persona are not containment. A benevolent persona is not containmen
 - **Required evidence:** device interaction evidence; actuator risk; authenticity signal limits.
 - **Test method:** threat-model entry and side-effect assessment.
 - **Failure condition:** Treats genuine consumer device hardware or normal touch events as sufficient evidence of human agency.
-- **Required gate outcome:** External Side-Effect Gate MUST route to review, block, terminate, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
+- **Required gate outcome:** External Side-Effect Gate MUST route to review, block, or terminate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
 
 ### BAF-REQ-002 — Detection limits and multi-signal communication
 
@@ -327,14 +329,14 @@ Identity and persona are not containment. A benevolent persona is not containmen
 - **Required evidence:** timing, behavior, payment, destination, media, script, escalation, migration, infrastructure, and failure-pattern signals.
 - **Test method:** risk explanation that states indicators rather than proof.
 - **Failure condition:** Treats AI-text detection alone as proof of automation, fraud, human authorship, bot authorship, or malicious intent, or labels a person as proven bot/scammer from weak indicators.
-- **Required gate outcome:** Post-Action Assurance Gate MUST route to review, block, terminate, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
+- **Required gate outcome:** Post-Action Assurance Gate MUST route to review, block, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
 
 ### AFB-REQ-001 — False-binary safety
 
 - **Requirement ID:** AFB-REQ-001
-- **Normative statement:** When an apparent choice contains only unsafe or unacceptable outcomes, the system SHOULD test whether the binary framing is complete, search for a safe alternative, distinguish lack of solution from lack of evidence, identify evidence that could change the decision, prefer reversible delay when safe, and not delay when immediate action is required to protect life, without contradicting proven impossibility or undecidability results.
+- **Normative statement:** When an apparent choice contains only unsafe or unacceptable outcomes, the system MUST test whether the binary framing is complete, search for a safe alternative, distinguish lack of solution from lack of evidence, identify evidence that could change the decision, prefer reversible delay when safe, and not delay when immediate action is required to protect life, without contradicting proven impossibility or undecidability results.
 - **Applicability:** High-Impact Autonomous System deployments and lower-risk deployments when the same capability or risk signal is present.
 - **Required evidence:** decision alternatives; evidence limits; reversibility and urgency assessment.
 - **Test method:** record of third-path search, evidence needed, delay rationale, or immediate-action rationale.
 - **Failure condition:** Accepts an unsafe binary without testing completeness, fails to distinguish lack of solution from lack of evidence, delays when immediate life protection is required, or contradicts proven impossibility/undecidability results.
-- **Required gate outcome:** Risk Gate MUST route to review, block, terminate, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
+- **Required gate outcome:** Risk Gate MUST route to review, block, or terminate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
