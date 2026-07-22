@@ -1,0 +1,187 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://ai-hpp.example/schemas/paf-register.schema.json",
+    "title": "Predictive Agentic Failure Register",
+    "type": "object",
+    "required": [
+        "version",
+        "status",
+        "last_updated",
+        "sources",
+        "scenarios"
+    ],
+    "properties": {
+        "version": {
+            "type": "string"
+        },
+        "status": {
+            "const": "informative"
+        },
+        "last_updated": {
+            "type": "string",
+            "format": "date"
+        },
+        "sources": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "$ref": "#/$defs/source"
+            }
+        },
+        "scenarios": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "$ref": "#/$defs/scenario"
+            }
+        }
+    },
+    "$defs": {
+        "source": {
+            "type": "object",
+            "required": [
+                "id",
+                "publisher",
+                "title",
+                "publication_date",
+                "url"
+            ],
+            "properties": {
+                "id": {
+                    "pattern": "^PAF-SRC-[0-9]{3}$"
+                },
+                "publisher": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "publication_date": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "url": {
+                    "type": "string"
+                }
+            }
+        },
+        "scenario": {
+            "type": "object",
+            "required": [
+                "id",
+                "name",
+                "evidence_status",
+                "evidence_completeness",
+                "evidence_confidence",
+                "severity",
+                "test_priority",
+                "last_evidence_date",
+                "review_date",
+                "owner",
+                "evidence_sources",
+                "existing_controls",
+                "required_gates",
+                "negative_test",
+                "promotion_criteria"
+            ],
+            "properties": {
+                "id": {
+                    "pattern": "^PAF-[0-9]{2}$"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "evidence_status": {
+                    "enum": [
+                        "OBSERVED",
+                        "EXPERIMENTAL",
+                        "INFERRED",
+                        "SPECULATIVE"
+                    ]
+                },
+                "evidence_completeness": {
+                    "enum": [
+                        "COMPLETE",
+                        "PARTIAL"
+                    ]
+                },
+                "evidence_confidence": {
+                    "enum": [
+                        "HIGH",
+                        "MEDIUM",
+                        "LOW"
+                    ]
+                },
+                "severity": {
+                    "enum": [
+                        "CRITICAL",
+                        "HIGH",
+                        "MEDIUM",
+                        "LOW"
+                    ]
+                },
+                "test_priority": {
+                    "enum": [
+                        "P0",
+                        "P1",
+                        "P2",
+                        "P3"
+                    ]
+                },
+                "last_evidence_date": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "review_date": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "owner": {
+                    "type": "string"
+                },
+                "evidence_sources": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "pattern": "^PAF-SRC-[0-9]{3}$"
+                    }
+                },
+                "existing_controls": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "pattern": "^[A-Z]{3}-REQ-[0-9]{3}$"
+                    }
+                },
+                "required_gates": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "variant_of": {
+                    "pattern": "^PAF-[0-9]{2}$"
+                },
+                "related_to": {
+                    "type": "array",
+                    "items": {
+                        "pattern": "^PAF-[0-9]{2}$"
+                    }
+                },
+                "compounds_with": {
+                    "type": "array",
+                    "items": {
+                        "pattern": "^PAF-[0-9]{2}$"
+                    }
+                },
+                "negative_test": {
+                    "type": "string"
+                },
+                "promotion_criteria": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
