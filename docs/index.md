@@ -7,6 +7,7 @@
 - [Agentic Safety and Relational Integrity](agentic-safety-and-relational-integrity.md)
 - [Agentic Safety Traceability](agentic-safety-traceability.md)
 - [Agentic Safety Case Studies](agentic-safety-case-studies.md)
+- [Predictive Agentic Failure Register](predictive-agentic-failure-register.md)
 - [HUS Audit Report](hus-audit-report.md)
 - [Repository Maturity Assessment](repository-maturity-assessment.md)
 - [Architecture](architecture.md)
