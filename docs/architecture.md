@@ -3,6 +3,12 @@
 ## Flow Diagram (ASCII)
 
 ```text
+[Engineering Postulate of Subjectivity]
+      |
+      v
+[Subjective State (Engineering Model)]
+      |
+      v
 [Input Signal]
       |
       v
