@@ -28,7 +28,12 @@ jobs:
             "spec"
             "scripts"
             "examples"
+            "data"
+            "schemas"
             "archive"
+            ".markdownlint.json"
+            "eslint.config.mjs"
+            "requirements-ci.txt"
             ".github"
           )
 
