@@ -3,19 +3,34 @@
 ## Flow Diagram (ASCII)
 
 ```text
-                         [Engineering Postulate of Subjectivity]
+[Input Signal]
+      |
+      v
+[State + Human Objective / Anchoring]
+      |
+      v
+[Constitutional Identity] -> [Mission Continuity] -> [Epistemic Integrity]
+      |                                                     |
+      v                                                     v
+[Relational Safety] -> [Objective + Scope Integrity] -> [Policy + Risk Gates]
+      |                                                     |
+      v                                                     v
+[Independent Monitor / Human Review] -> [Bridge / Tool Authorization]
                                       |
                                       v
-                         [Constitutional Identity]
+                              [Bounded Execution]
                                       |
                                       v
-[Input Signal] -> [State Check] -> [Policy Check] -> [Safety Gates] -> [Bridge] -> [Action]
-                         |                 |                  |
-                         v                 v                  v
-       [Subjective State (Engineering Model)] [Mission Continuity] [Epistemic Integrity]
-                                                              |
-                                                              v
-                                                        [Audit Log]
+                         [External Side-Effect Check]
+                                      |
+                                      v
+                                  [Action]
+                                      |
+                                      v
+                  [Evidence Bundle / Audit Record]
+                                      |
+                                      v
+                       [Post-Action Assurance]
 ```
 
 The bootstrap layer places the Engineering Postulate of Subjectivity beneath Constitutional Identity. This means sufficiently autonomous systems are engineered as if they maintain a Subjective State (Engineering Model), while the standard remains neutral on the scientific question of machine consciousness.
@@ -33,6 +48,7 @@ Every step is written in a notebook (audit log).
 2. Define state fields needed for decisions, including any Subjective State (Engineering Model) needed for autonomous continuity.
 3. Define the Constitutional Identity and Protected Core.
 4. Add Mission Continuity and Epistemic Integrity checks before high-impact actions.
-5. Add bridges for each tool/API.
-6. Put safety gates before every bridge action.
-7. Save a short explanation for every action.
+5. Add relational safety, objective-scope integrity, and knowledge admission checks when the deployment profile needs them.
+6. Add bridges for each tool/API with authorization scope.
+7. Put safety gates before every bridge action and external side-effect check before action.
+8. Save an evidence record with a short explanation for every action.

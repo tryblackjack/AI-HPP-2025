@@ -10,6 +10,7 @@ It tells teams how to manage **signals**, **state**, **Constitutional Identity**
 - Architecture walkthrough: [docs/architecture.md](docs/architecture.md)
 - Terms for quick reading: [docs/glossary.md](docs/glossary.md)
 - Human Understanding Standard module: [docs/human-understanding-standard.md](docs/human-understanding-standard.md)
+- Agentic safety and relational integrity module: [docs/agentic-safety-and-relational-integrity.md](docs/agentic-safety-and-relational-integrity.md)
 - Human Understanding audit report: [docs/hus-audit-report.md](docs/hus-audit-report.md)
 - Repository maturity assessment: [docs/repository-maturity-assessment.md](docs/repository-maturity-assessment.md)
 

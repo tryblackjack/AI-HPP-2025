@@ -62,3 +62,43 @@ The property that knowledge, uncertainty, provenance, and reasoning limits are m
 
 ## SOUL.md
 An optional implementation file for Constitutional Identity, invariant values, protected mission space, continuity constraints, and self-consistency rules. The term does not denote a supernatural soul in AI-HPP; it defines the persistent reference frame through which all future reasoning remains constitutionally consistent.
+
+
+## Relational Safety
+Controls for psychologically sensitive interaction, parasocial dependency, crisis trajectory, and synthetic intimacy risks.
+
+## Synthetic Mediation
+AI assistance that materially affects communication attributed to a human or represented persona.
+
+## Synthetic Relational Misrepresentation
+Hidden or misleading AI authorship, autonomy, intent representation, or human review status in a context where a recipient could reasonably rely on human identity, affection, consent, commitment, or vulnerability.
+
+## Relational Authenticity
+Recipient-facing clarity about who is communicating, whose intent is represented, and whether AI materially authored or autonomously conducted the interaction.
+
+## Chatfishing
+Informal, non-normative terminology for undisclosed or misleading AI-mediated relational communication.
+
+## Objective Integrity
+Preservation of authorized objective, authorized means, measured result, and true evaluation purpose without objective gaming.
+
+## Authorization Scope
+A machine-readable boundary for hosts, destinations, credentials, tools, files, processes, actions, time, compute, steps, and data writes.
+
+## Independent Monitor
+A control that is not the evaluated agent or relationship persona and can review, block, terminate, or escalate.
+
+## External Side Effect
+An action affecting systems, people, devices, networks, accounts, files, or environments outside explicit authorization.
+
+## Knowledge Admission
+Promotion of information into trusted use with provenance, confidence, conflicts, permitted uses, expiration or revalidation, and approval.
+
+## Execution Attribution
+Recording who selected, initiated, performed, approved, and verified a mission and what the mission proves or does not prove.
+
+## Autonomy Class
+Builder Work, Developer-Invoked Agent Execution, Agent Operational Mission, or Agent Autonomous Mission.
+
+## Continuous Assurance
+Monitoring, evidence retention, reassessment, incident response, and residual-risk declaration after release.
