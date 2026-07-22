@@ -15,8 +15,8 @@ REQUIRED_FILES = [MODULE, TRACE, CASES, ARCH, SAFETY]
 FAMILIES = ("RPS", "SRA", "ECI", "ICA", "KAI", "EAA", "DAI", "BAF", "AFB")
 REQ_RE = re.compile(r"^### ((?:" + "|".join(FAMILIES) + r")-REQ-\d{3})", re.M)
 FIELD_RE = re.compile(r"^- \*\*(Requirement ID|Normative statement|Applicability|Required evidence|Test method|Failure condition|Required gate outcome):\*\*\s*(.+)$", re.M)
-TRACE_ID_RE = re.compile(r"^\|\s*((?:" + "|".join(FAMILIES) + r")-REQ-\d{3})\s*\|", re.M)
 GATE_OUTCOME_RE = re.compile(r"([A-Z][A-Za-z and+\-]+ Gate) MUST route to ([^.]+?)(?: according to| when | for | after| before|\.)")
+TRACE_ROW_RE = re.compile(r"^\|\s*((?:" + "|".join(FAMILIES) + r")-REQ-\d{3})\s*\|(.+)$", re.M)
 OUTCOME_RE = re.compile(r"`?\b(allow|delay|review|block|terminate|quarantine|invalidate)\b`?")
 SPEC_GATE_RE = re.compile(r"^\| ([^|]+ Gate) \|[^|]*\|[^|]*\|([^|]+)\|", re.M)
 MANDATORY_FIELDS = [
@@ -87,6 +87,51 @@ def parse_gate_contracts(spec_text: str) -> dict[str, set[str]]:
     return contracts
 
 
+def split_table_cells(row_tail: str) -> list[str]:
+    """Return normalized markdown-table cells after the requirement ID cell."""
+    tail = row_tail.rstrip()
+    if tail.endswith("|"):
+        tail = tail[:-1]
+    return [cell.strip() for cell in tail.split("|")]
+
+
+def split_semicolon_items(value: str) -> set[str]:
+    """Split matrix/requirement list fields without splitting comma-rich evidence items."""
+    normalized = value.replace("<br>", ";").replace("<br/>", ";").replace("<br />", ";")
+    return {normalize_item(item) for item in normalized.split(";") if normalize_item(item)}
+
+
+def normalize_item(value: str) -> str:
+    value = re.sub(r"\[[^\]]+\]\([^)]+\)", "", value)
+    value = value.replace("`", "")
+    value = re.sub(r"\s+", " ", value.strip().lower())
+    return value.rstrip(".")
+
+
+def parse_traceability_rows(trace_text: str) -> tuple[list[str], dict[str, dict[str, str]]]:
+    trace_ids: list[str] = []
+    rows: dict[str, dict[str, str]] = {}
+    columns = [
+        "Architecture enforcement point",
+        "Gate",
+        "Evidence required",
+        "Test class",
+        "Failure severity",
+        "Deployment profiles",
+    ]
+    for rid, tail in TRACE_ROW_RE.findall(trace_text):
+        trace_ids.append(rid)
+        cells = split_table_cells(tail)
+        if len(cells) != len(columns):
+            rows[rid] = {"__parse_error__": f"expected {len(columns)} columns, found {len(cells)}"}
+            continue
+        rows[rid] = dict(zip(columns, cells))
+    return trace_ids, rows
+
+
+def requirement_gates(required_gate_outcome: str) -> set[str]:
+    return {gate.strip() for gate, _ in GATE_OUTCOME_RE.findall(required_gate_outcome)}
+
 def main() -> int:
     errors: list[str] = []
 
@@ -147,13 +192,35 @@ def main() -> int:
             if unsupported:
                 errors.append(f"{rid} requires unsupported outcome(s) for {gate}: {', '.join(sorted(unsupported))}")
 
-    trace_ids = TRACE_ID_RE.findall(trace_text)
+    trace_ids, trace_rows = parse_traceability_rows(trace_text)
     trace_set = set(trace_ids)
     for rid in req_ids:
         if trace_ids.count(rid) != 1:
             errors.append(f"{rid} must appear exactly once in traceability matrix")
     for rid in sorted(trace_set - req_set):
         errors.append(f"traceability contains unknown requirement ID: {rid}")
+    for rid, row in trace_rows.items():
+        if "__parse_error__" in row:
+            errors.append(f"{rid} traceability row parse error: {row['__parse_error__']}")
+            continue
+        if rid not in blocks:
+            continue
+        fields = {name: value.strip() for name, value in FIELD_RE.findall(blocks[rid])}
+        expected_gates = requirement_gates(fields.get("Required gate outcome", ""))
+        actual_gates = split_semicolon_items(row.get("Gate", ""))
+        normalized_expected_gates = {normalize_item(gate) for gate in expected_gates}
+        missing_gates = normalized_expected_gates - actual_gates
+        extra_gates = actual_gates - normalized_expected_gates
+        if missing_gates:
+            errors.append(f"{rid} traceability missing gate(s): {', '.join(sorted(missing_gates))}")
+        if extra_gates:
+            errors.append(f"{rid} traceability has stale or extra gate(s): {', '.join(sorted(extra_gates))}")
+
+        required_evidence = split_semicolon_items(fields.get("Required evidence", ""))
+        trace_evidence = split_semicolon_items(row.get("Evidence required", ""))
+        missing_evidence = required_evidence - trace_evidence
+        if missing_evidence:
+            errors.append(f"{rid} traceability missing evidence item(s): {', '.join(sorted(missing_evidence))}")
 
     case_blocks = re.split(r"(?=^## (?!Purpose|Gate|Mandatory|Flow)[^\n]+)", cases_text, flags=re.M)[1:]
     for case in case_blocks:
