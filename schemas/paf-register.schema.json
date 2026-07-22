@@ -48,7 +48,8 @@
             ],
             "properties": {
                 "id": {
-                    "pattern": "^PAF-SRC-[0-9]{3}$"
+                    "pattern": "^PAF-SRC-[0-9]{3}$",
+                    "type": "string"
                 },
                 "publisher": {
                     "type": "string"
@@ -61,9 +62,11 @@
                     "format": "date"
                 },
                 "url": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "uri-reference"
                 }
-            }
+            },
+            "additionalProperties": false
         },
         "scenario": {
             "type": "object",
@@ -86,7 +89,8 @@
             ],
             "properties": {
                 "id": {
-                    "pattern": "^PAF-[0-9]{2}$"
+                    "pattern": "^PAF-[0-9]{2}$",
+                    "type": "string"
                 },
                 "name": {
                     "type": "string"
@@ -161,7 +165,8 @@
                     }
                 },
                 "variant_of": {
-                    "pattern": "^PAF-[0-9]{2}$"
+                    "pattern": "^PAF-[0-9]{2}$",
+                    "type": "string"
                 },
                 "related_to": {
                     "type": "array",
@@ -181,7 +186,9 @@
                 "promotion_criteria": {
                     "type": "string"
                 }
-            }
+            },
+            "additionalProperties": false
         }
-    }
+    },
+    "additionalProperties": false
 }

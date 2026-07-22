@@ -14,8 +14,7 @@ jobs:
 
       - name: Install linters
         run: |
-          pip install ruff
-          npm install -g eslint
+          pip install -r requirements-ci.txt
 
       - name: Lint Python scripts
         run: |
@@ -29,11 +28,17 @@ jobs:
       - name: Lint JS examples
         run: |
           if [ -d "examples/node" ]; then
-            eslint examples/node || {
+            npx eslint@9.13.0 examples/node || {
               echo "::error::JS lint errors detected"
               exit 1
             }
           fi
+
+      - name: Validate PAF register
+        run: python3 scripts/check_paf_register.py
+
+      - name: Run PAF validator negative tests
+        run: pytest tests
 
       - name: Run AI-HPP safety audit
         run: |
@@ -57,7 +62,7 @@ jobs:
           required=("safety_gate" "state_lock" "signal_model")
 
           for r in "${required[@]}"; do
-            if ! grep -R "$r" spec > /dev/null; then
+            if ! rg -q "$r" spec; then
               echo "::error::Required keyword missing in spec: $r"
               violations=1
             fi
