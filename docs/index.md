@@ -1,25 +1,32 @@
 # Documentation Index
 
-## Core Documents
+Status: `ACTIVE_INFORMATIVE`.
 
-- [AI-HPP Standard](AI-HPP-Standard.md)
-- [Human Understanding Standard](human-understanding-standard.md)
-- [Agentic Safety and Relational Integrity](agentic-safety-and-relational-integrity.md)
+Start with [Canonical Surface and Source Precedence](canonical-surface-and-source-precedence.md),
+then read the [canonical AI-HPP baseline](ai-hpp-standard.md). The similarly named
+[`AI-HPP-Standard.md`](AI-HPP-Standard.md) is a link shim, not a second standard.
+
+## Active normative and draft modules
+
+- [AI-HPP Standard](ai-hpp-standard.md) — `ACTIVE_NORMATIVE`
+- [Agentic Safety and Relational Integrity](agentic-safety-and-relational-integrity.md) — `ACTIVE_NORMATIVE`
+- [Human Understanding Standard](human-understanding-standard.md) — `USABLE_DRAFT`
+
+## Active informative material
+
+- [Architecture](architecture.md)
+- [Glossary](glossary.md)
 - [Agentic Safety Traceability](agentic-safety-traceability.md)
 - [Agentic Safety Case Studies](agentic-safety-case-studies.md)
 - [Predictive Agentic Failure Register](predictive-agentic-failure-register.md)
-- [HUS Audit Report](hus-audit-report.md)
+- [Autonomous Discovery Assurance Profile](autonomous-discovery-assurance-profile.md)
+- [Autonomous Discovery Negative Tests](autonomous-discovery-negative-tests.md)
+
+## Assessments and change record
+
 - [Repository Maturity Assessment](repository-maturity-assessment.md)
-- [Architecture](architecture.md)
-- [Glossary](glossary.md)
+- [HUS Audit Report](hus-audit-report.md)
+- [Public Changelog](changelog.md)
 
-## Specifications
-
-- [Core Specification](../spec/core.md)
-- [Signal Specification](../spec/signal.md)
-- [Safety Specification](../spec/safety.md)
-
-## Templates
-
-- [Document Template](templates/doc-template.md)
-- [Case Study Template](templates/case-study-template.md)
+Historical material under [`archive/`](../archive/) is `ARCHIVED` or
+`SUPERSEDED`; it is retained for provenance and is not active normative text.
