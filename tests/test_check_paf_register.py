@@ -7,7 +7,7 @@ from pathlib import Path
 import pytest
 import yaml
 
-from scripts.check_paf_register import load_register, validate_semantics
+from scripts.check_paf_register import DATA, load_register, validate_semantics
 
 
 SCHEMA = Path(__file__).resolve().parents[1] / "schemas" / "paf-register.schema.json"
@@ -60,6 +60,17 @@ def schema_errors(tmp_path: Path, register: dict[str, object]) -> str:
     with pytest.raises(ValueError) as excinfo:
         load_register(write_register(tmp_path, register), SCHEMA)
     return str(excinfo.value)
+
+
+def test_unquoted_register_dates_remain_strings() -> None:
+    register = load_register(DATA, SCHEMA)
+
+    assert isinstance(register["last_updated"], str)
+    for source in register["sources"]:
+        assert isinstance(source["publication_date"], str)
+    for scenario in register["scenarios"]:
+        assert isinstance(scenario["last_evidence_date"], str)
+        assert isinstance(scenario["review_date"], str)
 
 
 def test_unknown_field_fails_schema_validation(tmp_path: Path) -> None:

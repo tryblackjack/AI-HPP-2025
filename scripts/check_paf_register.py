@@ -25,11 +25,24 @@ SRC_RE = re.compile(r"^PAF-SRC-\d{3}$")
 REQ_RE = re.compile(r"^[A-Z]{3}-REQ-\d{3}$")
 
 
+class StringPreservingSafeLoader(yaml.SafeLoader):
+    """Load YAML safely without coercing timestamp-like scalars to dates."""
+
+
+StringPreservingSafeLoader.yaml_implicit_resolvers = {
+    key: [
+        (tag, regexp)
+        for tag, regexp in resolvers
+        if tag != "tag:yaml.org,2002:timestamp"
+    ]
+    for key, resolvers in yaml.SafeLoader.yaml_implicit_resolvers.items()
+}
+
 
 def load_register(data_path: Path, schema_path: Path) -> dict[str, object]:
     """Load YAML register data and validate it against the JSON Schema."""
     with data_path.open(encoding="utf-8") as data_file:
-        register = yaml.safe_load(data_file)
+        register = yaml.load(data_file, Loader=StringPreservingSafeLoader)
     with schema_path.open(encoding="utf-8") as schema_file:
         schema = json.load(schema_file)
 
@@ -62,7 +75,6 @@ def visit(pid: str, variants: dict[str, str], stack: tuple[str, ...], errors: li
     parent = variants.get(pid)
     if parent:
         visit(parent, variants, (*stack, pid), errors)
-
 
 
 def validate_semantics(register: dict[str, object], trace_text: str) -> list[str]:
