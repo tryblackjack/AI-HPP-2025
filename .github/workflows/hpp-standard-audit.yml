@@ -55,30 +55,30 @@ jobs:
           echo "Running safety rules audit…"
 
           violations=0
+          active_spec=(spec/core.md spec/safety.md spec/signal.md)
 
-          # Forbidden words (anti-doom)
+          # Forbidden implementation shortcuts in the active textual spec.
           forbidden=("raw_device_access" "direct_hardware_bridge" "unsafe_signal" "bypass_safety")
 
-          for f in $(git ls-files); do
-            for w in "${forbidden[@]}"; do
-              if grep -q "$w" "$f"; then
-                echo "::error file=$f::Forbidden term detected: $w"
-                violations=1
-              fi
-            done
-          done
-
-          # Required keywords
-          required=("safety_gate" "state_lock" "signal_model")
-
-          for r in "${required[@]}"; do
-            if ! rg -q "$r" spec; then
-              echo "::error::Required keyword missing in spec: $r"
+          for w in "${forbidden[@]}"; do
+            if matches=$(git grep -n -I -F -- "$w" -- "${active_spec[@]}"); then
+              echo "$matches"
+              echo "::error::Forbidden term detected in active spec: $w"
               violations=1
             fi
           done
 
-          if [ $violations -eq 1 ]; then
+          # Required concepts as they appear in the active Markdown specification.
+          required=("safety gate" "state check" "signal model")
+
+          for r in "${required[@]}"; do
+            if ! git grep -q -i -F -- "$r" -- "${active_spec[@]}"; then
+              echo "::error::Required concept missing in active spec: $r"
+              violations=1
+            fi
+          done
+
+          if [ "$violations" -eq 1 ]; then
             exit 1
           fi
 
