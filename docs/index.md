@@ -25,6 +25,7 @@ then read the [canonical AI-HPP baseline](ai-hpp-standard.md). The similarly nam
 ## Assessments and change record
 
 - [Repository Maturity Assessment](repository-maturity-assessment.md)
+- [Repository Governance](repository-governance.md)
 - [HUS Audit Report](hus-audit-report.md)
 - [Public Changelog](changelog.md)
 

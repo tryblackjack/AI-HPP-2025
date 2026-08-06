@@ -84,4 +84,6 @@ not by the license or archived material.
 Development is active. Proposed changes become canonical only through the
 review and precedence process. Contributions are welcome under
 [CONTRIBUTING.md](CONTRIBUTING.md); public changes are summarized in the
-[changelog](docs/changelog.md).
+[changelog](docs/changelog.md). Expected owner review, protected-branch checks,
+repository metadata, and pull-request lifecycle controls are recorded in
+[repository governance](docs/repository-governance.md).
