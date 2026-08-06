@@ -74,6 +74,10 @@ evidence, authority, provenance, or review is absent.
 - `examples/` — minimal integration notes, not conformance evidence
 - `archive/` — historical and superseded material retained for provenance; not active
 
+Repository ownership, pull-request lifecycle, and recommended `main` protection
+are documented in [Repository Governance](docs/repository-governance.md). The
+committed policy does not by itself prove that GitHub applies those settings.
+
 ## Licensing, attribution, and development
 
 The repository is licensed under CC BY-SA 4.0 with attribution to Evgeniy

@@ -21,6 +21,7 @@ then read the [canonical AI-HPP baseline](ai-hpp-standard.md). The similarly nam
 - [Predictive Agentic Failure Register](predictive-agentic-failure-register.md)
 - [Autonomous Discovery Assurance Profile](autonomous-discovery-assurance-profile.md)
 - [Autonomous Discovery Negative Tests](autonomous-discovery-negative-tests.md)
+- [Repository Governance](repository-governance.md)
 
 ## Assessments and change record
 
