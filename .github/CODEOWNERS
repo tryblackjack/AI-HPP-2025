@@ -1,0 +1,3 @@
+# Repository-wide review ownership. Branch protection should require review from
+# this owner before changes to the canonical surface are merged.
+* @tryblackjack
