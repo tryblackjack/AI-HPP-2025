@@ -23,13 +23,28 @@ PRIORITY = {"P0", "P1", "P2", "P3"}
 PAF_RE = re.compile(r"^PAF-\d{2}$")
 SRC_RE = re.compile(r"^PAF-SRC-\d{3}$")
 REQ_RE = re.compile(r"^[A-Z]{3}-REQ-\d{3}$")
+TIMESTAMP_TAG = "tag:yaml.org,2002:timestamp"
+
+
+class StringDatesSafeLoader(yaml.SafeLoader):
+    """Load YAML safely without coercing ISO-like timestamps to date objects."""
+
+
+StringDatesSafeLoader.yaml_implicit_resolvers = {
+    key: [
+        (tag, regexp)
+        for tag, regexp in resolvers
+        if tag != TIMESTAMP_TAG
+    ]
+    for key, resolvers in yaml.SafeLoader.yaml_implicit_resolvers.items()
+}
 
 
 
 def load_register(data_path: Path, schema_path: Path) -> dict[str, object]:
     """Load YAML register data and validate it against the JSON Schema."""
     with data_path.open(encoding="utf-8") as data_file:
-        register = yaml.safe_load(data_file)
+        register = yaml.load(data_file, Loader=StringDatesSafeLoader)
     with schema_path.open(encoding="utf-8") as schema_file:
         schema = json.load(schema_file)
 

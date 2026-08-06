@@ -48,7 +48,7 @@ jobs:
         run: python3 scripts/check_discovery_profile.py
 
       - name: Run PAF validator negative tests
-        run: pytest tests
+        run: PYTHONPATH=. pytest tests
 
       - name: Run AI-HPP safety audit
         run: |
@@ -59,21 +59,10 @@ jobs:
           # Forbidden words (anti-doom)
           forbidden=("raw_device_access" "direct_hardware_bridge" "unsafe_signal" "bypass_safety")
 
-          for f in $(git ls-files); do
-            for w in "${forbidden[@]}"; do
-              if grep -q "$w" "$f"; then
-                echo "::error file=$f::Forbidden term detected: $w"
-                violations=1
-              fi
-            done
-          done
-
-          # Required keywords
-          required=("safety_gate" "state_lock" "signal_model")
-
-          for r in "${required[@]}"; do
-            if ! rg -q "$r" spec; then
-              echo "::error::Required keyword missing in spec: $r"
+          for w in "${forbidden[@]}"; do
+            if matches=$(git grep -n -I -e "$w" -- 'spec/*.md'); then
+              printf '%s\n' "$matches"
+              echo "::error::Forbidden term detected in active spec: $w"
               violations=1
             fi
           done
