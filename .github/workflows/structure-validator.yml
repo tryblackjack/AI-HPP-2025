@@ -30,6 +30,7 @@ jobs:
             "examples"
             "data"
             "schemas"
+            "tests"
             "archive"
             ".markdownlint.json"
             "eslint.config.mjs"

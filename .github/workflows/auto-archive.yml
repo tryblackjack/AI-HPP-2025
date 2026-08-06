@@ -28,8 +28,14 @@ jobs:
             "spec"
             "examples"
             "scripts"
+            "tests"
+            "data"
+            "schemas"
             "archive"
             "CONTRIBUTING.md"
+            ".markdownlint.json"
+            "eslint.config.mjs"
+            "requirements-ci.txt"
           )
 
           mkdir -p archive/$(date +%Y-%m-%d)/auto

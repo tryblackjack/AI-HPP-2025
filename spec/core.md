@@ -46,7 +46,6 @@ This postulate requires a Protected Core for Constitutional Identity, Mission Co
 2. One idea per sentence.
 3. If a child cannot explain it, rewrite it.
 
-
 ## Agentic Safety Extension Terms
 
 - **Relational Safety**: controls for psychologically sensitive interaction, parasocial dependency, crisis trajectory, and synthetic intimacy risks.

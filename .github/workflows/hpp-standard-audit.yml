@@ -26,12 +26,19 @@ jobs:
           fi
 
       - name: Lint JS examples
+        shell: bash
         run: |
-          if [ -d "examples/node" ]; then
-            npx eslint@9.13.0 examples/node || {
+          mapfile -d '' js_files < <(
+            find examples/node -type f \
+              \( -name '*.js' -o -name '*.mjs' -o -name '*.cjs' \) -print0
+          )
+          if (( ${#js_files[@]} )); then
+            npx eslint@9.13.0 "${js_files[@]}" || {
               echo "::error::JS lint errors detected"
               exit 1
             }
+          else
+            echo "No JavaScript example files found; nothing to lint."
           fi
 
       - name: Validate PAF register

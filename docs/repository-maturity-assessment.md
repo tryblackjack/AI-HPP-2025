@@ -261,7 +261,6 @@ The integration path should not replace AI-HPP's existing model. The correct int
 5. Add governance lifecycle and change-control docs that reference the archived control framework and adaptive governance annex without replacing them.
 6. Add reviewer checklists for reference architecture, safety standard, certification framework, and governance framework maturity.
 
-
 ## Dated Update Note — 2026-07-22
 
 This patch adds a minimal active normative module for agentic safety and relational integrity, a compact safety gate index, a traceability matrix, informative case-study classes, and a structural documentation validator. It addresses part of the previously identified gap around stable requirement IDs, gate contracts, test obligations, evidence expectations, and traceability for this new requirement family.
