@@ -1,20 +1,27 @@
-## License & Attribution
+# License and Attribution
 
-**License:** CC BY-SA 4.0 (Creative Commons Attribution-ShareAlike)
+**License:** CC BY-SA 4.0 (Creative Commons Attribution-ShareAlike 4.0
+International), <https://creativecommons.org/licenses/by-sa/4.0/>
 
 You are free to:
-- Share — copy and redistribute
-- Adapt — remix and build upon
+
+- **Share** — copy and redistribute the material in any medium or format.
+- **Adapt** — remix, transform, and build upon the material.
 
 Under the following terms:
-- **Attribution** — credit to Evgeniy Vasyliev and co-authors
-- **ShareAlike** — same license for derivatives
-- **Integrity** — derivatives must be clearly marked as unofficial
 
-**Official version:** Only at [github.com/your-repo]
-**"AI-HPP" name:** May only be used for versions that maintain 
-the core principles of human dignity and life preservation.
+- **Attribution** — give appropriate credit to Evgeniy Vasyliev and co-authors,
+  provide a link to the license, and indicate if changes were made.
+- **ShareAlike** — distribute contributions under the same license as the original.
 
-Any version that removes or contradicts the core principle 
-"W_life → ∞" is not compliant with AI-HPP and cannot use this name.
-```
+The official public repository is
+<https://github.com/tryblackjack/AI-HPP-Standard>.
+
+Modified or derivative versions should be clearly identified as such and should
+not be represented as the official repository version.
+
+These copyright and license terms govern reuse of repository material. They do
+not define or demonstrate AI-HPP conformance. Conformance is defined by the
+active canonical normative documents identified in
+[`docs/canonical-surface-and-source-precedence.md`](docs/canonical-surface-and-source-precedence.md)
+and requires the evidence those documents specify.

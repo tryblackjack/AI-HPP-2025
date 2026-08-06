@@ -1,5 +1,7 @@
 # AI-HPP Standard
 
-Canonical link shim. Read the main file here:
+Status: `MIRROR` link shim. This file contains no normative text.
+
+The canonical active baseline is:
 
 - [ai-hpp-standard.md](ai-hpp-standard.md)

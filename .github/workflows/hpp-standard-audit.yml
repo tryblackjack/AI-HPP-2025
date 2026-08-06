@@ -37,6 +37,9 @@ jobs:
       - name: Validate PAF register
         run: python3 scripts/check_paf_register.py
 
+      - name: Validate autonomous discovery profile
+        run: python3 scripts/check_discovery_profile.py
+
       - name: Run PAF validator negative tests
         run: pytest tests
 
