@@ -31,4 +31,4 @@ jobs:
           python3 scripts/check_paf_register.py
 
       - name: Run PAF validator negative tests
-        run: pytest tests
+        run: PYTHONPATH=. pytest tests

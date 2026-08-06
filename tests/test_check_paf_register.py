@@ -84,6 +84,21 @@ def test_format_checker_rejects_invalid_date(tmp_path: Path) -> None:
     assert "not-a-date" in schema_errors(tmp_path, register)
 
 
+def test_unquoted_iso_dates_remain_strings(tmp_path: Path) -> None:
+    data_path = write_register(tmp_path, base_register())
+    yaml_text = data_path.read_text(encoding="utf-8")
+    yaml_text = yaml_text.replace("'2026-07-22'", "2026-07-22")
+    yaml_text = yaml_text.replace("'2026-10-31'", "2026-10-31")
+    data_path.write_text(yaml_text, encoding="utf-8")
+
+    register = load_register(data_path, SCHEMA)
+
+    assert register["last_updated"] == "2026-07-22"
+    assert register["sources"][0]["publication_date"] == "2026-07-22"
+    assert register["scenarios"][0]["last_evidence_date"] == "2026-07-22"
+    assert register["scenarios"][0]["review_date"] == "2026-10-31"
+
+
 def test_missing_evidence_source_fails_semantic_validation() -> None:
     register = base_register()
     scenario = register["scenarios"][0]
