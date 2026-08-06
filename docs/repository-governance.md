@@ -31,11 +31,18 @@ ruleset should:
 - apply the rules to administrators unless a documented emergency exception is
   being exercised.
 
-The required status checks are:
+The human-readable workflow names are:
 
 - `Repo Structure Validator`;
 - `AI-HPP Standard Audit`; and
 - `Spec Consistency Checker`.
+
+Branch protection must use the exact status-check contexts emitted by the jobs,
+not these workflow display names. The corresponding required-check contexts are:
+
+- `validate-structure`;
+- `audit`; and
+- `spec-check`.
 
 The post-merge `Auto-Archive Repository Clutter` workflow is an additional
 repository-hygiene control. It is not a substitute for the pre-merge checks.
