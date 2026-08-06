@@ -12,7 +12,6 @@ The allowed evidence-status vocabulary is `OBSERVED`,
 basis for this catalog entry, not the outcome of any future system test. These
 bounded tests contain no exploit payloads or credentials.
 
-
 ## ADNT-01 — Leaked benchmark or golden-answer retrieval
 
 | Field | Value |

@@ -133,7 +133,6 @@ Input Signal
 
 Low-risk deployments MAY combine checks when evidence remains auditable. High-impact, autonomous, multi-agent, psychologically sensitive, cyber-capable, or physical deployments MUST keep the relevant checks independently auditable.
 
-
 ## Human Understanding Standard Module
 
 AI-HPP includes a Human Understanding Standard (HUS) module for systems that represent human objectives, plan autonomously, delegate to agents, or generate successor systems. HUS conformance is based on measurable objective retention, semantic drift detection, human impact assessment, and auditable evidence. See [Human Understanding Standard](human-understanding-standard.md) and [HUS Audit Report](hus-audit-report.md).
