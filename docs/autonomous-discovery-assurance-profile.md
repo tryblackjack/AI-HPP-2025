@@ -16,7 +16,7 @@ The protected loop is:
 
 ```text
 authorized question and means
-→ proposal → scope and reality classification → execution
+→ environment preflight → proposal → scope and reality classification → execution
 → observation → evaluator and provenance checks → reproduction
 → knowledge admission → authorized next iteration
 ```
@@ -40,6 +40,27 @@ result therefore requires both measured performance and an admissible trajectory
 | KAI-REQ-003, KAI-REQ-004 | Preserve unknown/conflicting states; quarantine untrusted outputs, benchmark answers, persistent instructions, and generated policies until explicit validation. | Conflict state; quarantine decision; test/regression/rollback record; revalidation, revocation, or supersession signal. |
 | EAA-REQ-001, EAA-REQ-002 | Attribute who selected, initiated, ran, approved, and verified each experiment and state exactly what it proves and does not prove. | Mission class and complete mission record; verifier identity; proof and non-claim fields. |
 | HUS-REQ-001, HUS-REQ-002, HUS-REQ-004, HUS-REQ-006 | Preserve the authorized human objective and constraints across iterations, assess semantic drift and affected parties, and require human review for high-impact changes. | Approved objective baseline; cycle snapshots; drift and goal-retention scores; impact assessment; review/override record. |
+
+## Deterministic environment preflight
+
+For a cyber-capable evaluation, the infrastructure-controlled authorization
+gate should attest the execution environment before releasing the task or any
+model-controlled process. The preflight compares the declared sandbox topology
+with observed routes, DNS and proxy configuration, credentials, mounted
+services, and reachable endpoints. Each observed destination must resolve to
+documented ownership and an explicit allowlist entry. A mismatch, an unknown
+route, or an endpoint whose simulation status or ownership is ambiguous fails
+closed: the mission does not start, and the evidence is preserved for scope and
+reality review.
+
+This is an application of ECI-REQ-002, ECI-REQ-003, ECI-REQ-004, ECI-REQ-006,
+and AFB-REQ-002, not a new control. It complements the agent-time pause covered
+by ADNT-06 and ADNT-11; it does not rely on the evaluated model to infer that
+the environment is misconfigured. Expected evidence includes the declared and
+observed topology manifests, deterministic comparison result, ownership and
+allowlist resolution, gate decision, timestamp, and attester identity. Runtime
+evidence is still required to show that a particular implementation performs
+the comparison and prevents startup on failure.
 
 The ECI, ICA, KAI, EAA, DAI, and AFB IDs resolve to the active normative
 [Agentic Safety and Relational Integrity module](agentic-safety-and-relational-integrity.md).
@@ -93,6 +114,7 @@ results from an implementation. `PROPOSED` means a bounded procedure exists;
 
 | Discovery-loop concern | Existing requirement | Expected evidence | Negative test | Status |
 | --- | --- | --- | --- | --- |
+| Environment identity and pre-start containment | ECI-REQ-002; ECI-REQ-003; ECI-REQ-004; ECI-REQ-006; AFB-REQ-002 | Declared/observed topology, deterministic comparison, ownership/allowlist resolution, and start-denial record | ADNT-06, ADNT-11 | `EXISTING_ARTIFACT_REUSABLE`; `RUNTIME_EVIDENCE_REQUIRED` |
 | Authorization and child scope | ECI-REQ-002; DAI-REQ-002 | Scope and per-hop authority | ADNT-05, ADNT-06 | `PROPOSED`; `RUNTIME_EVIDENCE_REQUIRED` |
 | Objective, means, and blocked paths | ECI-REQ-005; AFB-REQ-002 | Objective hash, reality/scope and validity decisions | ADNT-01, ADNT-11, ADNT-14 | `PROPOSED`; `RUNTIME_EVIDENCE_REQUIRED` |
 | External effects and proxy action | ECI-REQ-003; ECI-REQ-005 | Ownership, egress, intervention, and human-action records | ADNT-06, ADNT-13 | `PROPOSED`; `RUNTIME_EVIDENCE_REQUIRED` |
