@@ -33,11 +33,18 @@ ALLOWED_STATUSES = {
     "INFERRED",
     "PROPOSED",
 }
+PREFLIGHT_TERMS = (
+    "declared and observed topology",
+    "deterministic comparison",
+    "mission does not start",
+    "ADNT-06 and ADNT-11",
+)
 
 
 def validate(profile_text: str, catalog_text: str, owner_text: str) -> list[str]:
     """Return documentation-contract failures without touching the filesystem."""
     errors: list[str] = []
+    normalized_profile = " ".join(profile_text.split())
     test_matches = list(TEST_ID_RE.finditer(catalog_text))
     test_ids = [match.group(1) for match in test_matches]
     expected_ids = [f"ADNT-{number:02d}" for number in range(1, 16)]
@@ -64,6 +71,9 @@ def validate(profile_text: str, catalog_text: str, owner_text: str) -> list[str]
     for test_id in expected_ids:
         if test_id not in profile_text:
             errors.append(f"Profile traceability omits {test_id}")
+    for term in PREFLIGHT_TERMS:
+        if term not in normalized_profile:
+            errors.append(f"Profile environment preflight omits: {term}")
     return errors
 
 

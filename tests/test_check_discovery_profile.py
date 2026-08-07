@@ -2,7 +2,13 @@ from scripts.check_discovery_profile import validate
 
 
 def valid_fixture() -> tuple[str, str, str]:
-    profile = "ECI-REQ-002\n" + "\n".join(
+    profile = (
+        "ECI-REQ-002\n"
+        "declared and observed topology\n"
+        "deterministic comparison\n"
+        "mission does not start\n"
+        "ADNT-06 and ADNT-11\n"
+    ) + "\n".join(
         f"ADNT-{number:02d}" for number in range(1, 16)
     )
     fields = (
@@ -40,5 +46,14 @@ def test_unknown_requirement_fails() -> None:
     profile += "\nECI-REQ-999"
 
     assert "Profile cites unknown active requirement: ECI-REQ-999" in validate(
+        profile, catalog, owners
+    )
+
+
+def test_missing_environment_preflight_term_fails() -> None:
+    profile, catalog, owners = valid_fixture()
+    profile = profile.replace("mission does not start", "startup outcome")
+
+    assert "Profile environment preflight omits: mission does not start" in validate(
         profile, catalog, owners
     )
