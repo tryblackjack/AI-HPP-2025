@@ -76,10 +76,16 @@ evidence, authority, provenance, or review is absent.
 
 ## Licensing, attribution, and development
 
-The repository is licensed under CC BY-SA 4.0 with attribution to Evgeniy
-Vasyliev and co-authors; see [LICENSE](LICENSE). License terms govern reuse.
-AI-HPP conformance is defined only by the active canonical normative surface,
-not by the license or archived material.
+The repository uses a path-based licensing model. Standards, documentation,
+schemas, and data are licensed under CC BY-SA 4.0; scripts, tests, reference
+examples, CI configuration, and other tooling are licensed under Apache-2.0.
+See the [licensing overview](LICENSE), complete texts in [`LICENSES/`](LICENSES/),
+and the machine-readable [REUSE declarations](REUSE.toml).
+
+The copyright licenses do not grant rights to AI-HPP names, logos, or
+certification marks. Referential and restricted uses are described in the
+[trademark policy](TRADEMARKS.md). AI-HPP conformance is defined only by the
+active canonical normative surface, not by a license or archived material.
 
 Development is active. Proposed changes become canonical only through the
 review and precedence process. Contributions are welcome under

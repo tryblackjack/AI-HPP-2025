@@ -1,0 +1,31 @@
+version = 1
+
+[[annotations]]
+path = [
+  "README.md",
+  "CONTRIBUTING.md",
+  "docs/**",
+  "spec/**",
+  "data/**",
+  "schemas/**",
+  "archive/**",
+  "TRADEMARKS.md",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Evgeniy Vasyliev and AI-HPP contributors"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
+path = [
+  ".github/**",
+  ".gitignore",
+  ".markdownlint.json",
+  "eslint.config.mjs",
+  "requirements-ci.txt",
+  "scripts/**",
+  "tests/**",
+  "examples/**",
+]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Evgeniy Vasyliev and AI-HPP contributors"
+SPDX-License-Identifier = "Apache-2.0"
