@@ -23,6 +23,10 @@ jobs:
           ALLOWED=(
             "README.md"
             "LICENSE"
+            "LICENSES"
+            "REUSE.toml"
+            "TRADEMARKS.md"
+            "LICENSING_PROVENANCE_MATRIX.csv"
             ".gitignore"
             "docs"
             "spec"
