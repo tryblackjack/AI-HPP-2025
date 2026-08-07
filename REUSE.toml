@@ -3,6 +3,9 @@ version = 1
 [[annotations]]
 path = [
   "README.md",
+  "LICENSE",
+  "REUSE.toml",
+  "LICENSING_PROVENANCE_MATRIX.csv",
   "CONTRIBUTING.md",
   "docs/**",
   "spec/**",
