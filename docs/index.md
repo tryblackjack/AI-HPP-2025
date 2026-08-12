@@ -19,6 +19,7 @@ then read the [canonical AI-HPP baseline](ai-hpp-standard.md). The similarly nam
 - [Agentic Safety Traceability](agentic-safety-traceability.md)
 - [Agentic Safety Case Studies](agentic-safety-case-studies.md)
 - [Predictive Agentic Failure Register](predictive-agentic-failure-register.md)
+- [Predictive Failure Outlook — August 2026](predictive-failure-outlook-2026-08.md) — high-probability failures for Q3–Q4 2026
 - [Autonomous Discovery Assurance Profile](autonomous-discovery-assurance-profile.md)
 - [Autonomous Discovery Negative Tests](autonomous-discovery-negative-tests.md)
 
