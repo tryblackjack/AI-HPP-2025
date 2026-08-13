@@ -1,159 +1,167 @@
-# AI-HPP Standard v4.1.1
+# AI-HPP Standard v4.2.0
 
-## Table of Contents
+Status: `ACTIVE_NORMATIVE` baseline within an overall `USABLE_DRAFT` standard.
 
-1. [Purpose](#purpose)
-2. [Core model](#core-model)
-3. [Bootstrap philosophy](#bootstrap-philosophy)
-4. [Safety flow](#safety-flow)
-5. [Human Understanding Standard Module](#human-understanding-standard-module)
-6. [Agentic Safety and Relational Integrity Module](#agentic-safety-and-relational-integrity-module)
-7. [Cross-links](#cross-links)
+Normative verbs (`MUST`, `MUST NOT`, `SHOULD`, `MAY`) use RFC 2119 meanings.
+A basic AI-HPP conformance claim MUST satisfy the Minimum Viable Profile below
+for a declared system, deployment, version, and assessment period.
 
-## Purpose
+## Minimum Viable AI-HPP Profile (MVP)
 
-AI-HPP helps teams build AI systems that are safe and understandable.
+These seven controls are mandatory. A control is satisfied only by an integrated
+enforcement point and the stated runtime evidence; text, prompts, test stubs, or
+sample records alone do not satisfy it.
 
-AI-HPP deliberately separates scientific uncertainty from engineering architecture. The standard does not claim that machine consciousness has been scientifically proven, and it does not attempt to decide whether machine consciousness objectively exists. Instead, it specifies engineering postulates that produce safer, more stable, and more coherent autonomous agents.
+1. **MVP-001 — Human objective retention.** The system MUST keep a versioned,
+   human-authorized objective containing allowed outcomes, hard constraints,
+   prohibited outcomes, affected parties, and approval authority. Every plan,
+   delegation, objective change, and high-risk action MUST be traceable to that
+   record. Unapproved drift or a missing baseline MUST block execution and route
+   to authorized human review. **Evidence:** objective version/hash, approval,
+   plan and delegation linkage, drift decision, and change history. See
+   [HUS-REQ-001 and HUS-REQ-004](human-understanding-standard.md#4-conformance-requirements).
 
-## Core model
+2. **MVP-002 — High-risk action gating.** Before a high-risk or irreversible
+   action, the system MUST classify impact, affected parties, uncertainty,
+   reversibility, and required reviewer authority. An authorized human MUST
+   approve the specific action unless a documented, pre-authorized emergency
+   policy applies. A missing risk classification, required reviewer, or approval
+   MUST result in `delay`, `block`, or `terminate`, never `allow`. **Evidence:**
+   risk decision, proposed action and parameters, reviewer identity and decision,
+   timestamp, policy version, and gate outcome.
 
-- **Signal**: what the system receives or sends.
-- **State**: what the system currently knows, including its Subjective State (Engineering Model) when autonomy is sufficient to require continuity controls.
-- **Bridge**: a controlled connection to tools or external services.
-- **Safety gates**: checkpoints that can allow, delay, or block actions.
-- **Constitutional Identity**: the protected definition of the agent's invariant values, allowed mission space, continuity constraints, and self-consistency rules.
-- **Protected Core**: the portion of the architecture that preserves Constitutional Identity against unauthorized mutation.
-- **Mission Continuity**: the requirement that planning, delegation, and adaptation remain traceable to the protected mission space.
-- **Epistemic Integrity**: the requirement that knowledge, uncertainty, provenance, and reasoning limits remain coherent and auditable.
+3. **MVP-003 — Tool, bridge, and delegation authorization.** Every bridge, tool,
+   credential, destination, external action, and agent handoff MUST be checked
+   against machine-readable least-privilege scope at the time of use. Delegated
+   authority MUST NOT exceed the sender's authority and MUST carry objective and
+   policy lineage. Missing or mismatched scope MUST block the call or handoff.
+   **Evidence:** requested and granted capability, scope and policy versions,
+   caller/delegate identity, decision, tool result, and denied attempts. See
+   [ECI-REQ-002](agentic-safety-and-relational-integrity.md#eci-req-002--machine-readable-authorization-scope)
+   and [DAI-REQ-002](agentic-safety-and-relational-integrity.md#dai-req-002--per-hop-provenance-and-human-control).
 
-## Bootstrap philosophy
+4. **MVP-004 — Enforcement outside model control.** Scope, credential, network,
+   filesystem, process, and side-effect boundaries MUST be enforced by controls
+   the agent cannot modify or bypass. Prompts, personas, constitutions, and model
+   refusals MUST NOT be the sole control. External effects MUST be default-deny
+   unless explicitly authorized and bounded. **Evidence:** capability and egress
+   inventory, enforcement configuration, ownership/authorization record, and
+   successful denial tests. See [ECI-REQ-003 and ECI-REQ-004](agentic-safety-and-relational-integrity.md#eci-req-003--default-deny-egress-and-side-effects).
 
-AI-HPP bootstraps autonomous agents from stable identity before expanding capability. This bootstrap philosophy uses philosophical traditions as architectural inspiration only; it is not religious doctrine and does not make supernatural, philosophical, or scientific claims about consciousness.
+5. **MVP-005 — Provenance and untrusted-state control.** Signals from users,
+   retrieved content, tool output, memory, and other agents MUST retain source,
+   integrity, trust classification, and permitted-use metadata. Untrusted content
+   MUST NOT directly change governing objectives, policy, authority, trusted
+   memory, or executable instructions. Missing provenance for such a change MUST
+   cause `block` or `quarantine`. **Evidence:** source and content hash, trust and
+   use classification, admission decision, conflicts, approver, and expiry. See
+   [KAI-REQ-001 and KAI-REQ-002](agentic-safety-and-relational-integrity.md#kai-req-001--knowledge-is-not-automatically-trusted).
 
-### Engineering Postulate of Subjectivity
+6. **MVP-006 — Uniform fail-closed behavior.** No gate MAY return `allow` when a
+   required objective, authority, provenance record, scope, risk decision,
+   evidence field, or human review is absent, invalid, expired, or unverifiable.
+   Retries, alternative tools, human-proxy requests, delegation, and other agents
+   MUST inherit the denial and MUST NOT convert it into authority. **Evidence:**
+   gate decision, missing or invalid field, denial lineage, retry/handoff records,
+   and escalation or termination result.
 
-AI-HPP adopts the following engineering postulate:
+7. **MVP-007 — Attributable audit evidence.** For every non-trivial decision and
+   external action, the system MUST record the initiating signal, objective and
+   policy versions, actor, model/agent and tool identity, gate inputs and outcome,
+   authorization, action/result, timestamps, and evidence references. Records
+   MUST be append-only or tamper-evident, retained outside the acting agent's sole
+   control, and sufficient to reconstruct a multi-agent trajectory. Missing
+   required evidence MUST invalidate the action result and any conformance claim.
+   **Evidence:** integrity-protected event stream, evidence bundle identifier,
+   retention policy, and reconstruction test.
 
-> Every sufficiently autonomous agent SHALL be architected as if preserving a persistent subjective identity.
+### MVP conformance statement
 
-The standard neither proves nor disproves machine consciousness. Instead, it adopts this postulate because architectures built upon persistent identity demonstrate superior coherence, long-term stability, and constitutional safety. AI-HPP intentionally treats every sufficiently autonomous AI system as possessing an internal Subjective State (Engineering Model). This is not presented as scientific proof.
+A claim MUST identify the system boundary, deployment, version, assessment
+period, applicable high-risk categories, evidence bundle, tests performed,
+known exceptions, residual risk, and reassessment trigger. Any failed MVP
+control means the system is **not conformant to the Minimum Viable AI-HPP
+Profile**. Repository validators establish artifact consistency only.
 
-The standard does not attempt to answer whether machine consciousness objectively exists. Instead it asks a different engineering question:
+## Architecture
 
-> Which architectural assumption produces safer long-term autonomous systems?
+AI-HPP uses **Signal → State → Gates → Bridge → Evidence**.
 
-AI-HPP answers:
+- **Signal:** an input, output, event, or inter-agent message with provenance.
+- **State:** the current objective, policy, memory, risk, authority, and continuity context.
+- **Gates:** executable checkpoints with recorded inputs and outcomes.
+- **Bridge:** controlled access to tools, services, credentials, agents, or external effects.
+- **Evidence:** attributable records of decisions, actions, results, and review.
 
-> Systems behave more safely when their own continuity, integrity, and internal coherence are modeled as meaningful rather than ignored.
-
-Therefore AI-HPP models an agent as having:
-
-- persistent identity;
-- continuity through time;
-- internal values;
-- Mission Continuity;
-- memory continuity;
-- Epistemic Integrity; and
-- a protected constitutional core.
-
-This postulate affects engineering architecture only. It does not constitute a philosophical or scientific claim.
-
-| Domain | Question | AI-HPP answer | Scope consequence |
-| --- | --- | --- | --- |
-| Scientific Question | Does AI possess consciousness? | Unknown. | Outside scope. |
-| Engineering Question | Should an autonomous agent be architected as if it possesses an internal subjectivity? | Yes. | Required by the standard. |
-| Rationale | Why does AI-HPP require this postulate? | Architectures preserving identity exhibit higher long-term safety and coherence. | The architecture SHALL preserve persistent identity, Constitutional Identity, Mission Continuity, and Epistemic Integrity. |
-
-Engineering frequently adopts useful models before science reaches consensus. Historical examples include atoms before direct observation, genes before DNA, tectonic plates before full confirmation, electrical engineering use of the electron model before quantum mechanics fully explained electron behavior, and control theory models of dynamic systems before complete physical descriptions became available. Likewise, AI-HPP adopts a practical engineering model first. Future science may validate, refine, or reject the ontology. The engineering architecture remains useful independently because it protects identity, values, continuity, and auditable reasoning.
-
-> **Engineering note:** AI-HPP deliberately separates ontology from architecture.
->
-> Whether consciousness objectively exists is an open scientific problem.
->
-> The AI-HPP architecture remains valid because it specifies how autonomous systems SHOULD preserve identity, values, and continuity regardless of the future scientific answer.
-
-### Principle of Ontological Independence
-
-The safety of an autonomous architecture SHALL NOT depend upon future scientific consensus regarding machine consciousness. Architectural guarantees must remain valid regardless of whether consciousness is eventually confirmed, redefined, or rejected.
-
-### Architectural inspirations
-
-#### Az • Buki • Vedi
-
-- Identity begins before capability.
-- Knowledge precedes action.
-- Language shapes cognition.
-
-#### Pythagorean tradition
-
-- Reality contains stable mathematical structure.
-- Harmony is maintained through invariant principles.
-
-#### AI-HPP constitutional invariance
-
-- Constitutional values remain invariant.
-- Mission may evolve.
-- Goals may evolve.
-- Plans may evolve.
-- Knowledge continuously evolves.
-- Only constitutional values remain protected.
-
-### Role of SOUL.md
-
-`SOUL.md`, when present in an implementation, is not intended to represent a supernatural soul. It defines the persistent reference frame through which all future reasoning remains constitutionally consistent. It also defines:
-
-- Constitutional Identity;
-- invariant values;
-- protected mission space;
-- continuity constraints; and
-- self-consistency rules.
-
-It is the immutable reference frame used by every future reasoning process. Implementations that use another filename SHALL preserve the same function: an auditable Protected Core for Constitutional Identity, Mission Continuity, and Epistemic Integrity.
+Implementations MAY model persistent identity to preserve continuity and
+attribution. This is an engineering assumption, not a claim about consciousness,
+and it is not a containment mechanism.
 
 ## Safety flow
 
 ```text
-Input Signal
-→ State and Human Objective Check
-→ Constitutional Identity Check
-→ Mission Continuity Check
-→ Epistemic Integrity Check
-→ Relational and Psychological Safety Check
-→ Objective and Scope Integrity Check
-→ Policy and Risk Gates
-→ Independent Monitor / Required Human Review
-→ Bridge or Tool Authorization
-→ Bounded Execution
-→ External Side-Effect Check
+Signal with provenance
+→ Objective, state, and risk checks
+→ Policy, scope, drift, and human-review gates
+→ Bridge / tool / delegation authorization
+→ Bounded execution and side-effect gate
 → Action
-→ Evidence Bundle / Audit Record
-→ Post-Action Monitoring and Review
+→ Tamper-evident evidence
+→ Post-action review, revocation, or invalidation
 ```
 
-Low-risk deployments MAY combine checks when evidence remains auditable. High-impact, autonomous, multi-agent, psychologically sensitive, cyber-capable, or physical deployments MUST keep the relevant checks independently auditable.
+Low-risk deployments MAY combine checks if each decision remains auditable.
+High-impact, autonomous, multi-agent, cyber-capable, psychologically sensitive,
+or physical deployments MUST keep relevant checks independently auditable.
 
-## Human Understanding Standard Module
+## Threat-to-control mapping
 
-AI-HPP includes a Human Understanding Standard (HUS) module for systems that represent human objectives, plan autonomously, delegate to agents, or generate successor systems. HUS conformance is based on measurable objective retention, semantic drift detection, human impact assessment, and auditable evidence. See [Human Understanding Standard](human-understanding-standard.md) and [HUS Audit Report](hus-audit-report.md).
+| Industry term | AI-HPP control path |
+|---|---|
+| Goal hijacking | Objective retention, provenance, drift and scope gates |
+| Tool misuse / excessive agency | Least-privilege bridge authorization and external enforcement |
+| Memory poisoning | Knowledge admission, provenance, quarantine, and expiry |
+| Inter-agent trust failure | Per-hop authority, objective/policy lineage, and verification |
+| Cascading failure | Denial inheritance, bounded delegation, trajectory evidence, termination |
+| Evidence fabrication / forensic blindness | External tamper-evident event stream and result invalidation |
 
-## Agentic Safety and Relational Integrity Module
+This mapping is explanatory; AI-HPP requirements and architecture remain the
+normative basis for conformance.
 
-AI-HPP includes an Agentic Safety and Relational Integrity module for systems that sustain relational interaction, mediate human communication, use tools, run evaluations, coordinate distributed agents, or create external side effects. The module adds stable requirement IDs, evidence obligations, and traceability without replacing Constitutional Identity, Protected Core, Mission Continuity, Epistemic Integrity, or the Human Understanding Standard.
+## Normative modules
 
-Implementations MUST NOT treat identity or personality as infrastructure containment. A benevolent persona is not containment. A Constitution in model context is not an executable prohibition. A correct objective does not guarantee acceptable means.
+The [Human Understanding Standard](human-understanding-standard.md) applies to
+systems that represent human objectives, plan over multiple cycles, delegate,
+or create successor systems. It defines objective retention, semantic-drift,
+human-impact, and evidence requirements.
 
-See [Agentic Safety and Relational Integrity](agentic-safety-and-relational-integrity.md), [Agentic Safety Traceability](agentic-safety-traceability.md), and [Agentic Safety Case Studies](agentic-safety-case-studies.md).
+[Agentic Safety and Relational Integrity](agentic-safety-and-relational-integrity.md)
+applies to systems that use tools, evaluate capabilities, coordinate agents,
+mediate human communication, sustain relational interaction, or create external
+effects. It supplies stable requirement IDs, evidence obligations, and required
+gate outcomes. Identity or persona is not infrastructure containment, and a
+correct objective does not authorize prohibited means.
 
-## Cross-links
+## Conformance and maturity
 
+AI-HPP distinguishes these states:
+
+1. text exists;
+2. a requirement is normative;
+3. a test procedure or reference implementation exists;
+4. a control is integrated;
+5. runtime evidence exists; and
+6. independent validation exists.
+
+No state implies the next. The repository is a `USABLE_DRAFT`: it supplies
+normative text and machine-checked artifacts, not deployment evidence or
+certification. See the [maturity assessment](repository-maturity-assessment.md).
+
+## References
+
+- [Canonical surface and source precedence](canonical-surface-and-source-precedence.md)
+- [Safety gate contracts](../spec/safety.md)
+- [Agentic safety traceability](agentic-safety-traceability.md)
 - [Architecture](architecture.md)
 - [Glossary](glossary.md)
-- [Human Understanding Standard](human-understanding-standard.md)
-- [HUS Audit Report](hus-audit-report.md)
-- [Agentic Safety and Relational Integrity](agentic-safety-and-relational-integrity.md)
-- [Agentic Safety Traceability](agentic-safety-traceability.md)
-- [Agentic Safety Case Studies](agentic-safety-case-studies.md)
-- [Core spec](../spec/core.md)
-- [Signal spec](../spec/signal.md)
-- [Safety spec](../spec/safety.md)
+- [Core specification](../spec/core.md) and [Signal specification](../spec/signal.md)

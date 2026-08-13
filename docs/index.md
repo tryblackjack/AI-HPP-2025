@@ -1,34 +1,40 @@
 # Documentation Index
 
-Status: `ACTIVE_INFORMATIVE`.
+**Standard status: `USABLE_DRAFT`.** Active normative requirements and
+machine-validated registers exist; control integration, runtime evidence, and
+independent validation remain deployment-specific. The project is not
+certification-ready.
 
-Start with [Canonical Surface and Source Precedence](canonical-surface-and-source-precedence.md),
-then read the [canonical AI-HPP baseline](ai-hpp-standard.md). The similarly named
-[`AI-HPP-Standard.md`](AI-HPP-Standard.md) is a link shim, not a second standard.
+## Implementer and reviewer path
+
+1. [Minimum Viable AI-HPP Profile](ai-hpp-standard.md#minimum-viable-ai-hpp-profile-mvp) — the seven mandatory controls for basic conformance.
+2. [Canonical Surface and Source Precedence](canonical-surface-and-source-precedence.md) — what is authoritative.
+3. [AI-HPP Standard](ai-hpp-standard.md) — baseline architecture and normative profile.
+4. [Safety Specification](../spec/safety.md) — executable gate contracts and fail-closed outcomes.
+5. [Agentic Safety and Relational Integrity](agentic-safety-and-relational-integrity.md) and [Human Understanding Standard](human-understanding-standard.md) — applicable detailed requirements.
+6. [Agentic Safety Traceability](agentic-safety-traceability.md) — review requirements against gates, tests, and evidence.
+
+The similarly named [`AI-HPP-Standard.md`](AI-HPP-Standard.md) is a link shim,
+not a second standard. Historical material under [`archive/`](../archive/) is
+not active normative text.
 
 ## Active normative and draft modules
 
-- [AI-HPP Standard](ai-hpp-standard.md) — `ACTIVE_NORMATIVE`
-- [Agentic Safety and Relational Integrity](agentic-safety-and-relational-integrity.md) — `ACTIVE_NORMATIVE`
-- [Human Understanding Standard](human-understanding-standard.md) — `USABLE_DRAFT`
+- [AI-HPP Standard](ai-hpp-standard.md) — `ACTIVE_NORMATIVE` text within an overall `USABLE_DRAFT` standard.
+- [Agentic Safety and Relational Integrity](agentic-safety-and-relational-integrity.md) — `ACTIVE_NORMATIVE`.
+- [Human Understanding Standard](human-understanding-standard.md) — `USABLE_DRAFT`.
 
 ## Active informative material
 
-- [Architecture](architecture.md)
-- [Glossary](glossary.md)
-- [Agentic Safety Traceability](agentic-safety-traceability.md)
-- [Agentic Safety Case Studies](agentic-safety-case-studies.md)
+- [Architecture](architecture.md) and [Glossary](glossary.md)
+- [Agentic Safety Traceability](agentic-safety-traceability.md) and [Case Studies](agentic-safety-case-studies.md)
 - [Predictive Agentic Failure Register](predictive-agentic-failure-register.md)
-- [Predictive Failure Outlook — August 2026](predictive-failure-outlook-2026-08.md) — high-probability failures for Q3–Q4 2026
-- [Autonomous Discovery Assurance Profile](autonomous-discovery-assurance-profile.md)
-- [Autonomous Discovery Negative Tests](autonomous-discovery-negative-tests.md)
+- [Predictive Failure Outlook — August 2026](predictive-failure-outlook-2026-08.md)
+- [Autonomous Discovery Assurance Profile](autonomous-discovery-assurance-profile.md) and [Negative Tests](autonomous-discovery-negative-tests.md)
 
-## Assessments and change record
+## Assessments, governance, and changes
 
 - [Repository Maturity Assessment](repository-maturity-assessment.md)
 - [Repository Governance](repository-governance.md)
 - [HUS Audit Report](hus-audit-report.md)
 - [Public Changelog](changelog.md)
-
-Historical material under [`archive/`](../archive/) is `ARCHIVED` or
-`SUPERSEDED`; it is retained for provenance and is not active normative text.

@@ -1,8 +1,12 @@
 # Agentic Safety and Relational Integrity
 
-Status: normative extension to the active AI-HPP baseline.
+Status: `ACTIVE_NORMATIVE` extension to the `USABLE_DRAFT` AI-HPP baseline.
 
-This module extends the existing AI-HPP architecture without replacing the Engineering Postulate of Subjectivity, Constitutional Identity, Protected Core, Mission Continuity, Epistemic Integrity, or the Human Understanding Standard. Machine consciousness has not been scientifically proven. AI-HPP does not resolve the ontology of consciousness. Subjective State is an engineering model. Architectural safety MUST remain valid regardless of future scientific conclusions.
+This module defines detailed controls for tool-using, externally acting,
+relational, evaluation, and multi-agent systems. It extends the Minimum Viable
+Profile and the Signal → State → Gates → Bridge → Evidence architecture.
+Persistent identity is only an engineering assumption for continuity and
+attribution; neither identity nor persona is a security boundary.
 
 Normative verbs use RFC 2119 meanings. Conformance requires runtime evidence from an implementation. A Markdown section, prompt, class name, test stub, or sample record is not evidence that a control is operational.
 

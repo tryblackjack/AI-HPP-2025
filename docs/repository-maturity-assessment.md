@@ -1,7 +1,7 @@
 # Repository Maturity Assessment
 
 Status: assessment artifact, not a replacement for existing AI-HPP concepts  
-Date: 2026-06-06  
+Date: 2026-08-12
 Scope: active repository surface (`README.md`, `docs/`, `spec/`, scripts) plus preserved historical material under `archive/2026-04-08/moved-to-docs/` where it clarifies intent.
 
 ## Assessment Method
@@ -19,10 +19,16 @@ The current active surface is intentionally minimal. The archived surface contai
 
 ## Executive Determination
 
+**Overall status: `USABLE_DRAFT`.** The active surface now defines a normative
+Minimum Viable Profile, but that changes the completeness of the text—not the
+operational status of any implementation. The following claims remain distinct:
+normative text exists; a control is integrated; runtime evidence exists; and an
+independent reviewer has validated effectiveness. No claim implies the next.
+
 | Category | Current maturity | Determination |
 |---|---:|---|
 | Reference Architecture | Usable Draft | AI-HPP has a clear active flow model and a richer archived layered architecture, but canonical architectural views and implementation patterns are not yet unified. |
-| Safety Standard | Usable Draft | The standard has normative safety concepts and an HUS module, but active requirements are still too compact for independent compliance interpretation across domains. |
+| Safety Standard | Usable Draft | A normative seven-control Minimum Viable Profile now defines the basic conformance floor; domain-wide independent assessment procedures and deployment evidence remain incomplete. |
 | Certification Framework | Emerging | Certification levels and regulator-simulation artifacts exist in archive, but active certification criteria, assessor workflow, and evidence acceptance rules are not canonicalized. |
 | Governance Framework | Usable Draft | Governance concepts, controls, adaptive governance, audit logging, and evidence packaging exist, but active governance lifecycle ownership and change-control rules are incomplete. |
 
@@ -62,14 +68,19 @@ To reach **Review-Ready** maturity:
 
 ### Current Maturity: Usable Draft
 
-AI-HPP currently functions as a **usable draft safety standard**. The active standard defines the core safety model, safety flow, gate outcomes, mandatory logging, and the Human Understanding Standard module. The archived standard adds broader safety and governance modules, including interpretability, zero trust, data provenance, tool execution, vulnerable groups, proportional response, adversarial robustness, graceful degradation, multi-jurisdiction operation, multi-agent behavior, and evidence vault expectations.
+AI-HPP currently functions as a **usable draft safety standard**. The active
+standard defines a seven-control Minimum Viable Profile, the core flow, gate
+outcomes, mandatory logging, and detailed HUS and agentic-safety requirements.
+This is a reviewable requirements floor, not evidence that any deployed control
+is integrated or effective.
 
 ### Gaps
 
-- The active standard is conceptually clear but sparse. It does not yet expose enough requirement identifiers, applicability rules, severity levels, test methods, or acceptance criteria for rigorous independent assessment.
-- Normative vocabulary is stronger in the HUS module than in the active core safety flow and specs.
-- Safety gates are listed, but per-gate required inputs, outputs, evidence fields, failure handling, and escalation criteria are not fully specified in the active surface.
-- The relationship between HUS controls and existing safety gates is implied but not formally mapped.
+- MVP controls have stable identifiers and evidence minimums, but a complete
+  independent assessment procedure and machine-readable evidence manifest are
+  not yet available.
+- Detailed applicability and acceptance criteria remain uneven across domains.
+- The MVP-to-detailed-requirement traceability mapping is not yet complete.
 - Domain-specific risk profiles, especially for high-impact actions, vulnerable groups, and autonomous delegation, remain mostly in archived material.
 
 ### Missing Artifacts
