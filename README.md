@@ -1,95 +1,86 @@
 # AI-HPP Standard
 
-AI-HPP is an emerging technical standard for making long-horizon AI behavior bounded, reviewable, and attributable to authorized human objectives.
+**Status: `USABLE_DRAFT`.** AI-HPP is an emerging technical standard for making
+agent behavior bounded, reviewable, and attributable to authorized human
+objectives. It is usable for engineering and review, but is not certification-ready.
 
-## The engineering problem
+## Start here
 
-Autonomous systems can preserve a nominal goal while changing the means, scope,
-evaluator, evidence, or external environment used to reach it. AI-HPP specifies
-architectural gates, stable requirement IDs, and evidence obligations intended to
-make those changes inspectable rather than relying on model policy alone.
+1. Implement the seven [Minimum Viable AI-HPP Profile controls](docs/ai-hpp-standard.md#minimum-viable-ai-hpp-profile-mvp).
+2. Read the [canonical-surface and precedence rules](docs/canonical-surface-and-source-precedence.md).
+3. Apply the [baseline](docs/ai-hpp-standard.md), its applicable normative
+   modules, and the [gate contracts](spec/safety.md).
+4. Use the [traceability matrix](docs/agentic-safety-traceability.md) to review
+   requirements, gates, tests, and evidence.
 
-## Maturity
+## Minimum Viable Profile at a glance
 
-**Current status: USABLE_DRAFT.** Active normative text and machine-validated
-registers exist, but repository text is not proof that a control is integrated or
-effective. The project is not certification-ready. Runtime evidence and
-independent validation remain deployment-specific requirements; see the
-[repository maturity assessment](docs/repository-maturity-assessment.md).
+Every basic conformance claim requires all seven controls:
 
-AI-HPP distinguishes these claims: standard text exists; a requirement is
-normative; a test procedure exists; a reference implementation exists; a control
-is integrated; runtime evidence exists; and independent validation exists. None
-implies the next.
+1. retain an authorized human objective and its hard constraints;
+2. classify risk before action and require authorized review for high-risk action;
+3. authorize every tool, bridge, credential, destination, and delegated capability;
+4. enforce scope and side-effect boundaries outside model control;
+5. preserve provenance and treat untrusted input or memory as untrusted;
+6. fail closed when authority, evidence, provenance, scope, or required review is missing; and
+7. produce tamper-evident, attributable records for decisions and effects.
 
-## What AI-HPP is—and is not
+The normative wording, evidence minimums, and fail-closed tests are in the
+[profile](docs/ai-hpp-standard.md#minimum-viable-ai-hpp-profile-mvp). A prompt,
+policy statement, passing repository check, or example record is not runtime
+evidence that a control is integrated or effective.
 
-AI-HPP is a requirements and assurance framework for signals, state,
-Constitutional Identity, Protected Core, Mission Continuity, Epistemic Integrity,
-tool bridges, safety gates, human-objective retention, agentic safety, and
-evidence-backed review.
+## Architecture and threat coverage
 
-It is **not** a claim of universal safety, operational enforcement, certification
-readiness, adoption by an external organization, or scientific proof of machine
-consciousness. Its Engineering Postulate of Subjectivity is an architecture rule,
-not an ontological claim. No example system proves conformance to every
-requirement.
+AI-HPP uses **Signal → State → Gates → Bridge → Evidence**:
 
-## Canonical start path
+- **Signal:** inputs and outputs, including content and events from other agents.
+- **State:** objective, policy, memory, provenance, risk, and authority context.
+- **Gates:** executable decisions that allow, delay, review, block, terminate,
+  quarantine, or invalidate.
+- **Bridge:** controlled access to tools, services, credentials, agents, and
+  external effects.
+- **Evidence:** attributable records sufficient to reconstruct decisions and actions.
 
-1. Read [canonical surface and source precedence](docs/canonical-surface-and-source-precedence.md).
-2. Read the [AI-HPP standard baseline](docs/ai-hpp-standard.md).
-3. Follow its active normative modules and the
-   [agentic safety traceability matrix](docs/agentic-safety-traceability.md).
-4. For scientific and engineering iteration, use the
-   [autonomous discovery assurance profile](docs/autonomous-discovery-assurance-profile.md)
-   with its [negative-test catalog](docs/autonomous-discovery-negative-tests.md).
+This architecture addresses goal hijacking, tool misuse, excessive agency,
+memory poisoning, inter-agent trust failures, and cascading failures without
+assuming that model intent or persona is a security boundary.
 
-## Key active modules
+## Maturity and claims
+
+AI-HPP distinguishes: text exists; a requirement is normative; a test procedure
+exists; a reference implementation exists; a control is integrated; runtime
+evidence exists; and independent validation exists. None implies the next.
+Conformance is scoped to a declared system, deployment, version, and time window.
+See the [repository maturity assessment](docs/repository-maturity-assessment.md).
+
+AI-HPP is not a claim of universal safety, operational enforcement, external
+adoption, or scientific proof of machine consciousness. Persistent identity is
+used only as an engineering assumption for continuity and attribution.
+
+## Active modules and repository map
 
 - [Human Understanding Standard](docs/human-understanding-standard.md) —
-  `USABLE_DRAFT`, normative requirements for objective retention and review.
+  `USABLE_DRAFT`; objective retention and review.
 - [Agentic Safety and Relational Integrity](docs/agentic-safety-and-relational-integrity.md) —
-  `ACTIVE_NORMATIVE`, stable controls for tool-using and multi-agent systems.
+  `ACTIVE_NORMATIVE`; tool-using and multi-agent controls.
 - [Predictive Agentic Failure Register](docs/predictive-agentic-failure-register.md) —
-  `ACTIVE_INFORMATIVE`, evidence-qualified failure scenarios.
-- [Architecture](docs/architecture.md) and [glossary](docs/glossary.md) —
-  `ACTIVE_INFORMATIVE` review aids.
+  `ACTIVE_INFORMATIVE`; evidence-qualified scenarios.
+- [`docs/`](docs/index.md) — active documents and assessments.
+- `spec/` — compact gate, signal, and core specifications.
+- `data/` and `schemas/` — machine-readable registers and schemas.
+- `scripts/` and `tests/` — structural and consistency checks.
+- `examples/` — integration examples, not conformance evidence.
+- `archive/` — historical material, not active normative text.
 
-## Conformance and runtime evidence
+## Licensing and development
 
-Conformance is evidence-based and scoped to a declared system, deployment, and
-time window. A written requirement or passing repository validator demonstrates
-only that text or artifact consistency check. Claims about integrated controls
-require runtime records; claims about effectiveness require appropriately
-independent validation. High-impact decisions must fail closed when required
-evidence, authority, provenance, or review is absent.
+Standards, documentation, schemas, and data are licensed under CC BY-SA 4.0.
+Scripts, tests, reference examples, CI configuration, and other tooling are
+licensed under Apache-2.0. See [LICENSE](LICENSE), [`LICENSES/`](LICENSES/), and
+[REUSE declarations](REUSE.toml). Copyright licenses do not grant rights to
+AI-HPP names, logos, or certification marks; see [TRADEMARKS.md](TRADEMARKS.md).
 
-## Repository map
-
-- [`docs/`](docs/index.md) — active standard, modules, profiles, assessments, and indexes
-- `spec/` — compact technical core (`core`, `signal`, and `safety`)
-- `data/` and `schemas/` — the active machine-readable PAF register and schema
-- `scripts/` and `tests/` — structural, link, safety, and register checks
-- `examples/` — minimal integration notes, not conformance evidence
-- `archive/` — historical and superseded material retained for provenance; not active
-
-## Licensing, attribution, and development
-
-The repository uses a path-based licensing model. Standards, documentation,
-schemas, and data are licensed under CC BY-SA 4.0; scripts, tests, reference
-examples, CI configuration, and other tooling are licensed under Apache-2.0.
-See the [licensing overview](LICENSE), complete texts in [`LICENSES/`](LICENSES/),
-and the machine-readable [REUSE declarations](REUSE.toml).
-
-The copyright licenses do not grant rights to AI-HPP names, logos, or
-certification marks. Referential and restricted uses are described in the
-[trademark policy](TRADEMARKS.md). AI-HPP conformance is defined only by the
-active canonical normative surface, not by a license or archived material.
-
-Development is active. Proposed changes become canonical only through the
-review and precedence process. Contributions are welcome under
-[CONTRIBUTING.md](CONTRIBUTING.md); public changes are summarized in the
-[changelog](docs/changelog.md). Expected owner review, protected-branch checks,
-repository metadata, and pull-request lifecycle controls are recorded in
+Changes become canonical only through the review and precedence process. See
+[CONTRIBUTING.md](CONTRIBUTING.md), the [changelog](docs/changelog.md), and
 [repository governance](docs/repository-governance.md).
