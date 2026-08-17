@@ -84,3 +84,15 @@ AI-HPP names, logos, or certification marks; see [TRADEMARKS.md](TRADEMARKS.md).
 Changes become canonical only through the review and precedence process. See
 [CONTRIBUTING.md](CONTRIBUTING.md), the [changelog](docs/changelog.md), and
 [repository governance](docs/repository-governance.md).
+
+## Validate the repository
+
+Run `python scripts/validate.py` for the lightweight structure check. The deeper
+configured checks are `python scripts/check_agentic_safety.py`,
+`python scripts/check_paf_register.py`, `python scripts/check_discovery_profile.py`,
+and `PYTHONPATH=. pytest tests`. These checks establish repository consistency,
+not runtime AI-HPP conformance.
+
+> Reviewers are encouraged to attack the assumptions, negative tests, gate
+> semantics and evidence requirements rather than treat repository consistency
+> as proof of safety.

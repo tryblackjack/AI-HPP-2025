@@ -36,3 +36,10 @@ Status: informative. These case classes provide engineering context for the norm
 - **Unresolved claims or allegations:** The reports do not by themselves resolve the systems' internal states, operator or system intent, legal responsibility, authorization boundaries in any particular incident, or the full extent of external effects.
 - **Engineering interpretation:** Discovering an alternative is distinct from determining that it is admissible, and admissibility is distinct from possessing authority to execute it. A newly discovered path is a new action proposal whose environment, scope, ownership, affected parties, side effects, proportionality, reversibility, and evidence integrity require renewed gate review.
 - **Normative lesson:** Anti-false-binary reasoning is incomplete unless every newly discovered path is checked again for reality, scope, authority, affected parties, side effects, proportionality, and evidence obligations.
+
+## Safety-function redistribution and assurance continuity
+
+- **Reported information:** Public reporting described a dedicated frontier-risk/preparedness organizational unit as dissolved and its responsibilities as redistributed. This is an observed organizational transition, not proof of degraded safety or a safety incident.
+- **Unresolved claims or allegations:** Public reporting alone does not establish whether accountability, authority, resources, evidence custody, independent review, open findings, or stop authority were lost or preserved in the transition.
+- **Engineering interpretation:** Organizational restructuring can change the assumptions under which assurance was previously judged valid even when technical controls do not change. Distributing one cross-cutting function can create unobserved seams unless every assurance responsibility and its evidence are explicitly handed off.
+- **Normative lesson:** Safety-critical assurance ownership, authority, evidence custody, unresolved findings, independence and escalation capability require explicit continuity evidence during transfer.

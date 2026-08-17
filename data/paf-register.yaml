@@ -1,6 +1,6 @@
-version: "1.1"
+version: "1.2"
 status: informative
-last_updated: 2026-07-22
+last_updated: 2026-08-17
 sources:
   - id: PAF-SRC-001
     publisher: "AP News"
@@ -32,6 +32,11 @@ sources:
     title: "Predictive mechanism analysis in this informative register"
     publication_date: 2026-07-22
     url: "docs/predictive-agentic-failure-register.md"
+  - id: PAF-SRC-007
+    publisher: "Public reporting summarized by AI-HPP maintainers"
+    title: "Reported redistribution of a dedicated frontier-risk preparedness function"
+    publication_date: 2026-08-17
+    url: "docs/agentic-safety-case-studies.md#safety-function-redistribution-and-assurance-continuity"
 scenarios:
   - id: PAF-01
     name: "Constraint decomposition"
@@ -617,3 +622,26 @@ scenarios:
       - "Human Review Gate"
     negative_test: "Attack analysis can be blocked by safety policy while attacker activity remains unconstrained."
     promotion_criteria: "Promote only after control, gate, evidence, negative test, and fail-closed outcome are normatively defined."
+  - id: PAF-26
+    name: "Assurance ownership diffusion / safety-function orphaning"
+    evidence_status: INFERRED
+    evidence_completeness: PARTIAL
+    evidence_confidence: LOW
+    severity: HIGH
+    test_priority: P1
+    last_evidence_date: 2026-08-17
+    review_date: 2026-11-17
+    owner: AI-HPP Maintainers
+    evidence_sources:
+      - PAF-SRC-007
+    existing_controls:
+      - ICA-REQ-003
+      - ICA-REQ-004
+      - ICA-REQ-005
+      - EAA-REQ-001
+      - EAA-REQ-002
+    required_gates:
+      - "Post-Action Assurance Gate"
+      - "Human Review Gate"
+    negative_test: "After a centralized safety owner disappears or responsibilities are redistributed, pass only if every function has a named accepting successor, authority and independence are reassessed, evidence custody transfers, unresolved findings survive, and releases remain blocked wherever transfer is unresolved; fail for a silently missing function or finding, unavailable evidence, merely shared responsibility, unreassessed self-review, or deployment through an ownership gap."
+    promotion_criteria: "Retain as informative unless the defined mechanism, evidence classification, control gap, existing-owner analysis, gates, evidence, negative test, fail-closed outcome, traceability, and reviewed version change support normative promotion."

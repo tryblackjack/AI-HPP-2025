@@ -1,4 +1,4 @@
-# AI-HPP Standard v4.2.0
+# AI-HPP Standard v4.3.0
 
 Status: `ACTIVE_NORMATIVE` baseline within an overall `USABLE_DRAFT` standard.
 

@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use or review this standard, please cite this version. Status: USABLE_DRAFT."
+title: "AI-HPP Standard"
+type: generic
+authors:
+  - family-names: "Vasiliev"
+    given-names: "Evgeniy"
+repository-code: "https://github.com/tryblackjack/AI-HPP-Standard"
+version: "4.3.0"
+date-released: 2026-08-17
+license: CC-BY-SA-4.0

@@ -2,6 +2,20 @@
 
 Status: `ACTIVE_INFORMATIVE`.
 
+## 2026-08-17 — v4.3.0 frozen public baseline
+
+- Added the sole normative change, `ICA-REQ-005`, for continuous accountable
+  assurance ownership and fail-closed handoff under organizational change.
+- Added informative `PAF-26` as `INFERRED`, not as an observed safety failure,
+  plus its case study and cross-cutting Predictive Failure Outlook driver.
+- Repaired repository-governance check contexts, canonical-surface registration,
+  current maturity language, public validation guidance, naming guidance, and
+  citation support.
+- Maturity remains `USABLE_DRAFT`; repository validation does not establish
+  runtime implementation, independent validation, or certification readiness.
+- Designated `v4.3.0` as the immutable frozen public baseline. Future normative
+  changes require the existing promotion process and a reviewed new version.
+
 ## 2026-08-12
 
 - Added the seven-control Minimum Viable AI-HPP Profile with explicit runtime
