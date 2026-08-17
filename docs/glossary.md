@@ -1,5 +1,13 @@
 # Glossary
 
+## AI-HPP
+
+The proper identifier of this project and standard. Repository history includes
+descriptive naming such as "Human–Machine Partnership Standard", but the active
+standard does not depend on a fabricated letter-by-letter expansion of `AI-HPP`.
+"Evidence-based assurance for autonomous AI agents" may be used as an
+informative functional subtitle without redefining the brand.
+
 ## Signal
 
 A message, event, or data point that enters or leaves the system.

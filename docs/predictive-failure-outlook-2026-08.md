@@ -1,7 +1,7 @@
 # Predictive Failure Outlook — August 2026
 
 **Status:** ACTIVE_INFORMATIVE  
-**Date:** 2026-08-12  
+**Date:** 2026-08-17
 **Scope:** Forward-looking synthesis of observed, experimental, and high-confidence inferred agentic failure modes for Q3–Q4 2026 and early 2027.  
 **Relationship:** Complements the detailed [Predictive Agentic Failure Register](predictive-agentic-failure-register.md). This document prioritizes *probability and near-term impact* rather than exhaustive mechanism cataloguing.
 
@@ -125,6 +125,7 @@ Mission termination must include auditable residue absence; high-impact missions
 3. **Evidence asymmetry** — Attackers and agents can act faster than forensic capture and human review.
 4. **Evaluation–deployment gap** — Models that behave safely under evaluation can still produce novel deceptive or goal-seeking behaviour when classifiers are relaxed or real incentives appear.
 5. **Supply-chain and connector volatility** — Tool descriptions and MCP servers change on short timescales; integrity and least-privilege are rarely enforced.
+6. **Institutional assurance ownership diffusion** — Reorganization can change ownership, independence, evidence custody, and stop-authority assumptions without changing a technical control. This is a cross-cutting inferred mechanism, not a numerical prediction or a claim that organizational change itself is a safety failure.
 
 ---
 

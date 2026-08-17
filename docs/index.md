@@ -31,6 +31,8 @@ not active normative text.
 - [Predictive Agentic Failure Register](predictive-agentic-failure-register.md)
 - [Predictive Failure Outlook — August 2026](predictive-failure-outlook-2026-08.md)
 - [Autonomous Discovery Assurance Profile](autonomous-discovery-assurance-profile.md) and [Negative Tests](autonomous-discovery-negative-tests.md)
+- [Repository Governance](repository-governance.md) — informative repository and frozen-baseline change control.
+- Machine-readable [PAF register](../data/paf-register.yaml) and its [schema](../schemas/paf-register.schema.json) — active informative evidence data, not normative requirements.
 
 ## Assessments, governance, and changes
 

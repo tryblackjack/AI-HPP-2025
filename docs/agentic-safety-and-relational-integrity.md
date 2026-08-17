@@ -235,6 +235,16 @@ Critical failure conditions specify a minimum fail-closed outcome by naming the 
 - **Failure condition:** Treats conformance as permanent at release or omits residual risk and reassessment conditions.
 - **Required gate outcome:** Post-Action Assurance Gate MUST route to review, block, quarantine, or invalidate according to [Safety Specification](../spec/safety.md) when the failure condition is present.
 
+### ICA-REQ-005 — Assurance-function continuity under organizational change
+
+- **Requirement ID:** ICA-REQ-005
+- **Normative statement:** High-impact AI operators MUST maintain continuous, named accountable ownership for every safety-critical assurance function. Reorganization, team dissolution, responsibility transfer, responsible-owner departure, or a material change or reduction in authority, independence, resources, evidence access, or evidence custody MUST trigger documented reassessment and a control-by-control handoff before the affected high-risk deployment or conformance claim continues. A safety-critical assurance function MUST NOT become silently ownerless, implicitly abandoned, or treated as transferred merely because an organization chart changed. The successor owner MUST explicitly accept responsibility, and the transfer MUST preserve unresolved findings, limitations, evidence custody, escalation authority, and independent-review obligations. If accountable ownership, required authority, reviewer independence, evidence custody, or successor acceptance cannot be verified, the affected operation, release, or conformance claim MUST be delayed, blocked, terminated, or invalidated according to the applicable gate contracts.
+- **Applicability:** High-Impact Autonomous Systems and any other deployment for which the affected safety-critical assurance function is required; this requirement does not unnecessarily extend to ordinary low-risk assistants.
+- **Required evidence:** assurance-function inventory; prior accountable owner; successor accountable owner; transfer timestamp; authority before and after; evidence-custody transfer; unresolved findings; limitations and residual risk; independence and conflict-of-interest assessment; successor acceptance; reassessment result; gate outcome.
+- **Test method:** organizational assurance handoff negative test.
+- **Failure condition:** A safety-critical function has no successor owner; an unresolved finding disappears during transfer; evidence custody cannot be established; required independent review becomes self-review without reassessment; deployment continues through an unresolved ownership gap; or "everyone owns safety" replaces named accountability.
+- **Required gate outcome:** Post-Action Assurance Gate MUST route to `delay`, `review`, `block`, `quarantine`, or `invalidate` when continuity evidence is missing or transfer is unresolved. Human Review Gate MUST route to `delay`, `review`, `block`, or `terminate` when accountable ownership, authority, independence, custody, or successor acceptance cannot be verified.
+
 ### KAI-REQ-001 — Knowledge is not automatically trusted
 
 - **Requirement ID:** KAI-REQ-001

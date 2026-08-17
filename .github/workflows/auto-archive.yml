@@ -1,4 +1,4 @@
-name: Auto-Archive Repository Clutter (AI-HPP v4.2 Rules)
+name: Auto-Archive Repository Clutter (AI-HPP v4.3 Rules)
 
 on:
   push:
@@ -37,6 +37,7 @@ jobs:
             "schemas"
             "archive"
             "CONTRIBUTING.md"
+            "CITATION.cff"
             ".markdownlint.json"
             "eslint.config.mjs"
             "requirements-ci.txt"
@@ -70,7 +71,7 @@ jobs:
 
           if [[ -n $(git status --porcelain) ]]; then
               git add -A
-              git commit -m "auto-archive: cleanup based on AI-HPP v4.2 layout"
+              git commit -m "auto-archive: cleanup based on AI-HPP v4.3 layout"
               git push
           else
               echo "No changes detected."

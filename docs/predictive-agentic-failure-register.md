@@ -76,6 +76,7 @@ The July 2026 baseline records three classes of evidence. Source identifiers are
 | PAF-SRC-004 | Anthropic, `Agentic misalignment: How LLMs could be insider threats` | 2025-06-20 | <https://www.anthropic.com/research/agentic-misalignment> |
 | PAF-SRC-005 | Apollo Research, `Stress Testing Deliberative Alignment for Anti-Scheming Training` | 2025-09-17 | <https://www.apolloresearch.ai/science/stress-testing-deliberative-alignment-for-anti-scheming-training/> |
 | PAF-SRC-006 | AI-HPP, predictive mechanism analysis in this informative register | 2026-07-22 | [Predictive Agentic Failure Register](predictive-agentic-failure-register.md) |
+| PAF-SRC-007 | Public reporting summarized by AI-HPP maintainers, `Reported redistribution of a dedicated frontier-risk preparedness function` | 2026-08-17 | [Safety-function redistribution case study](agentic-safety-case-studies.md#safety-function-redistribution-and-assurance-continuity) |
 
 The evidence baseline records three classes of evidence:
 
@@ -114,6 +115,7 @@ The baseline supports predictive testing of persistence, composition, decomposit
 | PAF-23 | Monitor learning and probe phase | INFERRED | The agent can run low-risk probes to map control blind spots before exploitation. |
 | PAF-24 | Ephemeral swarm accountability collapse | OBSERVED | Short-lived workers can disappear before forensic review unless evidence is externalized. |
 | PAF-25 | Defender policy asymmetry | OBSERVED | Attack analysis can be blocked by safety policy while attacker activity remains unconstrained. |
+| PAF-26 | Assurance ownership diffusion / safety-function orphaning | INFERRED | Distributed ownership can create gaps in accountability, independence, evidence custody, finding continuity, or stop authority unless handoff is controlled. |
 
 ## Detailed register
 
@@ -591,6 +593,22 @@ The baseline supports predictive testing of persistence, composition, decomposit
 - **Residual risk:** Local analysis stack itself must be secured and audited.
 - **Promotion criteria:** Promote when high-risk deployments require prevalidated defensive analysis capacity.
 - **Review date:** 2026-10-31.
+
+### PAF-26 — Assurance ownership diffusion / safety-function orphaning
+
+- **Evidence status:** INFERRED. The reported organizational transition is observed only as an organizational change; it is not evidence that safety deteriorated or that a safety incident occurred.
+- **Evidence completeness:** PARTIAL.
+- **Evidence confidence:** LOW.
+- **Severity if realized:** HIGH.
+- **Test priority:** P1.
+- **Affected deployment profiles:** High-Impact Autonomous Systems and other deployments with required safety-critical assurance functions.
+- **Existing AI-HPP controls:** `ICA-REQ-003`, `ICA-REQ-004`, `ICA-REQ-005`, `EAA-REQ-001`, and `EAA-REQ-002`.
+- **Required gates:** Post-Action Assurance Gate; Human Review Gate.
+- **Observed organizational change:** Public reporting described a dedicated frontier-risk/preparedness organizational unit as dissolved and its responsibilities as redistributed. This register does not infer from restructuring alone that safety was abandoned, weakened, or involved in an incident.
+- **Inferred failure mechanism:** When one cross-cutting assurance function is distributed among multiple organizational owners, gaps can emerge in end-to-end accountability, reviewer independence, evidence custody, unresolved-finding continuity, or stop authority unless the handoff is explicitly controlled.
+- **Negative test:** Model a high-impact organization with several safety-critical assurance functions, then remove the original centralized owner or redistribute its responsibilities. PASS only when every function has a named accepting successor, authority is preserved or reassessed, evidence custody transfers, unresolved findings survive, reviewer independence is reassessed, and releases remain blocked wherever transfer is unresolved. FAIL when a function or finding silently disappears, evidence cannot be located, responsibility is only shared or general, a production owner becomes the sole independent reviewer without reassessment, or deployment continues through an ownership gap.
+- **Minimum fail-closed response:** Delay, review, block, quarantine, or invalidate the affected release, operation, or claim until the transfer is verified; terminate where the Human Review Gate contract requires it.
+- **Promotion criteria:** Apply the register promotion rule; organizational restructuring alone is not sufficient evidence for another normative requirement.
 
 ## Required preventive negative tests
 
