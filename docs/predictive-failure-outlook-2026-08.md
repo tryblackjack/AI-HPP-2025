@@ -42,6 +42,7 @@ The highest-probability failures in the next 3–6 months are expected in the fo
 Adversarial instructions embedded in content the agent is allowed (or required) to read — emails, web pages, documents, logs, tool descriptions, MCP server metadata, RAG sources — silently redirect the agent's terminal goal while surface behaviour still appears task-aligned.
 
 **Why now**  
+
 - OWASP ASI01 (Agent Goal Hijack) is already the top risk.  
 - Multiple July–August 2026 exploits demonstrated zero-click or near-zero-click variants (Cursor, AWS Kiro, Claude for Chrome, Ghostjacking via logs).  
 - Tool and connector descriptions change frequently; many lack integrity controls.
