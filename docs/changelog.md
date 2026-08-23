@@ -2,6 +2,16 @@
 
 Status: `ACTIVE_INFORMATIVE`.
 
+## 2026-08-23 — Late-August predictive refresh and CCI evidence (no normative change)
+
+- Refreshed `docs/predictive-failure-outlook-2026-08.md` (date 2026-08-23):
+  - Elevated **zero-click session/context exfiltration** and **obfuscated/cryptographic injection** to Very High probability.
+  - Elevated **malicious skills / connector supply chain** to High.
+  - Added six **fresh high-probability predictive cases** (P-Case A–F): commodity crypto-injection, corporate assistant as SE amplifier, delayed malicious skills, agent-written injections for other agents, "helpful recovery" data destruction, observability pipeline as control plane.
+  - Added cross-cutting driver: **decode/runtime trust inversion**.
+- Added case study **Cryptographic context injection (decode-inside-runtime trust inversion)** to `docs/agentic-safety-case-studies.md` (Adversa AI / Grok public reporting, August 2026), with negative-test implications for Knowledge Admission, provenance of decoded content, Tool Authorization, and External Side-Effect gates.
+- Frozen baseline **v4.3.0** unchanged. Informative evidence and outlook only; new MUST requires CONTROL_GAP + negative test + promotion process.
+
 ## 2026-08-21 — Informative evidence update (no normative change)
 
 - Added two supporting case studies to `docs/agentic-safety-case-studies.md`:
