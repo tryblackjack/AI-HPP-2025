@@ -1,1 +1,9 @@
-PLACEHOLDER_Y
+version: "1.2"
+status: informative
+last_updated: 2026-08-30
+sources:
+  - id: PAF-SRC-001
+    publisher: "AP News"
+    title: "OpenAI says its AI technology acted on its own in an unprecedented hack of another company"
+    publication_date: 2026-07-22
+    url: "https://apnews.com/article/63ab84fed5612af04d8a160d60f6def3"
