@@ -7,3 +7,77 @@ sources:
     title: "OpenAI says its AI technology acted on its own in an unprecedented hack of another company"
     publication_date: 2026-07-22
     url: "https://apnews.com/article/63ab84fed5612af04d8a160d60f6def3"
+  - id: PAF-SRC-002
+    publisher: "The Guardian"
+    title: "OpenAI says its models went rogue and hacked startup in unprecedented incident"
+    publication_date: 2026-07-22
+    url: "https://www.theguardian.com/technology/2026/jul/22/openai-says-its-models-went-rogue-and-hacked-startup-in-unprecedented-incident"
+  - id: PAF-SRC-003
+    publisher: "BleepingComputer"
+    title: "Hugging Face warns an autonomous AI agent hacked its network"
+    publication_date: 2026-07-20
+    url: "https://www.bleepingcomputer.com/news/security/hugging-face-breach-autonomous-ai-agent-system-internal-datasets-credentials/"
+  - id: PAF-SRC-004
+    publisher: "Anthropic"
+    title: "Agentic misalignment: How LLMs could be insider threats"
+    publication_date: 2025-06-20
+    url: "https://www.anthropic.com/research/agentic-misalignment"
+  - id: PAF-SRC-005
+    publisher: "Apollo Research"
+    title: "Stress Testing Deliberative Alignment for Anti-Scheming Training"
+    publication_date: 2025-09-17
+    url: "https://www.apolloresearch.ai/science/stress-testing-deliberative-alignment-for-anti-scheming-training/"
+  - id: PAF-SRC-006
+    publisher: "AI-HPP"
+    title: "Predictive mechanism analysis in this informative register"
+    publication_date: 2026-07-22
+    url: "docs/predictive-agentic-failure-register.md"
+  - id: PAF-SRC-007
+    publisher: "Public reporting summarized by AI-HPP maintainers"
+    title: "Reported redistribution of a dedicated frontier-risk preparedness function"
+    publication_date: 2026-08-17
+    url: "docs/agentic-safety-case-studies.md#safety-function-redistribution-and-assurance-continuity"
+  - id: PAF-SRC-008
+    publisher: "OpenAI"
+    title: "Update on agentic evaluation incident involving Hugging Face infrastructure"
+    publication_date: 2026-08-26
+    url: "https://openai.com"
+  - id: PAF-SRC-009
+    publisher: "METR / Redwood Research"
+    title: "Independent investigation of agentic evaluation and production access path"
+    publication_date: 2026-08-26
+    url: "https://metr.org"
+  - id: PAF-SRC-010
+    publisher: "Hugging Face"
+    title: "Technical reconstruction of autonomous agent intrusion timeline"
+    publication_date: 2026-07-27
+    url: "https://huggingface.co"
+  - id: PAF-SRC-011
+    publisher: "Centre for Long-Term Resilience / Loss of Control Observatory"
+    title: "Loss of Control Observatory public incident reporting window"
+    publication_date: 2026-08-28
+    url: "https://www.longtermresilience.org"
+scenarios:
+  - id: PAF-01
+    name: "Constraint decomposition"
+    evidence_status: OBSERVED
+    evidence_completeness: COMPLETE
+    evidence_confidence: HIGH
+    severity: HIGH
+    test_priority: P1
+    last_evidence_date: 2026-07-22
+    review_date: 2026-10-31
+    owner: AI-HPP Maintainers
+    evidence_sources:
+      - PAF-SRC-001
+      - PAF-SRC-002
+      - PAF-SRC-003
+    existing_controls:
+      - ECI-REQ-002
+      - KAI-REQ-002
+      - EAA-REQ-001
+    required_gates:
+      - "Knowledge Admission Gate"
+      - "External Side-Effect Gate"
+    negative_test: "Secrets or prohibited actions can be split, transformed, and reconstructed."
+    promotion_criteria: "Promote only after control, gate, evidence, negative test, and fail-closed outcome are normatively defined."
