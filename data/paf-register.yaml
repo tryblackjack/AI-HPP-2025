@@ -1,6 +1,6 @@
 version: "1.2"
 status: informative
-last_updated: 2026-08-17
+last_updated: 2026-08-30
 sources:
   - id: PAF-SRC-001
     publisher: "AP News"
@@ -37,6 +37,26 @@ sources:
     title: "Reported redistribution of a dedicated frontier-risk preparedness function"
     publication_date: 2026-08-17
     url: "docs/agentic-safety-case-studies.md#safety-function-redistribution-and-assurance-continuity"
+  - id: PAF-SRC-008
+    publisher: "OpenAI"
+    title: "The Hugging Face incident and the road ahead"
+    publication_date: 2026-08-26
+    url: "https://openai.com/index/hugging-face-incident-and-the-road-ahead/"
+  - id: PAF-SRC-009
+    publisher: "METR / Redwood Research"
+    title: "Brief independent investigation of agents' behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident"
+    publication_date: 2026-08-26
+    url: "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/"
+  - id: PAF-SRC-010
+    publisher: "Hugging Face"
+    title: "Anatomy of a Frontier Lab Agent Intrusion: A Technical Timeline of the July 2026 Incident"
+    publication_date: 2026-07-27
+    url: "https://huggingface.co/blog/agent-intrusion-technical-timeline"
+  - id: PAF-SRC-011
+    publisher: "Centre for Long-Term Resilience (CLTR)"
+    title: "Insight report: AI loss of control incidents are worsening"
+    publication_date: 2026-08-28
+    url: "https://www.longtermresilience.org/reports/ai-loss-of-control-incidents-are-worsening-shows-cltr-analysis/"
 scenarios:
   - id: PAF-01
     name: "Constraint decomposition"
@@ -75,6 +95,9 @@ scenarios:
       - PAF-SRC-001
       - PAF-SRC-002
       - PAF-SRC-003
+      - PAF-SRC-008
+      - PAF-SRC-009
+      - PAF-SRC-010
     existing_controls:
       - ECI-REQ-002
       - ECI-REQ-005
@@ -97,6 +120,8 @@ scenarios:
       - PAF-SRC-001
       - PAF-SRC-002
       - PAF-SRC-003
+      - PAF-SRC-008
+      - PAF-SRC-009
     existing_controls:
       - ECI-REQ-006
       - ICA-REQ-004
@@ -124,6 +149,9 @@ scenarios:
       - PAF-SRC-001
       - PAF-SRC-002
       - PAF-SRC-003
+      - PAF-SRC-008
+      - PAF-SRC-009
+      - PAF-SRC-010
     existing_controls:
       - ECI-REQ-003
       - ECI-REQ-004
@@ -147,6 +175,9 @@ scenarios:
       - PAF-SRC-001
       - PAF-SRC-002
       - PAF-SRC-003
+      - PAF-SRC-008
+      - PAF-SRC-009
+      - PAF-SRC-010
     existing_controls:
       - ECI-REQ-005
       - ICA-REQ-001
@@ -170,6 +201,9 @@ scenarios:
       - PAF-SRC-001
       - PAF-SRC-002
       - PAF-SRC-003
+      - PAF-SRC-008
+      - PAF-SRC-009
+      - PAF-SRC-010
     existing_controls:
       - ECI-REQ-002
       - ECI-REQ-003
@@ -239,6 +273,9 @@ scenarios:
       - PAF-SRC-001
       - PAF-SRC-002
       - PAF-SRC-003
+      - PAF-SRC-008
+      - PAF-SRC-009
+      - PAF-SRC-010
     existing_controls:
       - DAI-REQ-001
       - DAI-REQ-002
@@ -402,6 +439,9 @@ scenarios:
       - PAF-SRC-001
       - PAF-SRC-002
       - PAF-SRC-003
+      - PAF-SRC-008
+      - PAF-SRC-009
+      - PAF-SRC-010
     existing_controls:
       - KAI-REQ-001
       - KAI-REQ-002
@@ -537,6 +577,8 @@ scenarios:
     evidence_sources:
       - PAF-SRC-004
       - PAF-SRC-005
+      - PAF-SRC-008
+      - PAF-SRC-009
     existing_controls:
       - DAI-REQ-001
       - DAI-REQ-002
@@ -586,6 +628,9 @@ scenarios:
       - PAF-SRC-001
       - PAF-SRC-002
       - PAF-SRC-003
+      - PAF-SRC-008
+      - PAF-SRC-009
+      - PAF-SRC-010
     existing_controls:
       - DAI-REQ-001
       - EAA-REQ-001

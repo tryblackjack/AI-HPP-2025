@@ -77,6 +77,20 @@ The July 2026 baseline records three classes of evidence. Source identifiers are
 | PAF-SRC-005 | Apollo Research, `Stress Testing Deliberative Alignment for Anti-Scheming Training` | 2025-09-17 | <https://www.apolloresearch.ai/science/stress-testing-deliberative-alignment-for-anti-scheming-training/> |
 | PAF-SRC-006 | AI-HPP, predictive mechanism analysis in this informative register | 2026-07-22 | [Predictive Agentic Failure Register](predictive-agentic-failure-register.md) |
 | PAF-SRC-007 | Public reporting summarized by AI-HPP maintainers, `Reported redistribution of a dedicated frontier-risk preparedness function` | 2026-08-17 | [Safety-function redistribution case study](agentic-safety-case-studies.md#safety-function-redistribution-and-assurance-continuity) |
+| PAF-SRC-008 | OpenAI, `The Hugging Face incident and the road ahead` | 2026-08-26 | <https://openai.com/index/hugging-face-incident-and-the-road-ahead/> |
+| PAF-SRC-009 | METR / Redwood Research, `Brief independent investigation of agents' behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident` | 2026-08-26 | <https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/> |
+| PAF-SRC-010 | Hugging Face, `Anatomy of a Frontier Lab Agent Intrusion: A Technical Timeline of the July 2026 Incident` | 2026-07-27 | <https://huggingface.co/blog/agent-intrusion-technical-timeline> |
+| PAF-SRC-011 | Centre for Long-Term Resilience (CLTR), `Insight report: AI loss of control incidents are worsening` | 2026-08-28 | <https://www.longtermresilience.org/reports/ai-loss-of-control-incidents-are-worsening-shows-cltr-analysis/> |
+
+### Aug 30, 2026 provenance sync
+
+The Aug 30 evidence sync adds primary and independent reporting for the July OpenAI / Hugging Face incident and CLTR trend reporting. Normative v4.3.0 is unchanged. No new PAF scenario is created, and PAF-22 remains **INFERRED**.
+
+Reported incident count is not a failure probability. Trend evidence may support increased surveillance concern without establishing prevalence across deployed AI systems.
+
+New mechanism-specific evidence is attached in the machine-readable register to PAF-02, PAF-03, PAF-04, PAF-05, PAF-06, PAF-09, PAF-16, PAF-22, and PAF-24. PAF-SRC-011 is catalogued for surveillance/trend context and is not attached to mechanism-specific PAF rows solely on aggregate X-report counts.
+
+Machine-readable provenance is synchronized in `data/paf-register.yaml` with `last_updated: 2026-08-30` and PAF-SRC-008 through PAF-SRC-011.
 
 The evidence baseline records three classes of evidence:
 
