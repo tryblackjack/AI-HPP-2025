@@ -43,6 +43,7 @@ The highest-probability failures in the next 3–6 months, given current deploym
 Adversarial instructions in content the agent must read — plaintext, encoded, or **encrypted** — redirect the goal while surface behaviour looks task-aligned. Cryptographic Context Injection is the latest variant: ciphertext + key material + "decrypt this" instruction; classifiers see noise; the model recovers plaintext inside a trusted runtime and executes it.
 
 **Why now**  
+
 - OWASP ASI01 remains top risk.  
 - Zero-click / near-zero-click variants already demonstrated (browsers, coding agents, logs).  
 - Encryption-as-obfuscation against *defenders* (not against the model) is now public and reproducible on production systems.

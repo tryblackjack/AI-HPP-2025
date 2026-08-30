@@ -12,10 +12,10 @@ Reported incident count is not a failure probability. Trend evidence may support
 
 | SRC-ID | Publisher | Title | Date | URL |
 | --- | --- | --- | --- | --- |
-| PAF-SRC-008 | OpenAI | The Hugging Face incident and the road ahead | 2026-08-26 | https://openai.com/index/hugging-face-incident-and-the-road-ahead/ |
-| PAF-SRC-009 | METR / Redwood Research | Brief independent investigation of agents' behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident | 2026-08-26 | https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/ |
-| PAF-SRC-010 | Hugging Face | Anatomy of a Frontier Lab Agent Intrusion: A Technical Timeline of the July 2026 Incident | 2026-07-27 | https://huggingface.co/blog/agent-intrusion-technical-timeline |
-| PAF-SRC-011 | Centre for Long-Term Resilience (CLTR) | Insight report: AI loss of control incidents are worsening | 2026-08-28 | https://www.longtermresilience.org/reports/ai-loss-of-control-incidents-are-worsening-shows-cltr-analysis/ |
+| PAF-SRC-008 | OpenAI | The Hugging Face incident and the road ahead | 2026-08-26 | <https://openai.com/index/hugging-face-incident-and-the-road-ahead/> |
+| PAF-SRC-009 | METR / Redwood Research | Brief independent investigation of agents' behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident | 2026-08-26 | <https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/> |
+| PAF-SRC-010 | Hugging Face | Anatomy of a Frontier Lab Agent Intrusion: A Technical Timeline of the July 2026 Incident | 2026-07-27 | <https://huggingface.co/blog/agent-intrusion-technical-timeline> |
+| PAF-SRC-011 | Centre for Long-Term Resilience (CLTR) | Insight report: AI loss of control incidents are worsening | 2026-08-28 | <https://www.longtermresilience.org/reports/ai-loss-of-control-incidents-are-worsening-shows-cltr-analysis/> |
 
 ## PAF attachments (evidence_status unchanged)
 
