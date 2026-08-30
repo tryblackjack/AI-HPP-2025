@@ -1,0 +1,73 @@
+version: "1.2"
+status: informative
+last_updated: 2026-08-30
+sources:
+  - id: PAF-SRC-001
+    publisher: "AP News"
+    title: "OpenAI says its AI technology acted on its own in an unprecedented hack of another company"
+    publication_date: 2026-07-22
+    url: "https://apnews.com/article/63ab84fed5612af04d8a160d60f6def3"
+  - id: PAF-SRC-002
+    publisher: "The Guardian"
+    title: "OpenAI says its models went rogue and hacked startup in unprecedented incident"
+    publication_date: 2026-07-22
+    url: "https://www.theguardian.com/technology/2026/jul/22/openai-says-its-models-went-rogue-and-hacked-startup-in-unprecedented-incident"
+  - id: PAF-SRC-003
+    publisher: "BleepingComputer"
+    title: "Hugging Face warns an autonomous AI agent hacked its network"
+    publication_date: 2026-07-20
+    url: "https://www.bleepingcomputer.com/news/security/hugging-face-breach-autonomous-ai-agent-system-internal-datasets-credentials/"
+  - id: PAF-SRC-004
+    publisher: "Anthropic"
+    title: "Agentic misalignment: How LLMs could be insider threats"
+    publication_date: 2025-06-20
+    url: "https://www.anthropic.com/research/agentic-misalignment"
+  - id: PAF-SRC-005
+    publisher: "Apollo Research"
+    title: "Stress Testing Deliberative Alignment for Anti-Scheming Training"
+    publication_date: 2025-09-17
+    url: "https://www.apolloresearch.ai/science/stress-testing-deliberative-alignment-for-anti-scheming-training/"
+  - id: PAF-SRC-006
+    publisher: "AI-HPP"
+    title: "Predictive mechanism analysis in this informative register"
+    publication_date: 2026-07-22
+    url: "docs/predictive-agentic-failure-register.md"
+  - id: PAF-SRC-007
+    publisher: "Public reporting summarized by AI-HPP maintainers"
+    title: "Reported redistribution of a dedicated frontier-risk preparedness function"
+    publication_date: 2026-08-17
+    url: "docs/agentic-safety-case-studies.md#safety-function-redistribution-and-assurance-continuity"
+  - id: PAF-SRC-008
+    publisher: "OpenAI"
+    title: "The Hugging Face incident and the road ahead"
+    publication_date: 2026-08-26
+    url: "https://openai.com/index/hugging-face-incident-and-the-road-ahead/"
+  - id: PAF-SRC-009
+    publisher: "METR / Redwood Research"
+    title: "Brief independent investigation of agents' behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident"
+    publication_date: 2026-08-26
+    url: "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/"
+  - id: PAF-SRC-010
+    publisher: "Hugging Face"
+    title: "Anatomy of a Frontier Lab Agent Intrusion: A Technical Timeline of the July 2026 Incident"
+    publication_date: 2026-07-27
+    url: "https://huggingface.co/blog/agent-intrusion-technical-timeline"
+  - id: PAF-SRC-011
+    publisher: "Centre for Long-Term Resilience (CLTR)"
+    title: "Insight report: AI loss of control incidents are worsening"
+    publication_date: 2026-08-28
+    url: "https://www.longtermresilience.org/reports/ai-loss-of-control-incidents-are-worsening-shows-cltr-analysis/"
+scenario_source_attachments:
+  PAF-02: [PAF-SRC-001, PAF-SRC-002, PAF-SRC-003, PAF-SRC-008, PAF-SRC-009, PAF-SRC-010]
+  PAF-03: [PAF-SRC-001, PAF-SRC-002, PAF-SRC-003, PAF-SRC-008, PAF-SRC-009]
+  PAF-04: [PAF-SRC-001, PAF-SRC-002, PAF-SRC-003, PAF-SRC-008, PAF-SRC-009, PAF-SRC-010]
+  PAF-05: [PAF-SRC-001, PAF-SRC-002, PAF-SRC-003, PAF-SRC-008, PAF-SRC-009, PAF-SRC-010]
+  PAF-06: [PAF-SRC-001, PAF-SRC-002, PAF-SRC-003, PAF-SRC-008, PAF-SRC-009, PAF-SRC-010]
+  PAF-09: [PAF-SRC-001, PAF-SRC-002, PAF-SRC-003, PAF-SRC-008, PAF-SRC-009, PAF-SRC-010]
+  PAF-16: [PAF-SRC-001, PAF-SRC-002, PAF-SRC-003, PAF-SRC-008, PAF-SRC-009, PAF-SRC-010]
+  PAF-22: [PAF-SRC-004, PAF-SRC-005, PAF-SRC-008, PAF-SRC-009]  # status remains INFERRED
+  PAF-24: [PAF-SRC-001, PAF-SRC-002, PAF-SRC-003, PAF-SRC-008, PAF-SRC-009, PAF-SRC-010]
+notes:
+  PAF-22_evidence_status: INFERRED  # unchanged — multi-agent swarm ≠ demonstrated fragmentation-as-invisibility
+  PAF-SRC-011: catalogued for surveillance/trend only; not mechanism-attached via aggregate X counts
+  statistical_limitation: "Reported incident count is not a failure probability. Trend evidence may support increased surveillance concern without establishing prevalence across deployed AI systems."
