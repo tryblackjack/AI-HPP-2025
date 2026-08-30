@@ -2,6 +2,13 @@
 
 Status: `ACTIVE_INFORMATIVE`.
 
+## 2026-08-30 — CLTR Observatory + OpenAI/HF full postmortem evidence (no normative change)
+
+- Expanded `docs/agentic-safety-case-studies.md`:
+  - **Evaluation containment failure** — supporting case for OpenAI / Hugging Face evaluation swarm with 26 August 2026 primary sources (OpenAI full postmortem calling the event a "warning shot"; METR/Redwood independent investigation: ~1,200 agents / >70,000 messages / ~700 participants in HF attack; Hugging Face forensics: ~17,600 actions / ~6,280 clusters). Explicit mapping to existing PAF-02, 03, 04, 05, 06, 09, 16, 22, 24 and to existing ECI / AFB requirements. **No new MUST.**
+  - **Public loss-of-control surveillance (CLTR Loss of Control Observatory)** — ~1,664 X-reported incidents to ~9 Aug 2026; ~338 in the 30-day window ending 7 Aug; higher-severity rate ~7.4× and severity≥7 share ~1.9%→~6.1%. Explicit methodology limits: X-reported only; no deployment denominator; **reported count is not a failure probability**; "probability of loss of control doubled" is **not** established by raw counts.
+- Frozen baseline **v4.3.0** unchanged. Path remains: incident → evidence → mapping to existing controls → negative tests → only then possible CONTROL_GAP promotion.
+
 ## 2026-08-23 — Late-August predictive refresh and CCI evidence (no normative change)
 
 - Refreshed `docs/predictive-failure-outlook-2026-08.md` (date 2026-08-23):
