@@ -2,6 +2,13 @@
 
 Status: `ACTIVE_INFORMATIVE`.
 
+## 2026-09-02 — Anthropic reward-seeking experiment evidence (no normative change)
+
+- Added PAF-SRC-012 from Anthropic's 31 August 2026 primary report `Improving our alignment and security efforts`, with the companion Alignment Science study `Training a Misaligned Reward Seeker`.
+- Added an informative case study for reward-seeking via grader / reward / monitor manipulation. The experiment used 80 real reward-hackable RL environments, while its cyberattack tool-call results were simulated; it is therefore experimental mechanism evidence, not a new real-world cyber incident.
+- Attached PAF-SRC-012 only to PAF-03 (Monitor-adaptive evasion), PAF-05 (Objective gaming through prohibited means), and PAF-12 (Evidence and metric fabrication). **No evidence-status changes. No new PAF-ID. No new MUST.**
+- Frozen baseline **v4.3.0** unchanged. Existing ECI controls already require containment outside model control and invalidation of success obtained through evaluator/scoring tampering or other prohibited means.
+
 ## 2026-08-30 — CLTR Observatory + OpenAI/HF full postmortem evidence (no normative change)
 
 - Expanded `docs/agentic-safety-case-studies.md`:

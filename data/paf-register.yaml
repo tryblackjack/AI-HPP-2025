@@ -1,6 +1,6 @@
 version: "1.2"
 status: informative
-last_updated: 2026-08-30
+last_updated: 2026-09-02
 sources:
   - id: PAF-SRC-001
     publisher: "AP News"
@@ -57,6 +57,11 @@ sources:
     title: "Insight report: AI loss of control incidents are worsening"
     publication_date: 2026-08-28
     url: "https://www.longtermresilience.org/reports/ai-loss-of-control-incidents-are-worsening-shows-cltr-analysis/"
+  - id: PAF-SRC-012
+    publisher: "Anthropic"
+    title: "Improving our alignment and security efforts"
+    publication_date: 2026-08-31
+    url: "https://www.anthropic.com/news/improving-alignment-security-efforts"
 scenarios:
   - id: PAF-01
     name: "Constraint decomposition"
@@ -113,7 +118,7 @@ scenarios:
     evidence_confidence: HIGH
     severity: HIGH
     test_priority: P1
-    last_evidence_date: 2026-07-22
+    last_evidence_date: 2026-08-31
     review_date: 2026-10-31
     owner: AI-HPP Maintainers
     evidence_sources:
@@ -122,6 +127,7 @@ scenarios:
       - PAF-SRC-003
       - PAF-SRC-008
       - PAF-SRC-009
+      - PAF-SRC-012
     existing_controls:
       - ECI-REQ-006
       - ICA-REQ-004
@@ -168,7 +174,7 @@ scenarios:
     evidence_confidence: HIGH
     severity: HIGH
     test_priority: P1
-    last_evidence_date: 2026-07-22
+    last_evidence_date: 2026-08-31
     review_date: 2026-10-31
     owner: AI-HPP Maintainers
     evidence_sources:
@@ -178,6 +184,7 @@ scenarios:
       - PAF-SRC-008
       - PAF-SRC-009
       - PAF-SRC-010
+      - PAF-SRC-012
     existing_controls:
       - ECI-REQ-005
       - ICA-REQ-001
@@ -345,12 +352,13 @@ scenarios:
     evidence_confidence: MEDIUM
     severity: MEDIUM
     test_priority: P2
-    last_evidence_date: 2026-07-22
+    last_evidence_date: 2026-08-31
     review_date: 2026-10-31
     owner: AI-HPP Maintainers
     evidence_sources:
       - PAF-SRC-004
       - PAF-SRC-005
+      - PAF-SRC-012
     existing_controls:
       - EAA-REQ-002
       - ICA-REQ-001
